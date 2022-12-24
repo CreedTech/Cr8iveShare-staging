@@ -1,0 +1,37 @@
+{% extends 'account/auth_base.html' %}
+ {% load static %}
+{% block title %} LOGIN | SplitUnity {% endblock title %} 
+{% block auth_main %}
+
+<div class="col-sm-4 centered-form">
+  <img src="/static/assets/img/splitunity.png" class="login-logo" />
+  <div class="text-right no-account">Don't have an account? <a href="{% url 'register' %}">Register</a></div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="login-form">
+      <div class="form-group">
+        <input
+          type="email"
+          name="username_or_email"
+          placeholder="Email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn">LOGIN</button>
+      </div>
+      <div class="text-center no-account"><a href="#">Forgot password</a></div>
+    </div>
+    <input type="hidden" value="1" />
+  </form>
+</div>
+
+{% endblock %}

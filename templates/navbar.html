@@ -98,13 +98,13 @@
             <img
               src="{{ page_contents.navbar_logo.url }} "
               alt="SPLITUNITY"
-              style="max-height: 70px"
+              style="max-height: 60px"
             />
             {% else %}
             <img
               src=""
               alt="SPLITUNITY"
-              style="max-height: 70px"
+              style="max-height: 60px"
             />
             {% endif %}
           </a>
@@ -681,13 +681,13 @@
               <img
                 src="{{ page_contents.navbar_logo.url }} "
                 alt="SPLITUNITY"
-                style="max-height: 100px"
+                style="max-height: 70px"
               />
               {% else %}
               <img
                 src=""
                 alt="SPLITUNITY"
-                style="max-height: 54px"
+                style="max-height: 70px"
               />
               {% endif %}
             </a>
@@ -737,7 +737,7 @@
                 <div class="user-account-wrap">
                   <div class="user-account-content logged-out">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'logout_user' %}" class="user-menu-login"
+                    <a href="{% url 'logout' %}" class="user-menu-login"
                       ><i class="fa fa-sign-out"></i
                     ></a>
                     {% else %}
@@ -771,6 +771,42 @@
                       class="haru-button haru-button-default"
                       >View all videos</a
                     >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="header-elements-item">
+              <div class="watch-later-element">
+                <a href="javascript:;" class="watch-later-page-link">
+                  <span class="watch-later-icon">
+                    {% if request.user.profile_picture %}
+                    <img src="{{request.user.profile_picture.url}}" alt="User Avatar"
+                       class="img-fluid rounded-full pointer-events-none"
+                       style="width: 40px;height: 40px;object-fit: cover;" />
+                    {% else %}
+                    <img src="{% static 'assets/img/custom.jpg' %}" alt="User Avatar"
+                       class="img-fluid rounded-full pointer-events-none"
+                       style="width: 35px;height: 35px;object-fit: cover;" />
+                    {% endif %} 
+                    <span class="watch-later-status"></span>
+                  </span>
+                </a>
+                <ul class="haru-watch-later-list">
+                  
+                  <li class="haru-watch-later-view-all">
+                    {% if channel %}
+                    <a
+                      href="/{{ user.username }}/channel"
+                      class="haru-button haru-button-default"
+                      >Signed in as {{request.user.get_username}}</a
+                    >
+                    {% else %}
+                    <a
+                      href="{% url 'users:dashboard' request.user.slug %}"
+                      class="haru-button haru-button-default"
+                      >Signed in as {{request.user.get_username}}</a
+                    >
+                    {% endif %}
                   </li>
                 </ul>
               </div>
@@ -820,7 +856,7 @@
                 >
                   <a href="{% url 'core:about' %}">About Us</a>
                 </li>
-                {% if user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                  {% if channel %}
                 <li
                   id="menu-item-1152"
@@ -838,7 +874,7 @@
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
                   <a
-                    href="/{{ user.username }}/settings"
+                    href="{% url 'users:dashboard' request.user.slug %}"
                     
                     >Welcome {{ user.username }}</a
                   >

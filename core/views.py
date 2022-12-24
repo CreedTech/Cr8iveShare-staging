@@ -1,7 +1,7 @@
 from core.forms import ChannelForm, CommentForm, NewVideoForm
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
-from accounts.models import Account, Profile
+from account.models import User
 from django.views.generic.base import View, HttpResponseRedirect, HttpResponse
 from core.models import Category, Comment, Dislike, FollowersCount, Like, Video, Channel, Channel_Subscription, Video_View
 from django.contrib.auth.decorators import login_required
@@ -53,7 +53,7 @@ class CreateChannelView(View):
 
     def post(self, request):
         # pass filled out HTML-Form from View to RegisterForm()
-        form = ChannelForm(request.POST)
+        form = ChannelForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             # create a User account
             print(form.cleaned_data['channel_name'])
@@ -65,7 +65,7 @@ class CreateChannelView(View):
                                   user=user, subscribers=subscribers)
             new_channel.save()
             return HttpResponseRedirect('/')
-        return HttpResponseRedirect('channelview.html')
+        return HttpResponseRedirect('/')
 
 
 # @login_required(login_url='account/login')
@@ -88,7 +88,7 @@ class VideoFileView(View):
 # @login_required(login_url='account/login')
 class HomeView(LoginRequiredMixin, View):
     template_name = 'index.html'
-    login_url = '/account/login/'
+    login_url = '/auth/login/'
     redirect_field_name = 'redirect_to'
 
     def get(self, request):
@@ -272,8 +272,8 @@ def contact(request):
 
 @login_required(login_url='account/login')
 def profile(request, pk):
-    user_object = Account.objects.get(username=pk)
-    user_profile = Profile.objects.get(user=user_object)
+    user_object = User.objects.get(username=pk)
+    # user_profile = Profile.objects.get(user=user_object)
     user_posts = Video.objects.filter(user=pk)
     user_post_length = len(user_posts)
 
@@ -290,7 +290,7 @@ def profile(request, pk):
 
     context = {
         'user_object': user_object,
-        'user_profile': user_profile,
+        # 'user_profile': user_profile,
         'user_posts': user_posts,
         'user_post_length': user_post_length,
         'button_text': button_text,
@@ -357,7 +357,7 @@ class NewVideo(View):
 
 def video_like(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
-    user = Account.objects.get(id=u_id)
+    user = User.objects.get(id=u_id)
     new_like = Like(user=user, video=video)
     new_like.save()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
@@ -365,7 +365,7 @@ def video_like(request, v_id, u_id):
 
 def video_unlike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
-    user = Account.objects.get(id=u_id)
+    user = User.objects.get(id=u_id)
     like = Like.objects.get(user=user, video=video)
     like.delete()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
@@ -373,7 +373,7 @@ def video_unlike(request, v_id, u_id):
 
 def video_dislike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
-    user = Account.objects.get(id=u_id)
+    user = User.objects.get(id=u_id)
     new_dislike = Dislike(user=user, video=video)
     new_dislike.save()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
@@ -381,7 +381,7 @@ def video_dislike(request, v_id, u_id):
 
 def video_undislike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
-    user = Account.objects.get(id=u_id)
+    user = User.objects.get(id=u_id)
     dislike = Dislike.objects.get(user=user, video=video)
     dislike.delete()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))

@@ -13,7 +13,7 @@ from .views import (
     ChannelView
 )
 from core import views
-from accounts.views import *
+# from accounts.views import *
 
 app_name = 'core'
 

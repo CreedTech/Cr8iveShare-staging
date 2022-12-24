@@ -23,17 +23,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'accounts',
+    "django.contrib.humanize",
+    "froala_editor",
+    'django_cleanup.apps.CleanupConfig',
     'widget_tweaks',
     'crispy_forms',
+    # customs
+    'core',
+    'account',
+    "pen_admin",
+    "users",
+    "pages",
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-AUTH_USER_MODEL = 'accounts.Account'
+# AUTH_USER_MODEL = 'accounts.Account'
+AUTH_USER_MODEL = "account.User"
+LOGIN_URL = "login"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,6 +81,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media_root/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
@@ -102,3 +113,7 @@ if ENVIRONMENT == 'production':
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# Froala Editor
+FRAOLA_EDITOR_THIRD_PARTY = ("image_aviary", "spell_checker")

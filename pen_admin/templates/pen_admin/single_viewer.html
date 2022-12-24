@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Reader
+{% endblock title %}
+{% block styles %}
+{% endblock styles %}
+{% block content %}
+{% include 'partials/messages.html' %}
+
+
+<h1 class="p-4">Reader</h1>
+
+<div class="container">
+   {{viewer.initials}}
+</div>
+
+{% endblock %}

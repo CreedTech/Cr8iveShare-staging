@@ -8,23 +8,15 @@
     <div class="haru-container">
       <ul
         class="haru-breadcrumb"
-        itemscope
-        itemtype="http://schema.org/BreadcrumbList"
       >
         <li
-          itemprop="itemListElement"
-          itemscope
-          itemtype="http://schema.org/ListItem"
         >
-          <a itemprop="item" href="{% url 'core:index' %}"
+          <a  href="{% url 'core:index' %}"
             ><span itemprop="name">Home</span></a
           ><meta itemprop="position" content="0" />
         </li>
         <span class="delimiter"> &raquo; </span>
         <li
-          itemprop="itemListElement"
-          itemscope
-          itemtype="http://schema.org/ListItem"
         >
           <span itemprop="name" class="current">Channels</span
           ><meta itemprop="position" content="2" />
@@ -115,32 +107,14 @@
             </div>
 
             <div class="channel-item__subscribe">
-              {% if user.is_authenticated %}
-                {% if subscribed == False %}
               <a
-                href="{% url 'core:channel_subscribe' c_id=channel.id %}"
+                href="/{{ channel.user.username }}/channel"
                 class="channel-subscribe button-background button-background--small "
               >
-                <span class="status-subscribe"
-                  ><i class="haru-icon haru-user-plus"></i
-                ></span>
                
-                <span class="text-subscribe">Subscribe</span>
+                <span class="text-subscribe">View Channel</span>
                 <!-- <span class="count-subscribed">{{ channel.subscribers }}</span> -->
               </a>
-              {% else %}
-              <a
-              href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
-              class="channel-subscribe button-background button-background--small "
-            >
-              <span class="status-subscribe"
-                ><i class="haru-icon haru-user-times"></i
-              ></span>
-              <span class="text-subscribe">UnSubscribe</span>
-              <!-- <span class="count-subscribed">{{ channel.subscribers }}</span> -->
-            </a>
-            {% endif %}
-            {% endif %}
             </div>
           </div>
           <div class="channel-item__content">

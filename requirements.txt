@@ -8,6 +8,7 @@ dj-database-url==1.0.0
 django-froala-editor==4.0.16
 django-cleanup==6.0.0
 random-username==1.0.2
+django-autoslug==1.9.8
 env==0.1.0
 idna==3.3
 oauthlib==3.2.0

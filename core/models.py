@@ -5,9 +5,10 @@ from django.conf import settings
 from django.urls import reverse
 import uuid
 from django.utils import timezone
+from account.models import User
 
 
-from accounts.models import Account
+# from Users.models import User
 
 
 class PageContents(models.Model):
@@ -89,7 +90,7 @@ class Video(models.Model):
     path = models.FileField(upload_to='videos/')
     datetime = models.DateTimeField(auto_now_add=True,
                                     blank=False, null=False)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     number_of_views = models.IntegerField(blank=True, default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
@@ -105,7 +106,7 @@ class Video(models.Model):
 
 
 class Like(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
 
@@ -114,7 +115,7 @@ class Like(models.Model):
 
 
 class Dislike(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
 
@@ -132,7 +133,7 @@ class FollowersCount(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField(max_length=300)
     datetime = models.DateTimeField(auto_now_add=True)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
@@ -153,17 +154,17 @@ class Channel(models.Model):
     channel_image = models.ImageField(
         upload_to='channel_images/', null=True, blank=True, default="https://dummyimage.com/1600x900")
     subscribers = models.IntegerField(default=0, blank=False, null=False)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
 
 
 class Video_View(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     datetime = models.DateTimeField(default=timezone.now)
 
 
 class Channel_Subscription(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Creators
+{% endblock title %}
+{% block styles %}
+{% endblock styles %}
+{% block content %}
+{% include 'partials/messages.html' %}
+
+
+<h1 class="p-4">Authors</h1>
+
+
+{% for creator in creators %}
+
+   {% if not creator.is_staff %}   
+      <a href="{% url 'users:single_creator' request.user.slug creator.username %}" class="btn btn-red m-3">{{creator.username}}</a>
+   {% endif %}
+
+{% endfor %}
+
+{% endblock %}
