@@ -1,0 +1,18 @@
+
+{% load static %}
+
+<!-- Font Icon -->
+<!-- Bootstrap css -->
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible {{message.tags}}">
+      <button type="button" class="close" data-dismiss="alert">
+      <i class="icon-close"></i>
+      </button>
+      <strong>{{message|capfirst}}</strong>
+    </div>
+ {% endfor %}
+{% endif %}
+
+<script src="{% static 'bootstrap.min.js' %}"></script>

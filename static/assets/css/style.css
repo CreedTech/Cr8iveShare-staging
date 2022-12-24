@@ -1,0 +1,125 @@
+.main{
+	height: 100vh;
+	background-color: #f8fffc;
+	background: url("../img/splitunity-bg.webp");
+	background-position: center;
+	background-size: contain;
+	width: 100%; 
+}
+.login-form{
+	/*margin-top: 40px;*/
+}
+.centered-form{ 
+	margin-top: 8%;
+	padding: 40px;
+	text-align: center;
+	background-color: #f8f9fad1;
+	border: 1px solid #808080ab;
+	border-radius: 6px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-bottom: 3px solid #08a1dc;
+}
+.centered-form .login-logo{
+	width: 100px;
+	margin-bottom: 20px;
+}
+.centered-form button{
+	background-color: #08a1dc;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 50%;
+    outline: 0!important;
+    color: white;
+}
+.centered-form button:hover{
+	background-color: white;
+	color: black;
+	transition: .3s ease-in;
+}
+.centered-form button:focus{ 
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 50%;
+    outline: 0!important;
+    box-shadow: none;
+}
+.centered-form button:focus-visible{ 
+    outline: 0!important; 
+}
+.login-form .form-control{
+	border-radius: 0px;
+	font-size: 12px;
+	font-size: 12px;
+    padding: 8px 15px;
+}
+.login-form .form-control:focus{
+	border-color: #929eaa;
+    outline: 0;
+    box-shadow: none;
+}
+.no-account{
+	font-size: 12px;
+}
+.no-account a{
+	color: #08a1dc;
+}
+.login-footer{
+	text-align: center; 
+	position: fixed;
+	bottom: 5px; 
+	width: 100%;
+	padding-bottom: 20px;
+	font-size: 12px;
+	color: #ced0d2;
+}
+.login-footer ul{ 
+	padding: 0;
+    list-style-type: none!important;
+    width: 100%;
+}
+.login-footer li{
+	display: inline;
+	padding: 20px;
+	list-style: none!important;
+}
+.login-footer li a{
+	color: #ced0d2;
+}
+
+
+/*Extra Small Mobile devices*/
+@media only screen and (max-width: 319px){
+	.centered-form{ 
+		margin-top: 39%;
+	}
+}
+/*Mobile devices*/
+@media only screen and (min-width: 320px) and (max-width: 480px){
+	.centered-form{ 
+		margin-top: 39%;
+	}
+}
+/*iPads, Tablets*/
+@media only screen and (min-width: 576px){
+	
+}
+/*iPads, Tablets*/
+@media only screen and (min-width: 481px) and (max-width: 768px){
+
+	
+}
+/*Small screens, laptops*/
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+	
+}
+/*Desktops, large screens*/
+@media only screen and (min-width: 1025px) and (max-width: 1200px){ 
+
+}
+/*Extra large screens, TV*/
+@media only screen and (min-width: 1201px){ 
+
+} 

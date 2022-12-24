@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Open HTML -->
+<html lang="en-US">
+  <!-- Open Head -->
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- /Added by HTTrack -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <script>
+      document.documentElement.className =
+        document.documentElement.className + ' yes-js js_active js';
+    </script>
+    <title>
+      {% block title %}{% endblock title %} 
+    </title>
+    <meta name="robots" content="max-image-preview:large" />
+    {% include "links.html" %}
+  </head>
+
+  <!-- Close Head -->
+  <body
+    class="bp-legacy page-template-default page page-id-776 theme-vidio pmpro-body-has-access woocommerce-no-js youzify-blue-scheme not-logged-in layout-wide wpb-js-composer js-comp-ver-6.7.0 vc_responsive no-js"
+  >
+    <!-- Display newsletter popup -->
+    <!-- Open haru main -->
+    <div id="haru-main">
+      {% include "navbar.html" %}
+      <!-- Open HARU Content Main -->
+      {% include 'messages.html' %}
+      {% block content %} {% endblock content %}
+      <!-- Close HARU Content Main -->
+
+      {% include "footer.html" %}
+    </div>
+    <!-- Close haru main -->
+    <a class="back-to-top" href="javascript:;">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+    <div class="haru-ajax-overflow">
+      <div class="haru-ajax-loading">
+        <div class="loading-wrapper">
+          <div class="spinner" id="spinner_one"></div>
+          <div class="spinner" id="spinner_two"></div>
+          <div class="spinner" id="spinner_three"></div>
+          <div class="spinner" id="spinner_four"></div>
+          <div class="spinner" id="spinner_five"></div>
+          <div class="spinner" id="spinner_six"></div>
+          <div class="spinner" id="spinner_seven"></div>
+          <div class="spinner" id="spinner_eight"></div>
+        </div>
+      </div>
+    </div>
+    <div class="haru-lightbox-overlay"></div>
+    <div class="haru-lightbox">
+      <div class="close-lightbox"><i class="haru-icon haru-times"></i></div>
+    </div>
+    <!-- Memberships powered by Paid Memberships Pro v2.5.10.1.
+ -->
+    {% include 'scripts.html' %}
+  </body>
+
+  <!-- Mirrored from demo.harutheme.com/vidio/home-2/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Dec 2022 08:54:50 GMT -->
+</html>
