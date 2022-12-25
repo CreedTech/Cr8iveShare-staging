@@ -87,7 +87,7 @@
       {% for channel in channels %}
         <article class="grid-item channel-item default">
           <div class="channel-item__thumbnail">
-            <a href="sport-channel/index.html">
+            <a href="/{{ channel.user.username }}/channel">
               <img
                 width="1600"
                 height="900"
@@ -101,7 +101,7 @@
             </a>
             <div class="channel-item__icon">
               <a
-                href="sport-channel/index.html"
+                href="/{{ channel.user.username }}/channel"
                 class="channel-player-direct"
               ></a>
             </div>
@@ -212,30 +212,18 @@
       >
         <h4 class="widget-title"><span>Video Categories</span></h4>
         <ul class="video-categories default">
+          {% if cat_count %}
+            
+          
+          {% for cat , count in cat_count %}
           <li class="cat-item cat-item-61">
-            <a href="../video-category/fashion/index.html">Fashion</a>
-            <span class="count"><span class="list-count">10</span></span>
+            <a href="{% url 'core:Video' cat.slug %}">{{cat.name}}</a>
+            <span class="count"><span class="list-count">{{count}}</span></span>
           </li>
-          <li class="cat-item cat-item-60">
-            <a href="../video-category/game/index.html">Game</a>
-            <span class="count"><span class="list-count">10</span></span>
-          </li>
-          <li class="cat-item cat-item-33 cat-parent">
-            <a href="../video-category/harutheme/index.html">HaruTheme</a>
-            <span class="count"><span class="list-count">17</span></span>
-          </li>
-          <li class="cat-item cat-item-64">
-            <a href="../video-category/sports/index.html">Sports</a>
-            <span class="count"><span class="list-count">10</span></span>
-          </li>
-          <li class="cat-item cat-item-59">
-            <a href="../video-category/technology/index.html">Technology</a>
-            <span class="count"><span class="list-count">10</span></span>
-          </li>
-          <li class="cat-item cat-item-47">
-            <a href="../video-category/travel/index.html">Travel</a>
-            <span class="count"><span class="list-count">11</span></span>
-          </li>
+          {% endfor %}
+          {% else %}
+          <p>No Category Available</p>
+          {% endif %}
         </ul>
       </aside>
       <aside id="haru_widget_video_videos-5" class="widget widget-video-videos">
@@ -249,7 +237,7 @@
                 ><img
                   width="150"
                   height="150"
-                  src="{% static 'wp-content/uploads/2019/11/fashion-19-150x150.jpg' %}"
+                  src="{{video.banner.url}}"
                   class="attachment-thumbnail size-thumbnail wp-post-image"
                   alt=""
                   loading="lazy"
@@ -260,7 +248,7 @@
             <div class="video-item__content">
               <h6 class="video-item__title">
                 <a
-                  href="../video/haru-video-wordpress-theme/index.html"
+                  href="/video/{{ video.id }}/{{ 1 }}/"
                   title="{{ video.title }}"
                   >{{ video.title }}</a
                 >
@@ -268,7 +256,7 @@
               <div class="video-item__meta">
                 <div class="video-item__author">
                   <i class="fa fa-user"></i
-                  ><a href="../members/admin/index.html">{{ video.user.username }}</a>
+                  ><a href="/{{ video.user.username }}/channel">{{ video.user.username }}</a>
                 </div>
                 <div class="video-item__view">
                   <div class="post-views-count">
@@ -287,7 +275,7 @@
           {% endif %}
         </ul>
       </aside>
-      <aside id="haru_widget_video_tags-4" class="widget widget-video-tags">
+      <!-- <aside id="haru_widget_video_tags-4" class="widget widget-video-tags">
         <h4 class="widget-title"><span>Video tags</span></h4>
         <div class="tagcloud default">
           <a
@@ -326,7 +314,7 @@
             >wordpress</a
           >
         </div>
-      </aside>
+      </aside> -->
     </div>
   </div>
 </div>

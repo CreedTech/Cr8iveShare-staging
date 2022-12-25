@@ -1,45 +1,348 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block title %}SplitUnity | Channel{% endblock title %} 
-{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<!-- Open HTML -->
+<html lang="en-US">
+<!-- Open Head -->
 
-<div class="channelview">
-    <h1>Welcome To {{ channel.channel_name }}</h1><br>
-    <div>Author : {{ channel.user.username }}</div>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- /Added by HTTrack -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        document.documentElement.className =
+            document.documentElement.className + ' yes-js js_active js';
+    </script>
+    <title>SplitUnity | {{ channel.channel_name }} Channel</title>
+    {% include "links.html" %}
+    <link rel="stylesheet" id="youzify-profile-css"
+        href='{% static "wp-content/plugins/youzer/includes/public/assets/css/youzify-profile.min005e.css" %}'
+        type="text/css" media="all" />
+</head>
 
-    <div align="right" style="margin-right:50px">
-        {% if user.is_authenticated %}
-            {% if subscribed == False %}
-                <a href="{% url 'core:channel_subscribe' c_id=channel.id %}"><button class="button button5" style="background-color:red; width:150px"><b>Subscribe</b></button> </a>
-            {% else %}
-                <a href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"><button class="button button5" style="background-color:grey; width:150px"><b>Unsubscribe</b></button> </a>
-            {% endif %}
-        {% endif %}
-        <p style="margin-right:30px"><b>Subscribers : {{ channel.subscribers }}</b></p>
-    </div>
-    
-</div>
+<!-- Close Head -->
 
-<div class="video_area">
-    <div class="ad_area">
-        {% for video in videos %}
-        <div class = "video_advertisement col-md-6">
+<body
+    class="bp-user overview buddypress bp-legacy page-template-default page page-id-0 page-parent theme-vidio woocommerce-no-js youzify-blue-scheme not-logged-in layout-wide header-vertical-bar wpb-js-composer js-comp-ver-6.7.0 vc_responsive no-js">
+    <!-- Display newsletter popup -->
+    <!-- Open haru main -->
+    <div id="haru-main">
+        {% include "navbar.html" %}
+        <!-- Open HARU Content Main -->
+        {% include 'messages.html' %}
 
-            <div class="video_title">
-                <h2 align="center" style="font-family: Courier New">{{ video.title }}</h2>
+        <div id="haru-content-main" class="clearfix">
+            <div id="youzify">
+                <div id="youzify-bp"
+                    class="youzify noLightbox youzify-page youzify-profile youzify-horizontal-layout youzify-wild-content youzify-tabs-list-gradient youzify-wg-border-radius youzify-page-btns-border-oval">
+                    <div class="youzify-content">
+                        <header id="youzify-profile-header"
+                            class="youzify-profile-header youzify-hdr-v1 youzify-header-overlay youzify-header-pattern">
+                            <div class="youzify-tools youzify-user-tools youzify-tools-full-btns"
+                                data-nonce="9abaa37bf4" data-user-id="1" data-component="profile"></div>
+
+                            <div class="youzify-header-cover">
+                                <img loading="lazy" class="lazyload"
+                                    data-src="https://demo.harutheme.com/vidio/wp-content/uploads/buddypress/members/1/cover-image/5ddcf1a62ccf2-bp-cover-image.jpg"
+                                    alt="" />
+                                <div class="youzify-cover-content">
+                                    <div class="youzify-inner-content">
+                                        <div
+                                            class="youzify-profile-photo youzify-photo-circle youzify-photo-border youzify-profile-photo-effect">
+                                            <a href="" class="youzify-profile-img"><img loading="lazy"
+                                                    style="max-width:150px; max-height:150px"
+                                                    data-src="{{ channel.channel_image.url }}"
+                                                    class="lazyload avatar user-1-avatar avatar-150 photo" width="150"
+                                                    height="150" alt="Profile Photo" /></a>
+                                        </div>
+                                        <div class="youzify-head-content">
+                                            <div class="youzify-name">
+                                                <h2>
+                                                    {{ channel.channel_name }} Channel<span
+                                                        class="youzify-user-status youzify-user-offline">
+                                                        {{ channel.user.username }}</span>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="youzify-user-statistics youzify-statistics-bg youzify-use-borders">
+                                            <ul>
+                                                <li>
+                                                    {% if user_object.username == channel.user.username %}
+                                                    <a href=""
+                                                        class="button-background button-background--primary button-background--medium">Account Settings</a>
+                                                    {%else%}
+                                                    {% if user.is_authenticated %}
+                                                    {% if subscribed == False %}
+                                                    <a href="{% url 'core:channel_subscribe' c_id=channel.id %}"
+                                                        class="button-background button-background--primary button-background--medium">Subscribe</a>
+                                                    {% else %}
+                                                    <a href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
+                                                        class="button-background button-background--primary button-background--medium">UnSubscribe</a>
+                                                    {% endif %}
+                                                    {% endif %}
+                                                    {% endif %}
+                                                    
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <div class="youzify-snumber" title="{{user_videos_length}}">
+                                                            {{user_videos_length}}
+                                                        </div>
+                                                        <h3 class="youzify-sdescription">Posts</h3>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="">
+                                                        <div class="youzify-snumber" title="{{user_comment_length}}">
+                                                            {{user_comment_length}}
+                                                        </div>
+                                                        <h3 class="youzify-sdescription">Comments</h3>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="">
+                                                        <div class="youzify-snumber"
+                                                            title="{{user_video_views_length}}">
+                                                            {{user_video_views_length}}
+                                                        </div>
+                                                        <h3 class="youzify-sdescription">Views</h3>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="youzify-header-content">
+                                <div class="youzify-header-head"></div>
+                            </div>
+                        </header>
+
+                        <nav id="youzify-profile-navmenu" class="youzify-navbar-inline-icons">
+                            <div class="youzify-inner-content">
+                                <div class="youzify-open-nav">
+                                    <button class="youzify-responsive-menu">
+                                        <span>toggle menu</span>
+                                    </button>
+                                </div>
+                                <ul class="youzify-profile-navmenu">
+                                    <li class="youzify-navbar-item youzify-active-menu">
+                                        <a href=""><i class="fas fa-globe-asia"></i>Videos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <main class="youzify-page-main-content">
+                            <div id="template-notices" role="alert" aria-atomic="true"></div>
+
+                            <div class="youzify-right-sidebar-layout">
+                                <div class="youzify-main-column grid-column">
+                                    <div class="item-list-tabs youzify-default-subnav no-ajax" id="subnav"
+                                        aria-label="Member secondary navigation" role="navigation">
+                                        <ul>
+                                            <li id="video-all-personal-li" class="current selected">
+                                                <a id="all" href="index.html"><i class="fas fa-globe"></i>All Videos</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- .item-list-tabs -->
+
+                                    <h3></h3>
+
+                                    <div class="haru-archive-top">
+                                        <div class="haru-archive-top-left">
+                                            <h6 class="archive-video__title">
+                                                Has total
+                                                <span class="archive-video__total-count">{{user_videos_length}}
+                                                    videos</span>
+                                            </h6>
+                                        </div>
+                                        <div class="haru-archive-top-right">
+                                            <div class="haru-archive-layout-toggle">
+                                                <a href="javascript:;" class="toggle-layout active"
+                                                    data-layout="grid">Grid<i class="haru-icon haru-grid"></i></a>
+                                                <a href="javascript:;" class="toggle-layout" data-layout="list">List<i
+                                                        class="haru-icon haru-list-small"></i></a>
+                                                <a href="javascript:;" class="toggle-layout" data-layout="list-2">List
+                                                    2<i class="haru-icon haru-list-small"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bd-tab-videos layout-wrap style-grid grid-columns grid-columns__3">
+                                        {% for video in videos %}
+                                        <article class="grid-item video-item video-509 game vidio default">
+                                            <div class="video-item__thumbnail">
+                                                <a href="/video/{{ video.id }}/{{ 1 }}/">
+                                                    <div class="video-thumbnail image default" data-speed="1000">
+                                                        <img src="{{video.banner.url}}" alt="{{ video.title }} " />
+                                                    </div>
+                                                </a>
+                                                <div class="video-item__icon">
+                                                    <a href="/video/{{ video.id }}/{{ 1 }}/"
+                                                        class="video-item-player-direct">
+                                                        <i class="haru-icon haru-play"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="toolbar-action toolbar-action--background video-watch-later"
+                                                    data-id="509" data-title="{{ video.title }} "
+                                                    data-permalink="/video/{{ video.id }}/{{ 1 }}/"
+                                                    data-thumb="{{video.banner.url}}">
+                                                    <i class="haru-icon haru-clock"></i>
+                                                    Watch Later
+                                                </div>
+
+                                                <div class="video-item__duration">9:15</div>
+                                            </div>
+                                            <div class="video-item__content">
+                                                <div class="video-item__category">
+                                                    <a href="../../../video-category/game/index.html"
+                                                        rel="tag">Game</a>,
+                                                    <a href="../../../video-category/vidio/index.html"
+                                                        rel="tag">Vidio</a>
+                                                </div>
+                                                <h6 class="video-item__title">
+                                                    <a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}
+                                                    </a>
+                                                </h6>
+                                                <div class="video-item__meta">
+                                                    <div class="video-item__author">
+                                                        <i class="fa fa-user"></i>
+                                                        <a href="../index.html">{{ video.user }} </a>
+                                                    </div>
+                                                    <div class="video-item__date">
+                                                        <i class="fa fa-calendar"></i>{{ video.datetime }}
+                                                    </div>
+                                                    <div class="video-item__like">
+                                                        <div class="post-like">
+                                                            <span class="post-vote-label">like</span>
+                                                            <i class="haru-icon haru-like"></i>
+                                                            <span class="post-like-count">2.153K</span>
+                                                            <span class="post-like-unit"> likes</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="video-item__dislike">
+                                                        <div class="post-dislike">
+                                                            <span class="post-vote-label">dislike</span>
+                                                            <i class="haru-icon haru-dislike"></i>
+                                                            <span class="post-dislike-count">151</span>
+                                                            <span class="post-dislike-unit"> dislikes</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="video-item__view">
+                                                        <div class="post-views-count">
+                                                            <span class="post-views-label">views</span>
+                                                            <i class="fa fa-eye"></i>
+                                                            <span class="post-view-count">{{ video.number_of_views }}
+                                                            </span>
+                                                            <span class="post-view-unit"> views</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="video-item__desc">
+                                                    {{ video.description }}
+                                                </div>
+                                            </div>
+                                        </article>
+                                        {% endfor %}
+                                    </div>
+                                    <!-- <div class="bd-pagination-cpt">
+                                            <button 
+                                                type="button"
+                                                data-current_page="1"
+                                                data-max_page="6"
+                                                data-posts_per_page="6"
+                                                class="bp-video-load-more"
+                                            ><i class="haru-icon haru-spinner haru-spin loading-icon"></i>
+                                                Load More            </button>
+                                        </div> -->
+                                </div>
+
+                                <div
+                                    class="youzify-sidebar-column grid-column youzify-profile-sidebar youzify-right-sidebar">
+                                    <div
+                                        class="youzify-widget youzify-login without-title youzify-white-bg youzify-wg-title-icon-bg">
+                                        <div class="youzify-widget-main-content">
+                                            <div class="youzify-widget-content">
+                                                <a href="../../login-3/index.html" data-show-youzify-login="true"
+                                                    class="youzify-profile-login"><i class="fas fa-user-circle"></i>Sign
+                                                    in to your
+                                                    account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="youzify-widget youzify-user_balance without-title youzify-white-bg youzify-wg-title-icon-bg">
+
+                                        <div class="youzify-widget-main-content">
+
+
+                                            <div class="youzify-widget-content">
+
+                                                <div class="youzify-user-balance-box">
+
+                                                    <span class="youzify-box-head"><i class="far fa-gem"></i>Creator
+                                                        Subscribers</span>
+                                                    <span class="youzify-user-points">{{channel.subscribers}}</span>
+                                                    <!-- <span class="youzify-user-points-slash">/</span> -->
+                                                    <span class="youzify-user-points-title">Subscribers</span>
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
             </div>
-            <div class="video_description">
-                <h4 align="left">{{ video.description }}</h5>
-                <h6 align="left, bottom" style="position: relative; float:bottom; margin-bottom:0px">Uploaded by {{ video.user }} on {{ video.datetime }}</h6>
-                <h6 align = "left">{{ video.number_of_views }} views</h6>
-            </div>
-            <div class="watch_now">
-                <a href="/video/{{ video.id }}/{{ 1 }}/"><button class="button button5">Watch Now!</button></a>	
-            </div>
- 
+            <a class="youzify-scrolltotop"><i class="fas fa-chevron-up"></i></a>
         </div>
-        {% endfor %}
-    </div>
-</div>
 
-{% endblock content %}
+        {% include "footer.html" %}
+    </div>
+    <!-- Close haru main -->
+    <a class="back-to-top" href="javascript:;">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+    <div class="haru-ajax-overflow">
+        <div class="haru-ajax-loading">
+            <div class="loading-wrapper">
+                <div class="spinner" id="spinner_one"></div>
+                <div class="spinner" id="spinner_two"></div>
+                <div class="spinner" id="spinner_three"></div>
+                <div class="spinner" id="spinner_four"></div>
+                <div class="spinner" id="spinner_five"></div>
+                <div class="spinner" id="spinner_six"></div>
+                <div class="spinner" id="spinner_seven"></div>
+                <div class="spinner" id="spinner_eight"></div>
+            </div>
+        </div>
+    </div>
+    <div class="haru-lightbox-overlay"></div>
+    <div class="haru-lightbox">
+        <div class="close-lightbox"><i class="haru-icon haru-times"></i></div>
+    </div>
+    <!-- Memberships powered by Paid Memberships Pro v2.5.10.1.
+ -->
+
+    {% include "scripts.html" %}
+    <script type="text/javascript"
+        src='{% static "wp-content/plugins/youzer/includes/public/assets/js/youzify-profile.min005e.js" %}'
+        id="youzify-profile-js"></script>
+</body>
+
+
+</html>

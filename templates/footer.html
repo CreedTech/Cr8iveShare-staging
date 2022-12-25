@@ -109,7 +109,7 @@ data-video_order_by="date"
 <a href="/video/{{ video.id }}/{{ 1 }}/">
 
   <div class="video-thumbnail image default" data-speed="1000">
-<img src="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}" alt="{{ video.title }}">
+<img src="{{video.banner.url}}" alt="{{ video.title }}">
   </div>
       </a>
 <div class="video-item__icon">
@@ -121,7 +121,7 @@ data-video_order_by="date"
 data-id="1019"
 data-title="{{ video.title }}"
 data-permalink="/video/{{ video.id }}/{{ 1 }}/"
-data-thumb="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}"
+data-thumb="{{video.banner.url}}"
 >
 <i class="haru-icon haru-clock"></i>
 Watch Later</div>
@@ -153,7 +153,7 @@ Watch Later</div>
       <div class="video-item__view">        <div class="post-views-count">
 <span class="post-views-label">views</span>
 <i class="fa fa-eye"></i>
-<span class="post-view-count">3.042K</span>
+<span class="post-view-count">{{video.number_of_views}}</span>
 <span class="post-view-unit"> views</span>
 </div>
 </div>
@@ -213,64 +213,31 @@ data-author_order_by="post_count"
 <div class="author-ajax-content style-2">
 <div class="ajax-loading-icon"><div class="loading-bar"></div></div>
 <div class="author-top-content">
-
+  {% if most_recent_channels %}
+  {% for channels in most_recent_channels %}
               <article class="grid-item author-item default">
   <div class="author-item__thumbnail">
-      <a href="../members/admin/index.html">
-          <img alt='' src='{% static "wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png" %}' srcset='https://demo.harutheme.com/vidio/wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-          <img alt='' src="{% static 'wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png' %}" srcset='https://demo.harutheme.com/vidio/wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
+      <a href="/{{ channels.user.username }}/channel">
+          <img alt='' src='{{channels.channel_image.url}}'  class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
+          <img alt='' src="{{channels.channel_image.url}}"  class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
   </div>
   <div class="author-item__content">
-      <h6 class="author-item__title"><a href="../members/admin/index.html">admin</a></h6>
+      <h6 class="author-item__title"><a href="/{{ channels.user.username }}/channel">{{ channels.user.username }}</a></h6>
       <div class="author-item__meta">
           <div class="author-item__videos-count">
-              51 videos                            </div>
+            {{user_videos_length}} videos                            </div>
           <div class="author-item__count-friends">
-              1<span> follower</span>                            </div>
+            {{ channels.subscribers }}<span> subscribers</span>                            </div>
       </div>
   </div>
   <div class="author-item__add-friend">
                       </div>
   
 </article>
-              <article class="grid-item author-item default">
-  <div class="author-item__thumbnail">
-      <a href="../members/2440301117/index.html">
-          <img alt='' src='{% static "wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg" %}' srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-          <img alt='' src="{% static 'wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg' %}" srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-  </div>
-  <div class="author-item__content">
-      <h6 class="author-item__title"><a href="../members/2440301117/index.html">Олег Маринин</a></h6>
-      <div class="author-item__meta">
-          <div class="author-item__videos-count">
-              0 video                            </div>
-          <div class="author-item__count-friends">
-              1<span> follower</span>                            </div>
-      </div>
-  </div>
-  <div class="author-item__add-friend">
-                      </div>
-  
-</article>
-              <article class="grid-item author-item default">
-  <div class="author-item__thumbnail">
-      <a href="../members/oussama/index.html">
-          <img alt='' src='{% static "wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg" %}' srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-          <img alt='' src="{% static 'wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg' %}" srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-  </div>
-  <div class="author-item__content">
-      <h6 class="author-item__title"><a href="../members/oussama/index.html">Oussama</a></h6>
-      <div class="author-item__meta">
-          <div class="author-item__videos-count">
-              0 video                            </div>
-          <div class="author-item__count-friends">
-              1<span> follower</span>                            </div>
-      </div>
-  </div>
-  <div class="author-item__add-friend">
-                      </div>
-  
-</article>
+{% endfor %}
+{% else %}
+  <p>No Top Authors Available</p>
+{% endif %}
 
           </div>
 </div>

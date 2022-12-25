@@ -24,7 +24,14 @@ class ChannelView(View):
     def get(self, request, user):
         videos = Video.objects.filter(
             user__username=user).order_by("-datetime")
-        context = {'videos': videos}
+        comments = Comment.objects.filter(
+            user__username=user).order_by("-datetime")
+        number_of_views = Video_View.objects.filter(
+            user__username=user).order_by("-datetime")
+        user_videos_length = len(videos)
+        user_comment_length = len(comments)
+        user_video_views_length = len(number_of_views)
+        context = {'videos': videos, 'user_videos_length': user_videos_length, 'user_comment_length': user_comment_length, 'user_video_views_length': user_video_views_length}
         context['channel'] = Channel.objects.filter(user__username=user).get()
 
         if request.user.is_authenticated:
@@ -257,6 +264,17 @@ class CommentView(View):
             # return HttpResponseRedirect('/video/{}/{}/'.format(str(video_id), str(0)))
         return HttpResponse('This is Register view. POST Request.')
 
+
+@login_required(login_url='account/login')
+def videos(request):
+    template_name = "videos.html"
+    videos = Video.objects.all()
+    latest_videos = Video.objects.order_by('-datetime')[:3]
+    context = {
+        'videos': videos,
+        'latest_videos': latest_videos
+    }
+    return render(request, template_name, context)
 
 @login_required(login_url='account/login')
 def about(request):
