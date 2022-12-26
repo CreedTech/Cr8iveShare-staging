@@ -69,9 +69,9 @@
                                         <div class="youzify-user-statistics youzify-statistics-bg youzify-use-borders">
                                             <ul>
                                                 <li>
-                                                    {% if user_object.username == channel.user.username %}
-                                                    <a href=""
-                                                        class="button-background button-background--primary button-background--medium">Account Settings</a>
+                                                    {% if request.user.username == channel.user.username %}
+                                                    <a href="{% url 'users:edit_profile' request.user.slug %}"
+                                                        class="button-background button-background--primary button-background--medium">Edit Profile</a>
                                                     {%else%}
                                                     {% if user.is_authenticated %}
                                                     {% if subscribed == False %}

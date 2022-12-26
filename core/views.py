@@ -17,9 +17,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
-# @login_required(login_url='account/login')
-class ChannelView(View):
+# @login_required()
+class ChannelView(LoginRequiredMixin,View):
     template_name = "channelview.html"
+    login_url = '/auth/login/'
+    redirect_field_name = 'redirect_to'
 
     def get(self, request, user):
         videos = Video.objects.filter(
@@ -44,9 +46,11 @@ class ChannelView(View):
         return render(request, self.template_name, context)
 
 
-# @login_required(login_url='account/login')
-class CreateChannelView(View):
+# @login_required()
+class CreateChannelView(LoginRequiredMixin,View):
     template_name = "channel.html"
+    login_url = '/auth/login/'
+    redirect_field_name = 'redirect_to'
 
     def get(self, request):
         if request.user.is_authenticated:
@@ -75,8 +79,8 @@ class CreateChannelView(View):
         return HttpResponseRedirect('/')
 
 
-# @login_required(login_url='account/login')
-class VideoFileView(View):
+# @login_required()
+class VideoFileView(LoginRequiredMixin,View):
 
     def get(self, request, file_name):
         # print("YYY")
@@ -92,7 +96,7 @@ class VideoFileView(View):
         return response
 
 
-# @login_required(login_url='account/login')
+# @login_required()
 class HomeView(LoginRequiredMixin, View):
     template_name = 'index.html'
     login_url = '/auth/login/'
@@ -118,7 +122,7 @@ class HomeView(LoginRequiredMixin, View):
         return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos, 'most_recent_channels': most_recent_channels, 'channel': channel})
 
 
-# @login_required(login_url='account/login')
+# @login_required()
 # def index(request):
 #     # user_object = Account.objects.get(username=request.user.username)
 #     # print(user_object)
@@ -163,9 +167,9 @@ class HomeView(LoginRequiredMixin, View):
 #     template_name = "index.html"
 #     return render(request, template_name, context)
 
-# @login_required(login_url='account/login')
+# @login_required()
 
-
+@login_required
 def CategoryView(request, slug):
     template_name = 'video_category.html'
     category = get_object_or_404(Category, slug=slug)
@@ -177,7 +181,7 @@ def CategoryView(request, slug):
     return render(request, template_name, context)
 
 
-class VideoView(View):
+class VideoView(LoginRequiredMixin,View):
     template_name = 'single_video.html'
 
     def get(self, request, id, new):
@@ -246,9 +250,11 @@ class VideoView(View):
         return render(request, self.template_name, context)
 
 
-# @login_required(login_url='account/login')
-class CommentView(View):
+# @login_required()
+class CommentView(LoginRequiredMixin,View):
     template_name = 'comment.html'
+    login_url = '/auth/login/'
+    redirect_field_name = 'redirect_to'
 
     def post(self, request):
         # pass filled out HTML-Form from View to CommentForm()
@@ -265,7 +271,7 @@ class CommentView(View):
         return HttpResponse('This is Register view. POST Request.')
 
 
-@login_required(login_url='account/login')
+@login_required()
 def videos(request):
     template_name = "videos.html"
     videos = Video.objects.all()
@@ -276,19 +282,19 @@ def videos(request):
     }
     return render(request, template_name, context)
 
-@login_required(login_url='account/login')
+@login_required()
 def about(request):
     template_name = "about.html"
     return render(request, template_name)
 
 
-@login_required(login_url='account/login')
+@login_required()
 def contact(request):
     template_name = "contact.html"
     return render(request, template_name)
 
 
-@login_required(login_url='account/login')
+@login_required()
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     # user_profile = Profile.objects.get(user=user_object)
@@ -318,8 +324,10 @@ def profile(request, pk):
     return render(request, 'profile.html', context)
 
 
-class NewVideo(View):
+class NewVideo(LoginRequiredMixin,View):
     template_name = 'new_video.html'
+    login_url = '/auth/login/'
+    redirect_field_name = 'redirect_to'
 
     def get(self, request):
         if request.user.is_authenticated is False:
@@ -372,7 +380,7 @@ class NewVideo(View):
         else:
             return HttpResponse('Your form is not valid. Go back and try again.')
 
-
+@login_required()
 def video_like(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
     user = User.objects.get(id=u_id)
@@ -380,7 +388,7 @@ def video_like(request, v_id, u_id):
     new_like.save()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
 
-
+@login_required()
 def video_unlike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
     user = User.objects.get(id=u_id)
@@ -388,7 +396,7 @@ def video_unlike(request, v_id, u_id):
     like.delete()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
 
-
+@login_required()
 def video_dislike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
     user = User.objects.get(id=u_id)
@@ -396,7 +404,7 @@ def video_dislike(request, v_id, u_id):
     new_dislike.save()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
 
-
+@login_required()
 def video_undislike(request, v_id, u_id):
     video = Video.objects.get(id=v_id)
     user = User.objects.get(id=u_id)
@@ -404,7 +412,7 @@ def video_undislike(request, v_id, u_id):
     dislike.delete()
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
 
-
+@login_required()
 def liked_videos(request):
     context = {}
     if request.user.is_authenticated:
@@ -421,7 +429,7 @@ def liked_videos(request):
 
     return render(request, "liked_videos.html", context)
 
-
+@login_required()
 def watch_history(request):
     context = {}
     if request.user.is_authenticated:
@@ -439,7 +447,7 @@ def watch_history(request):
 
     return render(request, "watch_history.html", context)
 
-
+@login_required()
 def trending(request):
     context = {}
     videos = Video.objects.all().order_by('-number_of_views')[:5]
@@ -455,11 +463,11 @@ def trending(request):
 
     return render(request, "trending.html", context)
 
-
+@login_required()
 def help(request):
     return render(request, "aboutUs.html", {})
 
-
+@login_required()
 def channel_subscribe(request, c_id):
     user = request.user
     channel = Channel.objects.get(id=c_id)
@@ -472,7 +480,7 @@ def channel_subscribe(request, c_id):
 
     return HttpResponseRedirect('/{}/channel'.format(channel.user.username))
 
-
+@login_required()
 def channel_unsubscribe(request, c_id):
     user = request.user
     channel = Channel.objects.get(id=c_id)
@@ -485,7 +493,7 @@ def channel_unsubscribe(request, c_id):
 
     return HttpResponseRedirect('/{}/channel'.format(channel.user.username))
 
-
+@login_required()
 def subscriptions(request):
     context = {}
 
@@ -510,7 +518,7 @@ def subscriptions(request):
 
     return render(request, "subscriptions.html", context)
 
-
+@login_required()
 def channels_list(request):
     context = {}
     channels = Channel.objects.all()

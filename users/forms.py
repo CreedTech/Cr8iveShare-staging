@@ -10,7 +10,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "",            
-            "class": "form-control",
+            "class": "input",
             "id": "username",
             "type": "text",
          }
@@ -23,7 +23,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.EmailInput(
          attrs={
             "placeholder": "example@email.com",
-            "class": "form-control",
+            "class": "input",
             "id": "email",
             "type": "email",
          }
@@ -38,7 +38,7 @@ class UserUpdateForm(forms.ModelForm):
             "type": "file",
             "placeholder": "",
             "accept": "image/*",
-            "class": "d-none",
+            "class": "input",
             "id": "profile_picture",
             "onchange":"loadFile(event)"
          }
@@ -53,8 +53,8 @@ class UserUpdateForm(forms.ModelForm):
             "type": "file",
             "placeholder": "",
             "accept": "image/*",
-            "class": "d-none",
-            "id": "background_image",
+            "class": "input",
+            "id": "user_login",
             "onchange":"loadBgFile(event)"
          }
       ),
@@ -66,7 +66,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "Firstname",
-            "class": "form-control",
+            "class": "input",
             "id": "first_name",
             "type": "text",
          }
@@ -79,7 +79,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "Lastname",
-         "class": "form-control",
+         "class": "input",
          "id": "last_name",
          "type": "text",
       }
@@ -93,7 +93,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "+234...",             
-            "class": "form-control",
+            "class": "input",
             "id": "mobile_no",
             "maxlength": 14
          }
@@ -106,7 +106,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "Position at ...",
-         "class": "form-control",
+         "class": "input",
          "id": "job_title",
          "type": "text",
       }
@@ -119,9 +119,12 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.Textarea(
          attrs={
             "placeholder": "Brief description for your profile.",
-            "class": "form-control  my-2",
+            "class": "input",
             "id": "bio",
-            "style": "height: 140px;resize: none;",
+            "type":"textarea",
+            "style": "border: none",
+            "cols": "55%",
+            "rows": "10"
          }
       )
    )
@@ -132,7 +135,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "",
-         "class": "form-control",
+         "class": "input",
          "id": "city",
          "type": "text",
       }
@@ -145,7 +148,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "3 Saka Street, Lagos, Nigeria",
-         "class": "form-control",
+         "class": "input",
          "id": "address",
          "type": "text",
       }
@@ -158,7 +161,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.DateInput(
          attrs={
             "type":"date",
-            "class": "form-control profileDate bg-white",
+            "class": "input profileDate bg-white",
             "placeholder":"Date of Birth",
             "id": 'date_of_birth'
          }
@@ -178,7 +181,7 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.RadioSelect(
          choices=gender_choices,
          attrs={
-            'class': '',
+            'class': 'input',
             'id': 'gender'
          }
       )
@@ -230,7 +233,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.facebook.com/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'facebook_handle'
          }
       )
@@ -242,7 +245,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.linkedin.com/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'linkedin_handle'
          }
       )
@@ -254,7 +257,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.twitter.com/ ',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'twitter_handle'
          }
       )
@@ -266,7 +269,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.instagram.com/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'instagram_handle'
          }
       )
@@ -278,7 +281,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.youtube.com/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'youtube_handle'
          }
       )
@@ -290,7 +293,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://www.behance.net/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'behance_handle'
          }
       )
@@ -302,7 +305,7 @@ class UserSocialHandleForm(forms.ModelForm):
       widget=forms.URLInput(
          attrs={
             "placeholder": 'https://dribbble.com/',
-            "class": 'form-control  my-2',
+            "class": 'input',
             "id": 'dribbble_handle'
          }
       )
