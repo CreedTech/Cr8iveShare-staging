@@ -54,6 +54,7 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
         super().save(*args, **kwargs)
+        
 
 
 @receiver(pre_delete, sender=User)

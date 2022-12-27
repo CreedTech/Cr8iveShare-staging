@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+
+from account.models import UserSettings
 from .forms import UserSocialHandleForm, UserUpdateForm
 from django.contrib import messages
 from account.models import User
@@ -15,7 +17,12 @@ def dashboard(request, slug):
 
 @login_required
 def user_profile(request, slug):
-   context = {}
+   # user_object = User.objects.get(username=slug)
+   # user_profile = UserSettings.objects.get(user=user_object)
+   context = {
+      # 'user_object': user_object,
+      # 'user_profile': user_profile,
+   }
    return render(request, 'users/profile.html', context)
 
 

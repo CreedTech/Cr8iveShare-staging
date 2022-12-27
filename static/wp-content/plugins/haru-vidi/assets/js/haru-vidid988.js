@@ -5059,7 +5059,7 @@
                                                 '<img class="video-img" src="' + thumb + '" alt="' + title + '">' +
                                             '</div>' +
                                             '<h6 class="video-title">' +
-                                                '<a href="' + permalink + '" title="' + title + '">' + title + '</a>' +
+                                                '<a title="' + title + '">' + title + '</a>' +
                                             '</h6>' +
                                         '</div>' +
                                         '<div class="video-watch-later-delete" data-id="' + id + '"><i class="haru-icon haru-times"></i></div>' +

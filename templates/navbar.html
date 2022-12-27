@@ -767,7 +767,7 @@
                   </li>
                   <li class="haru-watch-later-view-all">
                     <a
-                      href="../watch-later/index.html"
+                      href="{% url 'core:videos' %}"
                       class="haru-button haru-button-default"
                       >View all videos</a
                     >
@@ -776,9 +776,9 @@
               </div>
             </div>
             <div class="header-elements-item">
-              <div class="watch-later-element">
-                <a href="javascript:;" class="watch-later-page-link">
-                  <span class="watch-later-icon">
+              <div class="">
+                <a href="{% url 'users:profile' request.user.slug %}" class="">
+                  <span class="">
                     {% if request.user.profile_picture %}
                     <img src="{{request.user.profile_picture.url}}" alt="User Avatar"
                        class="img-fluid rounded-full pointer-events-none"
@@ -791,24 +791,6 @@
                     <span class="watch-later-status"></span>
                   </span>
                 </a>
-                <ul class="haru-watch-later-list">
-                  
-                  <li class="haru-watch-later-view-all">
-                    {% if channel %}
-                    <a
-                      href="/{{ user.username }}/channel"
-                      class="haru-button haru-button-default"
-                      >Signed in as {{request.user.get_username}}</a
-                    >
-                    {% else %}
-                    <a
-                      href="{% url 'users:dashboard' request.user.slug %}"
-                      class="haru-button haru-button-default"
-                      >Signed in as {{request.user.get_username}}</a
-                    >
-                    {% endif %}
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

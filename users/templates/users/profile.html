@@ -15,7 +15,7 @@
       document.documentElement.className =
          document.documentElement.className + ' yes-js js_active js';
    </script>
-   <title>SplitUnity | {{request.user.get_username}}</title>
+   <title>SplitUnity | {{user_object.username}}</title>
    <style>
       /* The Modal (background) */
       .modal {
@@ -132,7 +132,7 @@
                         {% if request.user.background_image %}
                         <img loading="lazy" class="lazyload" data-src="{{request.user.background_image.url}}" alt="" />
                         {% else %}
-                        <img loading="lazy" class="lazyload" data-src="{% static 'assets/img/profile-bp-cover-image' %}"
+                        <img loading="lazy" class="lazyload" data-src="{% static 'assets/img/profile-bp-cover-image.jpg' %}"
                            alt="" />
                         {% endif %}
                         <div class="youzify-cover-content">
@@ -148,7 +148,7 @@
                                  {% else %}
                                  <a href="" class="youzify-profile-img"><img loading="lazy"
                                        style="max-width:150px; max-height:150px"
-                                       data-src="{% static 'assets/img/custom.xjpg' %}"
+                                       data-src="{% static 'assets/img/custom.jpg' %}"
                                        class="lazyload avatar user-1-avatar avatar-150 photo" width="150" height="150"
                                        alt="Profile Photo" /></a>
                                  {% endif %}
@@ -156,7 +156,7 @@
                               <div class="youzify-head-content">
                                  <div class="youzify-name">
                                     <h2>
-                                       {{ request.user.get_username }}<span
+                                       {{ user_object.get_username }}<span
                                           class="youzify-user-status youzify-user-offline">
                                           {{request.user.get_full_name|default:"Firstname Lastname"}}</span>
                                     </h2>
@@ -347,13 +347,13 @@
 
                               </div>
                               {% endif %}
-                              <div class="youzify-widget-main-content">
+                              
+                           </div>
+                           <div class="youzify-widget-main-content">
 
-                                 <div class="youzify-widget-content" style="background-color: red !important;">
-                                    <a data-show-youzify-login="true" id="myBtn" class="youzify-profile-login" style="background-color: red !important; background-image:none ! important"><i
-                                          class="fas fa-trash"></i>Delete profile</a>
-                                 </div>
-
+                              <div class="youzify-widget-content" style="background-color: red !important;">
+                                 <a data-show-youzify-login="true" id="myBtn" class="youzify-profile-login" style="background-color: red !important; background-image:none ! important"><i
+                                       class="fas fa-trash"></i>Delete profile</a>
                               </div>
 
                            </div>

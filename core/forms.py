@@ -1,16 +1,51 @@
 from django import forms
 from django.utils.safestring import mark_safe
 
+from .models import Category
+
 
 class CommentForm(forms.Form):
-    text = forms.CharField(label='text', max_length=300)
+    comment = forms.CharField(label='comment', max_length=500,
+                           widget=forms.Textarea(
+                               attrs={
+                                   "style":"width: 100%; height: 72px; padding: 5px 18px;"
+                               }
+                           ))
     # video = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
 
 
 class NewVideoForm(forms.Form):
-    title = forms.CharField(label=' Video Title', max_length=20)
-    description = forms.CharField(label='Video Description', max_length=300)
+    title = forms.CharField(label=' Video Title', max_length=50)
+    description = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "style": "border: none",
+                "cols": "55%",
+                "rows": "10"
+            }
+        )
+    )
     file = forms.FileField()
+    banner = forms.ImageField(
+        label="",
+        widget=forms.FileInput(
+            attrs={
+              "type": "file",
+              "placeholder": "",
+                "accept": "image/*",
+                "id": "banner",
+                "onchange": "loadFile(event)"
+            }
+        ),
+    )
+    category = forms.ModelChoiceField(queryset=Category.objects.all(),
+                                      widget=forms.Select(
+        attrs={
+            "type": "select",
+            "placeholder": "",
+            "style":"width: 100%; height: 42px; padding: 0 18px; border:none;"
+        }
+    ),)
 
 
 class ChannelForm(forms.Form):

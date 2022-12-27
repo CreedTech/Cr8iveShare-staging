@@ -83,7 +83,7 @@ class Category(models.Model):
 
 
 class Video(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=50)
     description = models.TextField(max_length=300)
     banner = models.ImageField(
         upload_to='video_banner', default='/static/1600x900.png')
@@ -110,8 +110,8 @@ class Like(models.Model):
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.user
+    # def __str__(self):
+    #     return self.user
 
 
 class Dislike(models.Model):
@@ -119,8 +119,8 @@ class Dislike(models.Model):
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.user
+    # def __str__(self):
+    #     return self.user
 
 
 class FollowersCount(models.Model):
@@ -134,7 +134,7 @@ class FollowersCount(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.TextField(max_length=300)
+    comment = models.TextField(max_length=500)
     datetime = models.DateTimeField(auto_now_add=True)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
 

@@ -9,7 +9,7 @@ class UserUpdateForm(forms.ModelForm):
       required=True,
       widget=forms.TextInput(
          attrs={
-            "placeholder": "",            
+            "placeholder": "",
             "class": "input",
             "id": "username",
             "type": "text",

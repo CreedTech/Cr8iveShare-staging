@@ -93,7 +93,7 @@
                                                 <div
                                                   class="channel-item__videos-count"
                                                 >
-                                                  9<span> videos</span>
+                                                  {{user_videos_length}}<span> videos</span>
                                                 </div>
                                                 <div
                                                   class="channel-item__count-subscribed"
@@ -290,7 +290,7 @@
                                               class="toolbar-action toolbar-action--background video-watch-later"
                                               data-id="509"
                                               data-title="{{ video.title }}"
-                                              data-permalink="/video/{{ video.id }}/{{ 1 }}/"
+                                              data-permalink="/video/{{ video.id }}/{{ 1 }}"
                                               data-thumb="{{ video.banner.url }}"
                                             >
                                               <i
