@@ -89,14 +89,14 @@
           <div class="channel-item__thumbnail">
             <a href="/{{ channel.user.username }}/channel">
               <img
-                width="1600"
-                height="900"
+                
                 src="{{channel.channel_image.url}}"
                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                 alt=""
                 loading="lazy"
-                
-                sizes="(max-width: 1600px) 100vw, 1600px"
+                width="415px ! important"
+                height="415px ! important"
+                style="max-width: 415 ! important; max-height:415 ! important; "
               />
             </a>
             <div class="channel-item__icon">
@@ -143,7 +143,7 @@
                 </div>
               </div>
               <div class="channel-item__videos-count">
-                10<span> videos</span>
+                {{user_videos_length}}<span> videos</span>
               </div>
               <div class="channel-item__count-subscribed">
                 <span class="count-subscribed">{{ channel.subscribers }}</span

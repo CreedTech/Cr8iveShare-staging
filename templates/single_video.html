@@ -741,17 +741,18 @@
                         <span class="single-video-playlist-title-scroll no-count-videos"><span>You May Also Like</span></span>
 
                     </h6>
-
+                    {% if you_may_also_like_videos %}
+                    {% for recent_video in you_may_also_like_videos %}
                     <ul class="playlist-videos">
                         <li class="video-item ">
                             <div class="video-item__thumbnail">
-                                <a href="../bali-abseits-des-massentourismus-teil/index.html">
-                                    <img src="/static/wp-content/uploads/2020/01/travel-6.jpg"
+                                <a href="/recent_video/{{ recent_video.id }}/{{ 1 }}/">
+                                    <img src="{{recent_video.banner.url}}"
                                         alt="Bali, abseits des Massentourismus Teil">
                                     <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
+                                        data-id="96" data-title="{{ recent_video.title }}"
+                                        data-permalink="/recent_video/{{ recent_video.id }}/{{ 1 }}/"
+                                        data-thumb="{{recent_video.banner.url}}">
                                         <i class="haru-icon haru-clock"></i>
                                         Watch Later
                                     </div>
@@ -761,357 +762,33 @@
                             </div>
                             <div class="video-item__content">
                                 <h6 class="video-item__title">
-                                    <a href="../bali-abseits-des-massentourismus-teil/index.html">Bali, abseits des
-                                        Massentourismus Teil</a>
+                                    <a href="/recent_video/{{ recent_video.id }}/{{ 1 }}/">{{ recent_video.title }}</a>
                                 </h6>
                                 <div class="video-item__meta">
                                     <div class="video-item__author">
                                         <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
+                                        <a href="/{{ recent_video.user.username }}/channel">{{recent_video.user.username}}</a>
                                     </div>
                                     <div class="video-item__view">
                                         <div class="post-views-count">
                                             <span class="post-views-label">views</span>
                                             <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.370M</span>
+                                            <span class="post-view-count">{{recent_video.number_of_views}}</span>
                                             <span class="post-view-unit"> views</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../facebook-video-wordpress-theme/index.html">
-                                    <img src="/static/wp-content/uploads/2019/11/fashion-17.jpg"
-                                        alt="Facebook Video WordPress theme">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">7:56</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../facebook-video-wordpress-theme/index.html">Facebook Video WordPress
-                                        theme</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">2.040K</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../a-record-breaking-world-championship/index.html">
-                                    <img src="/static/wp-content/uploads/2020/01/technology-1.jpg"
-                                        alt="A Record Breaking World Championship">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../a-record-breaking-world-championship/index.html">A Record Breaking
-                                        World Championship</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.373M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../pubg-new-lobby-music-preview/index.html">
-                                    <img src="/static/wp-content/uploads/2020/04/technology-9.jpg"
-                                        alt="PUBG &#8211; New Lobby Music Preview">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../pubg-new-lobby-music-preview/index.html">PUBG &#8211; New Lobby
-                                        Music Preview</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.371M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../embed-youtube-video/index.html">
-                                    <img src="/static/wp-content/uploads/2019/11/fashion-7.jpg"
-                                        alt="Embed Youtube Video">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">1:00</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../embed-youtube-video/index.html">Embed Youtube Video</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">4.613K</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../how-to-holiday-in-london/index.html">
-                                    <img src="/static/wp-content/uploads/2020/01/travel-2-1.jpg"
-                                        alt="How to Holiday in London">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../how-to-holiday-in-london/index.html">How to Holiday in London</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.370M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../stand-united-pgc-2019-official-theme-song/index.html">
-                                    <img src="/static/wp-content/uploads/2020/01/technology-7.jpg"
-                                        alt="Stand United &#8211; PGC 2019 Official Theme Song">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../stand-united-pgc-2019-official-theme-song/index.html">Stand United
-                                        &#8211; PGC 2019 Official Theme Song</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.370M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../google-video-wordpress-theme/index.html">
-                                    <img src="/static/wp-content/uploads/2019/11/fashion-20.jpg"
-                                        alt="Google Video WordPress theme">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">1:00</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../google-video-wordpress-theme/index.html">Google Video WordPress
-                                        theme</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">3.068K</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../haru-filmmaker-wordpress-theme/index.html">
-                                    <img src="/static/wp-content/uploads/2019/11/fashion-5.jpg"
-                                        alt="Haru Filmmaker WordPress theme">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../haru-filmmaker-wordpress-theme/index.html">Haru Filmmaker WordPress
-                                        theme</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.375M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item ">
-                            <div class="video-item__thumbnail">
-                                <a href="../academy-rush-week-1-lcs-academy-spring-split/index.html">
-                                    <img src="/static/wp-content/uploads/2020/01/technology-10.jpg"
-                                        alt="Academy Rush Week 1 &#8211; LCS Academy Spring Split">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ video.title }}"
-                                        data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
-                                        <i class="haru-icon haru-clock"></i>
-                                        Watch Later
-                                    </div>
-
-                                    <div class="video-item__duration">9:15</div>
-                                </a>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title">
-                                    <a href="../academy-rush-week-1-lcs-academy-spring-split/index.html">Academy
-                                        Rush Week 1 &#8211; LCS Academy Spring Split</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="../../members/admin/index.html">admin</a>
-                                    </div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.371M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                       
                     </ul>
+                    {% endfor %}
+                    
+                    {% else %}
+                      <p>No Recent Videos</p>
+                    {% endif %}
+                    
+                    
                 </div>
 
                 <!-- Series -->
@@ -1155,7 +832,7 @@
                                     <div class="single-video-meta-right-bottom">
                                         <div class="single-video-author-count">{{user_videos_length}}<span> videos</span></div>
                                         <div class="single-video-author-friends">
-                                            1<span> follower</span> </div>
+                                            1<span> Subscriber</span> </div>
                                     </div>
                                 </div>
                             </div>
@@ -1282,108 +959,12 @@
                 <aside id="haru_widget_video_categories-3" class="widget widget-video-categories">
                     <h4 class="widget-title"><span>Video Categories</span></h4>
                     <ul class="video-categories default">
-                        <li class="cat-item cat-item-61"><a
-                                href="../../video-category/fashion/index.html">Fashion</a> <span class="count"><span
-                                    class="list-count">10</span></span></li>
-                        <li class="cat-item cat-item-60"><a href="../../video-category/game/index.html">Game</a>
-                            <span class="count"><span class="list-count">10</span></span></li>
-                        <li class="cat-item cat-item-33 cat-parent current-cat-parent"><a
-                                href="../../video-category/harutheme/index.html">HaruTheme</a> <span
-                                class="count"><span class="list-count">17</span></span>
-                            <ul class='children'>
-                                <li class="cat-item cat-item-46 current-cat"><a
-                                        href="../../video-category/vidio/index.html">Vidio</a> <span
-                                        class="count"><span class="list-count">11</span></span></li>
-                            </ul>
-                        </li>
-                        <li class="cat-item cat-item-64"><a href="../../video-category/sports/index.html">Sports</a>
-                            <span class="count"><span class="list-count">10</span></span></li>
-                        <li class="cat-item cat-item-59"><a
-                                href="../../video-category/technology/index.html">Technology</a> <span
-                                class="count"><span class="list-count">10</span></span></li>
-                        <li class="cat-item cat-item-47"><a href="../../video-category/travel/index.html">Travel</a>
-                            <span class="count"><span class="list-count">11</span></span></li>
-                    </ul>
-                </aside>
-                <aside id="haru_widget_video_videos-5" class="widget widget-video-videos">
-                    <h4 class="widget-title"><span>Latest Videos</span></h4>
-                    <ul class="videos-list default">
-                        <li class="video-item clearfix">
-                            <div class="video-item__thumbnail">
-                                <a href="../haru-video-wordpress-theme/index.html"><img width="150" height="150"
-                                        src="/static/wp-content/uploads/2019/11/fashion-19-150x150.jpg"
-                                        class="attachment-thumbnail size-thumbnail wp-post-image" alt=""
-                                        loading="lazy" title="Haru Video WordPress theme" /></a>
-                                <div class="video-item__duration">9:56</div>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title"><a href="../haru-video-wordpress-theme/index.html"
-                                        title="Haru Video WordPress theme">Haru Video WordPress theme</a></h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author"><i class="fa fa-user"></i><a
-                                            href="../../members/admin/index.html">admin</a></div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">3.601K</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item clearfix">
-                            <div class="video-item__thumbnail">
-                                <a href="../haru-filmmaker-wordpress-theme/index.html"><img width="150" height="150"
-                                        src="/static/wp-content/uploads/2019/11/fashion-5-150x150.jpg"
-                                        class="attachment-thumbnail size-thumbnail wp-post-image" alt=""
-                                        loading="lazy" title="Haru Filmmaker WordPress theme" /></a>
-                                <div class="video-item__duration">9:15</div>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title"><a href="../haru-filmmaker-wordpress-theme/index.html"
-                                        title="Haru Filmmaker WordPress theme">Haru Filmmaker WordPress theme</a>
-                                </h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author"><i class="fa fa-user"></i><a
-                                            href="../../members/admin/index.html">admin</a></div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">1.375M</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="video-item clearfix">
-                            <div class="video-item__thumbnail">
-                                <a href="../best-video-wordpress-theme/index.html"><img width="150" height="150"
-                                        src="/static/wp-content/uploads/2019/11/fashion-21-150x150.jpg"
-                                        class="attachment-thumbnail size-thumbnail wp-post-image" alt=""
-                                        loading="lazy" title="Best Video WordPress theme" /></a>
-                                <div class="video-item__duration">5:45</div>
-                            </div>
-                            <div class="video-item__content">
-                                <h6 class="video-item__title"><a href="../best-video-wordpress-theme/index.html"
-                                        title="Best Video WordPress theme">Best Video WordPress theme</a></h6>
-                                <div class="video-item__meta">
-                                    <div class="video-item__author"><i class="fa fa-user"></i><a
-                                            href="../../members/admin/index.html">admin</a></div>
-                                    <div class="video-item__view">
-                                        <div class="post-views-count">
-                                            <span class="post-views-label">views</span>
-                                            <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">2.426K</span>
-                                            <span class="post-view-unit"> views</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        {% for cat , count in cat_count %}
+                        <li class="cat-item cat-item-61 {{cat.name}} {% if video.category == cat.name %} {{video.category}} current-cat {% endif %}"><a
+                                href="{% url 'core:Video' cat.slug %}">{{cat.name}} </a> <span class="count"><span
+                                    class="list-count">{{count}}</span></span></li>
+                                    {% endfor %}
+                        
                     </ul>
                 </aside>
             </div>

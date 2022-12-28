@@ -16,12 +16,13 @@ def post_renderer(request):
     comments = Comment.objects.filter(
         user__username=request.user).order_by("-datetime")
     number_of_views = Video_View.objects.filter(
-        user__username=request.user).order_by("-datetime")
+        user__username=request.user)
     # most_recent_channels = Channel.objects.exclude(user=user)
     user_videos_length = len(videos)
     all_videos_length = len(all_videos)
     user_comment_length = len(comments)
     user_video_views_length = len(number_of_views)
+    you_may_also_like_videos = Video.objects.exclude(user__username=request.user).order_by("-datetime")[:8]
     # user_object = User.objects.get(username=user.username)
     # video_file = request.FILES.get('video')
     counts = []
@@ -58,6 +59,8 @@ def post_renderer(request):
     # side_popular_post = Blog.objects.all().order_by('-created_at')[12:16]
 
     return {
+        'you_may_also_like_videos': you_may_also_like_videos,
+        'all_videos': all_videos,
         'page_contents': page_contents,
         'cat_count': category_count,
         'channel_count': channel_count,
