@@ -297,6 +297,11 @@ def contact(request):
     template_name = "contact.html"
     return render(request, template_name)
 
+@login_required()
+def membership(request):
+    template_name = "membership.html"
+    return render(request, template_name)
+
 
 @login_required()
 def profile(request, pk):

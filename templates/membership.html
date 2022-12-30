@@ -1,0 +1,40 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %} 
+<!DOCTYPE html>
+<!-- Open HTML -->
+<html lang="en-US">
+  <!-- Open Head -->
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.documentElement.className =
+        document.documentElement.className + ' yes-js js_active js';
+    </script>
+    <title>
+        SplitUnity |  {{ video.title }}
+    </title>
+    {% include "links.html" %}
+    <style>
+        div {
+            position: absolute; text-align: center; top: 50%; width: 100%;
+        }
+    </style>
+  </head>
+
+  <!-- Close Head -->
+  <body>
+    <!-- Display newsletter popup -->
+    <!-- Open haru main -->
+   <div>
+    <h2 class="select_payment">Select Payment Method</h2>
+   </div>
+    <!-- Close haru main -->
+    
+
+   {% include "scripts.html" %}
+  </body>
+
+</html>

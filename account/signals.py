@@ -9,7 +9,3 @@ def create_profile(sender, instance, created, *args, **kwargs):
         UserSettings.objects.create(user=instance)
         SocialHandle.objects.create(user=instance)
 
-
-@receiver(post_save, sender=User)
-def save_profile(sender, instance, **kwargs):
-    instance.profile.save()

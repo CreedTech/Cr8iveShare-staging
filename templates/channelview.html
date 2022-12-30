@@ -75,7 +75,7 @@
                                                     {%else%}
                                                     {% if user.is_authenticated %}
                                                     {% if subscribed == False %}
-                                                    <a href="{% url 'core:channel_subscribe' c_id=channel.id %}"
+                                                    <a href="{% url 'core:membership' %}"
                                                         class="button-background button-background--primary button-background--medium">Subscribe</a>
                                                     {% else %}
                                                     <a href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
