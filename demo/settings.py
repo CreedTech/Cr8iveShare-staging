@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'account',
     "pen_admin",
     "users",
-    "pages",
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

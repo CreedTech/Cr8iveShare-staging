@@ -40,7 +40,7 @@ def login(request):
                         cache.delete('next')
                         return HttpResponseRedirect(next_url)
                     else:
-                        return redirect('users:dashboard', user.slug)   
+                        return redirect('users:profile', user.slug)   
                 except:
                     messages.error(request, "Incorrect password.")
                     return redirect("login")

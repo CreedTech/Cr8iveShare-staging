@@ -104,8 +104,9 @@ class HomeView(LoginRequiredMixin, View):
     redirect_field_name = 'redirect_to'
 
     def get(self, request):
-        most_recent_videos = Video.objects.order_by('-datetime')[:8]
-        most_recent_channels = Channel.objects.exclude(user=request.user)
+        most_recent_videos = Video.objects.order_by('-datetime')[:4]
+        top_videos = Video.objects.order_by('-number_of_views')[:4]
+        most_recent_channels = Channel.objects.exclude(user=request.user)[:8]
 
         channel = False
         print(request.user.username)
@@ -120,7 +121,7 @@ class HomeView(LoginRequiredMixin, View):
                 channel = False
             # if channel:
         # print(request.user)
-        return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos, 'most_recent_channels': most_recent_channels, 'channel': channel})
+        return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos, 'most_recent_channels': most_recent_channels, 'channel': channel, 'top_videos': top_videos})
 
 
 # @login_required()
@@ -277,7 +278,7 @@ class CommentView(LoginRequiredMixin, View):
 def videos(request):
     template_name = "videos.html"
     videos = Video.objects.all()
-    latest_videos = Video.objects.order_by('-datetime')[:3]
+    latest_videos = Video.objects.order_by('-datetime')[:8]
     context = {
         'videos': videos,
         'latest_videos': latest_videos
@@ -549,6 +550,8 @@ def subscriptions(request):
 def channels_list(request):
     context = {}
     channels = Channel.objects.all()
+    videos = Video.objects.filter(
+        user__username=request.user)
     context['channels'] = channels
 
     try:
@@ -560,3 +563,9 @@ def channels_list(request):
         channel = False
 
     return render(request, 'channels_list.html', context)
+
+def error_404_view(request, exception):
+   
+    # we add the path to the the 404.html file
+    # here. The name of our HTML file is 404.html
+    return render(request, '404.html')

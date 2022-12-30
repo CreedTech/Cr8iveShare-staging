@@ -33,13 +33,13 @@
         <div id="haru-content-main" class="clearfix">
             <div class="haru-archive-breadcrumbs">
                 <div class="haru-container">
-                    <ul class="haru-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
-                                itemprop="item" href="../index.html"><span itemprop="name">Home</span></a>
+                    <ul class="haru-breadcrumb">
+                        <li><a
+                                itemprop="item" href="{% url 'core:index' %}"><span >Home</span></a>
                             <meta itemprop="position" content="0" />
                         </li><span class="delimiter"> &raquo; </span>
-                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span
-                                itemprop="name" class="current">Videos</span>
+                        <li><span
+                                 class="current">Videos</span>
                             <meta itemprop="position" content="2" />
                         </li>
                     </ul><!-- .breadcrumbs -->
@@ -110,12 +110,9 @@
                                     <i class="haru-icon haru-clock"></i>
                                     Watch Later
                                 </div>
-
-                                <div class="video-item__duration">9:15</div>
                             </div>
                             <div class="video-item__content">
-                                <div class="video-item__category"><a href="../video-category/vidio/index.html"
-                                        rel="tag">Vidio</a></div>
+                                
                                 <h6 class="video-item__title"><a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}</a></h6>
                                 <div class="video-item__meta">
                                     <div class="video-item__author">
@@ -170,7 +167,7 @@
                     <aside id="haru_widget_video_search-3" class="widget widget-video-search">
                         <h4 class="widget-title"><span>Video search</span></h4>
                         <form role="search" method="get" class="haru-video-search search-form default"
-                            action="https://demo.harutheme.com/vidio/">
+                            action="">
                             <label for="haru-video-search-field-3">
                                 <span class="screen-reader-text">Search for:</span>
                                 <input type="search" id="haru-video-search-field-3" class="search-field"
@@ -204,7 +201,6 @@
                                             src="{{ video.banner.url }}"
                                             class="attachment-thumbnail size-thumbnail wp-post-image" alt=""
                                             loading="lazy" title="{{ video.title }}" /></a>
-                                    <div class="video-item__duration">9:56</div>
                                 </div>
                                 <div class="video-item__content">
                                     <h6 class="video-item__title"><a href="/video/{{ video.id }}/{{ 1 }}/"
@@ -228,25 +224,6 @@
                             <p style="text-align: center;">No Videos for now</p>
                             {% endif %}
                         </ul>
-                    </aside>
-                    <aside id="haru_widget_video_tags-4" class="widget widget-video-tags">
-                        <h4 class="widget-title"><span>Video tags</span></h4>
-                        <div class="tagcloud default"><a href="../video-tag/filmmaker/index.html"
-                                class="tag-cloud-link tag-link-43 tag-link-position-1"
-                                style="font-size: 19.666666666667pt;" aria-label="filmmaker (35 videos)">filmmaker</a>
-                            <a href="../video-tag/movie/index.html"
-                                class="tag-cloud-link tag-link-44 tag-link-position-2" style="font-size: 15pt;"
-                                aria-label="movie (34 videos)">movie</a>
-                            <a href="../video-tag/theme/index.html"
-                                class="tag-cloud-link tag-link-42 tag-link-position-3" style="font-size: 22pt;"
-                                aria-label="theme (36 videos)">theme</a>
-                            <a href="../video-tag/video/index.html"
-                                class="tag-cloud-link tag-link-40 tag-link-position-4" style="font-size: 8pt;"
-                                aria-label="video (31 videos)">video</a>
-                            <a href="../video-tag/wordpress/index.html"
-                                class="tag-cloud-link tag-link-41 tag-link-position-5" style="font-size: 8pt;"
-                                aria-label="wordpress (31 videos)">wordpress</a>
-                        </div>
                     </aside>
                 </div>
             </div>

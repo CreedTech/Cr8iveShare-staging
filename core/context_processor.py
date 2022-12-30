@@ -1,7 +1,7 @@
 from .models import *
 from django.db.models import Q
 # from moviepy.editor import VideoClipFile
-
+import random
 from django.shortcuts import redirect, render, get_object_or_404
 
 
@@ -22,7 +22,7 @@ def post_renderer(request):
     all_videos_length = len(all_videos)
     user_comment_length = len(comments)
     user_video_views_length = len(number_of_views)
-    you_may_also_like_videos = Video.objects.exclude(user__username=request.user).order_by("-datetime")[:8]
+    you_may_also_like_videos = Video.objects.all().order_by("-datetime")[:8]
     # user_object = User.objects.get(username=user.username)
     # video_file = request.FILES.get('video')
     counts = []
