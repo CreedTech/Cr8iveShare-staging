@@ -122,8 +122,8 @@ class UserUpdateForm(forms.ModelForm):
             "class": "input",
             "id": "bio",
             "type":"textarea",
-            "style": "border: none",
-            "cols": "55%",
+            "style":"width: 100%;  padding: 0 18px; border:none; resize: none",
+            "cols": "55",
             "rows": "10"
          }
       )

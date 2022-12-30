@@ -275,16 +275,16 @@
                     </h6>
                     {% if you_may_also_like_videos %}
                     <ul class="playlist-videos">
-                        {% for you_may_also_like_video in all_videos %}
+                        {% for recent_video in you_may_also_like_videos %}
                         <li class="video-item ">
                             <div class="video-item__thumbnail">
-                                <a href="/you_may_also_like_video/{{ you_may_also_like_video.id }}/{{ 1 }}/">
-                                    <img src="{{you_may_also_like_video.banner.url}}"
+                                <a href="/video/{{ recent_video.id }}/{{ 1 }}/">
+                                    <img src="{{recent_video.banner.url}}"
                                         alt="Bali, abseits des Massentourismus Teil">
                                     <div class="toolbar-action toolbar-action--background video-watch-later "
-                                        data-id="96" data-title="{{ you_may_also_like_video.title }}"
-                                        data-permalink="/you_may_also_like_video/{{ you_may_also_like_video.id }}/{{ 1 }}/"
-                                        data-thumb="{{you_may_also_like_video.banner.url}}">
+                                        data-id="96" data-title="{{ recent_video.title }}"
+                                        data-permalink="/video/{{ recent_video.id }}/{{ 1 }}/"
+                                        data-thumb="{{recent_video.banner.url}}">
                                         <i class="haru-icon haru-clock"></i>
                                         Watch Later
                                     </div>
@@ -293,18 +293,18 @@
                             </div>
                             <div class="video-item__content">
                                 <h6 class="video-item__title">
-                                    <a href="/you_may_also_like_video/{{ you_may_also_like_video.id }}/{{ 1 }}/">{{ you_may_also_like_video.title }}</a>
+                                    <a href="/video/{{ recent_video.id }}/{{ 1 }}/">{{ recent_video.title }}</a>
                                 </h6>
                                 <div class="video-item__meta">
                                     <div class="video-item__author">
                                         <i class="fa fa-user"></i>
-                                        <a href="/{{ you_may_also_like_video.user.username }}/channel">{{you_may_also_like_video.user.username}}</a>
+                                        <a href="/{{ recent_video.user.username }}/channel">{{recent_video.user.username}}</a>
                                     </div>
                                     <div class="video-item__view">
                                         <div class="post-views-count">
                                             <span class="post-views-label">views</span>
                                             <i class="fa fa-eye"></i>
-                                            <span class="post-view-count">{{you_may_also_like_video.number_of_views}}</span>
+                                            <span class="post-view-count">{{recent_video.number_of_views}}</span>
                                             <span class="post-view-unit"> views</span>
                                         </div>
                                     </div>
@@ -361,9 +361,8 @@
                                     </div>
 
                                     <div class="single-video-meta-right-bottom">
-                                        <div class="single-video-author-count">{{user_videos_length}}<span> videos</span></div>
                                         <div class="single-video-author-friends">
-                                            1<span> Subscriber</span> </div>
+                                            1<span> Subscribers</span> </div>
                                     </div>
                                 </div>
                             </div>
@@ -435,7 +434,7 @@
                                                         <div class="comment-text">
                                                             <div class="author">
                                                                 <div class="author-name"><a
-                                                                        href="{% url 'users:profile' comment.user.slug %}"
+                                                                        href="/{{ comment.user.username }}/channel"
                                                                         rel='external nofollow ugc' class='url'>{{ comment.user }}</a>
                                                                 </div>
                                                             </div>
