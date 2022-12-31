@@ -142,9 +142,6 @@
                   <span class="post-view-unit"> view</span>
                 </div>
               </div>
-              <div class="channel-item__videos-count">
-                {{user_videos_length}}<span> videos</span>
-              </div>
               <div class="channel-item__count-subscribed">
                 <span class="count-subscribed">{{ channel.subscribers }}</span
                 >
@@ -163,21 +160,6 @@
         <h4>No Channels Created</h4>
         {% endif %}
       </div>
-
-      <div class="archive-pagination">
-        <nav
-          id="infinite_scroll_button"
-          data-max-page="2"
-          data-msgText="Loading..."
-          data-finishedMsg="All items loaded."
-        >
-          <a href="page/2/index.html"></a>
-        </nav>
-        <div
-          id="infinite_scroll_loading"
-          class="align-center infinite-scroll-loading"
-        ></div>
-      </div>
     </div>
     <!-- Sidebar -->
     <div class="archive-sidebar right-sidebar">
@@ -187,7 +169,7 @@
           role="search"
           method="get"
           class="haru-video-search search-form default"
-          action="https://demo.harutheme.com/vidio/"
+          action=""
         >
           <label for="haru-video-search-field-3">
             <span class="screen-reader-text">Search for:</span>
@@ -203,7 +185,7 @@
           <button type="submit" class="search-submit" value="Search">
             <span>Search</span>
           </button>
-          <input type="hidden" name="post_type" value="haru_video" />
+          <input type="hidden" name="post_type" value="1" />
         </form>
       </aside>
       <aside
@@ -243,7 +225,6 @@
                   loading="lazy"
                   title="{{ video.title }}"
               /></a>
-              <div class="video-item__duration">9:56</div>
             </div>
             <div class="video-item__content">
               <h6 class="video-item__title">

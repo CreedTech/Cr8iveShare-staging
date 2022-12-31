@@ -1,258 +1,313 @@
-{% load static %} 
+{% load static %}
 <footer id="haru-footer-main" class="footer-2">
   <div class="container clearfix">
-<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1588822220987 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1588823344939"><div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+    <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true"
+      class="vc_row wpb_row vc_row-fluid vc_custom_1588822220987 vc_row-has-fill">
+      <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="vc_column-inner">
+          <div class="wpb_wrapper">
+            <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1588823344939">
+              <div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-4">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
 
-<div  class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1594781291249  footer-logo-retina">
+                    <div
+                      class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1594781291249  footer-logo-retina">
 
-<figure class="wpb_wrapper vc_figure">
-  {% if page_contents.footer_logo %}
-<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="70" style="max-height: 100px;" src="{{ page_contents.footer_logo.url }}" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
-{% else %}
-<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="70" src="https://dummyimage.com/99x24" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
-{% endif %}
-</figure>
-</div>
+                      <figure class="wpb_wrapper vc_figure">
+                        {% if page_contents.footer_logo %}
+                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="70"
+                            style="max-height: 100px;" src="{{ page_contents.footer_logo.url }}"
+                            class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
+                        {% else %}
+                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="70"
+                            src="https://dummyimage.com/99x24" class="vc_single_image-img attachment-full" alt=""
+                            loading="lazy" /></div>
+                        {% endif %}
+                      </figure>
+                    </div>
 
-<div class="wpb_text_column wpb_content_element  vc_custom_1588664682869 cl-secondary" >
-<div class="wpb_wrapper">
-  {% if page_contents.footer_description %}
-  <p>{{page_contents.footer_description}}</p>
-  {% else %}
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure animi omnis nam molestias tenetur et, ipsum ratione molestiae, repudiandae qui sunt nihil non deleniti sint repellendus iusto. Fuga, dolorum minus.</p>
-{% endif %} 
+                    <div class="wpb_text_column wpb_content_element  vc_custom_1588664682869 cl-secondary">
+                      <div class="wpb_wrapper">
+                        {% if page_contents.footer_description %}
+                        <p>{{page_contents.footer_description}}</p>
+                        {% else %}
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure animi omnis nam molestias
+                          tenetur et, ipsum ratione molestiae, repudiandae qui sunt nihil non deleniti sint repellendus
+                          iusto. Fuga, dolorum minus.</p>
+                        {% endif %}
 
-</div>
-</div>
-      <div class=" vc_custom_1587009996890  ">
-<div class="footer-contact-shortcode-wrap style_1 ">
-<div class="footer-contact-content">
-<ul class="contact-information">
-  {% if page_contents.footer_address %}
-  <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>{{page_contents.footer_address}}</li>
-  {% else %}
-  <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>Lorem ipsum dolor sit, amet consectetur </li>
-  {% endif %} 
-              {% if page_contents.footer_phone %}
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span><a href="telto:{{page_contents.footer_phone}}">{{page_contents.footer_phone}}</a></li>
-              {% else %}
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span><a href="telto:760-617-8882">760-617-8882</a></li>
-              {% endif %} 
-              {% if page_contents.footer_email %}
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span><a href="mailto:{{page_contents.footer_email}}">{{page_contents.footer_email}}</a></li>
-              {% else %}
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span><a href="mailto:contact@vidio.com">contact@vidio.com</a></li>
-              {% endif %} 
-  </ul>
-</div>
-</div>            </div>
-                          <div class="  ">
-<div class="footer-social-shortcode-wrap style_1 ">
-<div class="footer-social-content">
-<ul class="social-list align-left">
-  {% if page_contents.footer_social_icon_1 %}
-  <li>
-    <a href="#" target="_self" style="background-color: #3b5998"><i class="fab fa-{{page_contents.footer_social_icon_1}}"></i>{{page_contents.footer_social_icon_1}}</a>
-</li>
-  {% else %}
-   <li>
-      <a href="#" target="_self" style="background-color: #3b5998"><i class="fab fa-facebook-f"></i>Facebook</a>
-  </li>
-  {% endif %} 
-  {% if page_contents.footer_social_icon_2 %}
-   <li>
-      <a href="#" target="_self" style="background-color: #00acee"><i class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_2}}</a>
-  </li>
-  {% else %}
-  <li>
-    <a href="#" target="_self" style="background-color: #00acee"><i class="fab fa-twitter"></i>Twitter</a>
-</li>
-{% endif %} 
-{% if page_contents.footer_social_icon_3 %}
-    <li>
-      <a href="#" target="_self" style="background-color: #6a453b"><i class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_3}}</a>
-  </li>
-  {% else %}
-  <li>
-    <a href="#" target="_self" style="background-color: #6a453b"><i class="fab fa-instagram"></i>Instagram</a>
-</li>
-{% endif %} 
-{% if page_contents.footer_social_icon_4 %}
-     <li>
-    <a href="#" target="_self" style="background-color: #c4302b"><i class="fab fa-{{page_contents.footer_social_icon_4}}"></i>{{page_contents.footer_social_icon_4}}</a>
-  </li>
-  {% else %}
-     <li>
-      <a href="#" target="_self" style="background-color: #c4302b"><i class="fab fa-youtube"></i>Youtube</a>
-  </li>
-  {% endif %}
-                      </ul>
-</div>
-</div>            </div>
-  </div></div></div><div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><h2 style="text-align: left" class="vc_custom_heading footer_style_4">Latest Video</h2>
-<div class="wpb_text_column wpb_content_element " >
-<div class="wpb_wrapper">
-<div class="video-top-shortcode dark-style default " 
-id="video-top-shortcode871572158" 
-data-atts="{&quot;layout&quot;:&quot;default&quot;,&quot;title&quot;:&quot;&quot;,&quot;categories&quot;:&quot;fashion,game,harutheme,sports,technology,travel,vidio&quot;,&quot;order_by&quot;:&quot;date&quot;,&quot;order&quot;:&quot;desc&quot;,&quot;video_style&quot;:&quot;default&quot;,&quot;posts_per_page&quot;:&quot;3&quot;}"
-data-video_order_by="date"
->
-
-<div class="video-ajax-content default">
-<div class="ajax-loading-icon"><div class="loading-bar"></div></div>
-<div class="video-top-content">
-
-  {% if most_recent_videos %}
-  {% for video in most_recent_videos %}
-<article class="grid-item video-item video-1019 vidio  default">
-<div class="video-item__thumbnail" >
-<a href="/video/{{ video.id }}/{{ 1 }}/">
-
-  <div class="video-thumbnail image default" data-speed="1000">
-<img src="{{video.banner.url}}" alt="{{ video.title }}">
-  </div>
-      </a>
-<div class="video-item__icon">
-      <a href="/video/{{ video.id }}/{{ 1 }}/" class="video-item-player-direct">
-<i class="haru-icon haru-play"></i>
-</a>
-  </div>
-<div class="toolbar-action toolbar-action--background video-watch-later "
-data-id="1019"
-data-title="{{ video.title }}"
-data-permalink="/video/{{ video.id }}/{{ 1 }}/"
-data-thumb="{{video.banner.url}}"
->
-<i class="haru-icon haru-clock"></i>
-Watch Later</div>
-
-<div class="video-item__duration">9:15</div>
-</div>
-<div class="video-item__content">
-<div class="video-item__category"><a href="../video-category/vidio/index.html" rel="tag">Vidio</a></div>
-<h6 class="video-item__title"><a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}</a></h6>
-<div class="video-item__meta">
-<div class="video-item__author">
-<i class="fa fa-user"></i>
-<a href="../members/demo/index.html">{{ video.user.username }}</a>            </div>
-<div class="video-item__date"><i class="fa fa-calendar"></i>{{ video.datetime }}</div>
-<div class="video-item__like">        <div class="post-like">
-<span class="post-vote-label">like</span>
-<i class="haru-icon haru-like"></i>
-<span class="post-like-count">1</span>
-<span class="post-like-unit"> like</span>
-</div>
-</div>
-<div class="video-item__dislike">        <div class="post-dislike">
-<span class="post-vote-label">dislike</span>
-<i class="haru-icon haru-dislike"></i>
-<span class="post-dislike-count">0</span>
-<span class="post-dislike-unit"> dislike</span>
-</div>
-</div>
-      <div class="video-item__view">        <div class="post-views-count">
-<span class="post-views-label">views</span>
-<i class="fa fa-eye"></i>
-<span class="post-view-count">{{video.number_of_views}}</span>
-<span class="post-view-unit"> views</span>
-</div>
-</div>
-  </div>
-<div class="video-item__desc">
-Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravidrus sit amet erat. Aenean nec nisi quis nisi...        </div>
-</div>
-</article>
-{% endfor %}
-                                            {% else %}
-                                            <p >No Videos for now</p>
-                                            {% endif %}
-          </div>
-</div>
-
-</div>
-
-
-</div>
-</div>
-</div></div></div><div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner"><div class="wpb_wrapper"><h2 style="text-align: left" class="vc_custom_heading footer_style_4">Quick Links</h2>                        <div class="  ">
-<div class="footer-link-shortcode-wrap style_2 ">
-<div class="footer-link-content">
-<ul class="link-list">
-                                  <li>
-      <a href="{% url 'core:about' %}" target="_self">About us</a>
-  </li>
-                                                      <!-- <li>
-      <a href="#" target="_self">FAQs</a>
-  </li> -->
-                                                      <!-- <li>
-      <a href="#" target="_self">How it works</a>
-  </li> -->
-                                                      <!-- <li>
-      <a href="#" target="_self">Report videos</a>
-  </li> -->
-                                                      <!-- <li>
-      <a href="#" target="_self">Popular posts</a>
-  </li> -->
-                                                      <li>
-      <a href="{% url 'core:contact' %}" target="_self">Contact us</a>
-  </li>
-                                                      <li>
-      <a href="#" target="_self">Privacy Policy</a>
-  </li>
-                      </ul>
-</div>
-</div>            </div>
-  </div></div></div><div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><h2 style="text-align: left" class="vc_custom_heading footer_style_4">Top Authors</h2>
-<div class="wpb_text_column wpb_content_element " >
-<div class="wpb_wrapper">
-<div class="author-top-shortcode dark-style style-2 " 
-id="author-top-shortcode1764902342"
-data-author_order_by="post_count"
->
-
-<div class="author-ajax-content style-2">
-<div class="ajax-loading-icon"><div class="loading-bar"></div></div>
-<div class="author-top-content">
-  {% if most_recent_channels %}
-  {% for channels in most_recent_channels %}
-              <article class="grid-item author-item default">
-  <div class="author-item__thumbnail">
-      <a href="/{{ channels.user.username }}/channel">
-          <img alt='' src='{{channels.channel_image.url}}'  class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-          <img alt='' src="{{channels.channel_image.url}}"  class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
-  </div>
-  <div class="author-item__content">
-      <h6 class="author-item__title"><a href="/{{ channels.user.username }}/channel">{{ channels.user.username }}</a></h6>
-      <div class="author-item__meta">
-          <div class="author-item__videos-count">
-            {{user_videos_length}} videos                            </div>
-          <div class="author-item__count-friends">
-            {{ channels.subscribers }}<span> subscribers</span>                            </div>
-      </div>
-  </div>
-  <div class="author-item__add-friend">
                       </div>
-  
-</article>
-{% endfor %}
-{% else %}
-  <p>No Top Authors Available</p>
-{% endif %}
+                    </div>
+                    <div class=" vc_custom_1587009996890  ">
+                      <div class="footer-contact-shortcode-wrap style_1 ">
+                        <div class="footer-contact-content">
+                          <ul class="contact-information">
+                            {% if page_contents.footer_address %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Address</span>{{page_contents.footer_address}}</li>
+                            {% else %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Address</span>Lorem ipsum dolor sit, amet consectetur </li>
+                            {% endif %}
+                            {% if page_contents.footer_phone %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Phone</span><a
+                                href="telto:{{page_contents.footer_phone}}">{{page_contents.footer_phone}}</a></li>
+                            {% else %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Phone</span><a href="telto:760-617-8882">760-617-8882</a></li>
+                            {% endif %}
+                            {% if page_contents.footer_email %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Email</span><a
+                                href="mailto:{{page_contents.footer_email}}">{{page_contents.footer_email}}</a></li>
+                            {% else %}
+                            <li><span class="contact-icon fab fa-accessible-icon"></span><span
+                                class="contact-label">Email</span><a
+                                href="mailto:contact@vidio.com">contact@vidio.com</a></li>
+                            {% endif %}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="  ">
+                      <div class="footer-social-shortcode-wrap style_1 ">
+                        <div class="footer-social-content">
+                          <ul class="social-list align-left">
+                            {% if page_contents.footer_social_icon_1 %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #3b5998"><i
+                                  class="fab fa-{{page_contents.footer_social_icon_1}}"></i>{{page_contents.footer_social_icon_1}}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #3b5998"><i
+                                  class="fab fa-facebook-f"></i>Facebook</a>
+                            </li>
+                            {% endif %}
+                            {% if page_contents.footer_social_icon_2 %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #00acee"><i
+                                  class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_2}}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #00acee"><i
+                                  class="fab fa-twitter"></i>Twitter</a>
+                            </li>
+                            {% endif %}
+                            {% if page_contents.footer_social_icon_3 %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #6a453b"><i
+                                  class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_3}}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #6a453b"><i
+                                  class="fab fa-instagram"></i>Instagram</a>
+                            </li>
+                            {% endif %}
+                            {% if page_contents.footer_social_icon_4 %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #c4302b"><i
+                                  class="fab fa-{{page_contents.footer_social_icon_4}}"></i>{{page_contents.footer_social_icon_4}}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                              <a href="#" target="_self" style="background-color: #c4302b"><i
+                                  class="fab fa-youtube"></i>Youtube</a>
+                            </li>
+                            {% endif %}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-3">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <h2 style="text-align: left" class="vc_custom_heading footer_style_4">Latest Video</h2>
+                    <div class="wpb_text_column wpb_content_element ">
+                      <div class="wpb_wrapper">
+                        <div class="video-top-shortcode dark-style default " id="video-top-shortcode871572158"
+                          data-atts="{&quot;layout&quot;:&quot;default&quot;,&quot;title&quot;:&quot;&quot;,&quot;categories&quot;:&quot;fashion,game,harutheme,sports,technology,travel,vidio&quot;,&quot;order_by&quot;:&quot;date&quot;,&quot;order&quot;:&quot;desc&quot;,&quot;video_style&quot;:&quot;default&quot;,&quot;posts_per_page&quot;:&quot;3&quot;}"
+                          data-video_order_by="date">
 
+                          <div class="video-ajax-content default">
+                            <div class="ajax-loading-icon">
+                              <div class="loading-bar"></div>
+                            </div>
+                            <div class="video-top-content">
+
+                              {% if most_recent_videos %}
+                              {% for video in most_recent_videos %}
+                              <article class="grid-item video-item video-1019 vidio  default">
+                                <div class="video-item__thumbnail">
+                                  <a href="/video/{{ video.id }}/{{ 1 }}/">
+
+                                    <div class="video-thumbnail image default" data-speed="1000">
+                                      <img src="{{video.banner.url}}" alt="{{ video.title }}">
+                                    </div>
+                                  </a>
+                                  <div class="video-item__icon">
+                                    <a href="/video/{{ video.id }}/{{ 1 }}/" class="video-item-player-direct">
+                                      <i class="haru-icon haru-play"></i>
+                                    </a>
+                                  </div>
+                                  <div class="toolbar-action toolbar-action--background video-watch-later "
+                                    data-id="1019" data-title="{{ video.title }}"
+                                    data-permalink="/video/{{ video.id }}/{{ 1 }}/" data-thumb="{{video.banner.url}}">
+                                    <i class="haru-icon haru-clock"></i>
+                                    Watch Later
+                                  </div>
+
+                                </div>
+                                <div class="video-item__content">
+                                 
+                                  <h6 class="video-item__title"><a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}</a></h6>
+                                  <div class="video-item__meta">
+                                    <div class="video-item__author">
+                                      <i class="fa fa-user"></i>
+                                      <a href="/{{ video.user.username }}/channel">{{ video.user.username }}</a>
+                                    </div>
+                                    <div class="video-item__date"><i class="fa fa-calendar"></i>{{ video.datetime }}
+                                    </div>
+                                    <div class="video-item__view">
+                                      <div class="post-views-count">
+                                        <span class="post-views-label">views</span>
+                                        <i class="fa fa-eye"></i>
+                                        <span class="post-view-count">{{video.number_of_views}}</span>
+                                        <span class="post-view-unit"> views</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="video-item__desc">
+                                   {{video.description}} </div>
+                                </div>
+                              </article>
+                              {% endfor %}
+                              {% else %}
+                              <p>No Videos for now</p>
+                              {% endif %}
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-2">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <h2 style="text-align: left" class="vc_custom_heading footer_style_4">Quick Links</h2>
+                    <div class="  ">
+                      <div class="footer-link-shortcode-wrap style_2 ">
+                        <div class="footer-link-content">
+                          <ul class="link-list">
+                            <li>
+                              <a href="{% url 'core:about' %}" target="_self">About us</a>
+                            </li>
+                            <li>
+                              <a href="{% url 'core:contact' %}" target="_self">Contact us</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-3">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <h2 style="text-align: left" class="vc_custom_heading footer_style_4">Top Authors</h2>
+                    <div class="wpb_text_column wpb_content_element ">
+                      <div class="wpb_wrapper">
+                        <div class="author-top-shortcode dark-style style-2 " id="author-top-shortcode1764902342"
+                          data-author_order_by="post_count">
+
+                          <div class="author-ajax-content style-2">
+                            <div class="ajax-loading-icon">
+                              <div class="loading-bar"></div>
+                            </div>
+                            <div class="author-top-content">
+                              {% if most_recent_channels %}
+                              {% for channels in most_recent_channels %}
+                              <article class="grid-item author-item default">
+                                <div class="author-item__thumbnail">
+                                  <a href="/{{ channels.user.username }}/channel">
+                                    <img alt='' src='{{channels.channel_image.url}}' class='avatar avatar-96 photo'
+                                      height='96' width='96' loading='lazy' /> </a>
+                                  <img alt='' src="{{channels.channel_image.url}}" class='avatar avatar-96 photo'
+                                    height='96' width='96' loading='lazy' /> </a>
+                                </div>
+                                <div class="author-item__content">
+                                  <h6 class="author-item__title"><a href="/{{ channels.user.username }}/channel">{{ channels.user.username }}</a></h6>
+                                  <div class="author-item__meta">
+                                    <div class="author-item__count-friends">
+                                      {{ channels.subscribers }}<span> subscribers</span> </div>
+                                  </div>
+                                </div>
+                                <div class="author-item__add-friend">
+                                </div>
+
+                              </article>
+                              {% endfor %}
+                              {% else %}
+                              <p>No Top Authors Available</p>
+                              {% endif %}
+
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+              <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <div
+                      class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_separator_no_text vc_custom_1588603970358  vc_custom_1588603970358">
+                      <span class="vc_sep_holder vc_sep_holder_l"><span style="border-color:#433246;"
+                          class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span
+                          style="border-color:#433246;" class="vc_sep_line"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+              <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <div
+                      class="wpb_text_column wpb_content_element  vc_custom_1604162226354 secondary-font cl-secondary">
+                      <div class="wpb_wrapper">
+                        <p style="text-align: center;">© {% now "Y" %} SplitUnity by Wald. All Right Reserved.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-</div>
-</div>
-
-
-</div>
-</div>
-</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_separator_no_text vc_custom_1588603970358  vc_custom_1588603970358" ><span class="vc_sep_holder vc_sep_holder_l"><span  style="border-color:#433246;" class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span  style="border-color:#433246;" class="vc_sep_line"></span></span>
-</div></div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
-<div class="wpb_text_column wpb_content_element  vc_custom_1604162226354 secondary-font cl-secondary" >
-<div class="wpb_wrapper">
-<p style="text-align: center;">© {% now "Y" %} SplitUnity by Wald. All Right Reserved.</p>
-
-</div>
-</div>
-</div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>    </div>
+        </div>
+      </div>
+    </div>
+    <div class="vc_row-full-width vc_clearfix"></div>
+  </div>
 </footer>

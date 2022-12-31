@@ -153,6 +153,7 @@ class Channel(models.Model):
     channel_name = models.CharField(max_length=50, blank=False, null=False)
     channel_image = models.ImageField(
         upload_to='channel_images/', null=True, blank=True, default="https://dummyimage.com/1600x900")
+    price = models.PositiveIntegerField()
     subscribers = models.IntegerField(default=0, blank=False, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)

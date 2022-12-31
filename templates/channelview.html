@@ -75,8 +75,8 @@
                                                     {%else%}
                                                     {% if user.is_authenticated %}
                                                     {% if subscribed == False %}
-                                                    <a href="{% url 'core:channel_subscribe' c_id=channel.id %}"
-                                                        class="button-background button-background--primary button-background--medium" id="paypal-button-container">Subscribe</a>
+                                                    <a href="{% url 'core:membership' %}"
+                                                        class="button-background button-background--primary button-background--medium">Subscribe</a>
                                                     {% else %}
                                                     <a href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
                                                         class="button-background button-background--primary button-background--medium">UnSubscribe</a>
@@ -86,7 +86,7 @@
                                                     
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a >
                                                         <div class="youzify-snumber" title="{{user_videos_length}}">
                                                             {{user_videos_length}}
                                                         </div>
@@ -95,7 +95,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="">
+                                                    <a >
                                                         <div class="youzify-snumber" title="{{user_comment_length}}">
                                                             {{user_comment_length}}
                                                         </div>
@@ -146,7 +146,7 @@
                                         aria-label="Member secondary navigation" role="navigation">
                                         <ul>
                                             <li id="video-all-personal-li" class="current selected">
-                                                <a id="all" href="index.html"><i class="fas fa-globe"></i>All Videos</a>
+                                                <a id="all"><i class="fas fa-globe"></i>All Videos</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -196,15 +196,9 @@
                                                     Watch Later
                                                 </div>
 
-                                                <div class="video-item__duration">9:15</div>
                                             </div>
                                             <div class="video-item__content">
-                                                <div class="video-item__category">
-                                                    <a href="../../../video-category/game/index.html"
-                                                        rel="tag">Game</a>,
-                                                    <a href="../../../video-category/vidio/index.html"
-                                                        rel="tag">Vidio</a>
-                                                </div>
+                                                
                                                 <h6 class="video-item__title">
                                                     <a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}
                                                     </a>
@@ -212,26 +206,10 @@
                                                 <div class="video-item__meta">
                                                     <div class="video-item__author">
                                                         <i class="fa fa-user"></i>
-                                                        <a href="../index.html">{{ video.user }} </a>
+                                                        <a href="">{{ video.user }} </a>
                                                     </div>
                                                     <div class="video-item__date">
                                                         <i class="fa fa-calendar"></i>{{ video.datetime }}
-                                                    </div>
-                                                    <div class="video-item__like">
-                                                        <div class="post-like">
-                                                            <span class="post-vote-label">like</span>
-                                                            <i class="haru-icon haru-like"></i>
-                                                            <span class="post-like-count">2.153K</span>
-                                                            <span class="post-like-unit"> likes</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="video-item__dislike">
-                                                        <div class="post-dislike">
-                                                            <span class="post-vote-label">dislike</span>
-                                                            <i class="haru-icon haru-dislike"></i>
-                                                            <span class="post-dislike-count">151</span>
-                                                            <span class="post-dislike-unit"> dislikes</span>
-                                                        </div>
                                                     </div>
                                                     <div class="video-item__view">
                                                         <div class="post-views-count">
