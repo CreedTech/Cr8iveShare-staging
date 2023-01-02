@@ -44,7 +44,6 @@ class User(AbstractUser):
     mobile_no = models.CharField(max_length=14, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=50, choices=gender_choices, null=True)
-    is_creator = models.BooleanField(null=True, blank=True, default=False)
     slug = AutoSlugField(
         unique=True, populate_from='username', sep='_', null=True)
 

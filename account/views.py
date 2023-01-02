@@ -55,7 +55,6 @@ def register(request):
         email = request.POST["email"]
         password = request.POST["password"]
         confirm_password = request.POST["confirm_password"]
-        check_user = request.POST["check_user"]
 
         if password == confirm_password:
             if User.objects.filter(email=email).exists():
