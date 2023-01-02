@@ -56,9 +56,9 @@ class User(AbstractUser):
         
 
 
-@receiver(pre_delete, sender=User)
-def user_image_delete(sender, instance, **kwargs):
-    instance.file.delete(False)
+# @receiver(pre_delete, sender=User)
+# def user_image_delete(sender, instance, **kwargs):
+#     instance.file.delete(False)
 
 
 class UserSettings(models.Model):

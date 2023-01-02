@@ -1,5 +1,6 @@
 {% extends 'account/auth_base.html' %}
  {% load static %}
+ {% load widget_tweaks %} 
 {% block title %} Register | SplitUnity {% endblock title %} 
 {% block auth_main %}
 
@@ -12,35 +13,31 @@
     {% csrf_token %}
     <div class="login-form">
       <div class="form-group">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          class="form-control"
-        />
+        
+        {{form.username|attr:"type:text"|attr:"placeholder:Username"|add_class:"form-control"}}
       </div>
       <div class="form-group">
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          class="form-control"
-        />
+        
+        {{form.email|attr:"type:email"|attr:"placeholder:Email"|add_class:"form-control"}}
       </div>
       <div class="form-group">
-        <input
-          type="password"
-          name="confirm_password"
-          placeholder="Confirm Password"
-          class="form-control"
-        />
+       
+        {{form.password1|attr:"type:password"|attr:"placeholder:Password"|add_class:"form-control"}}
+      </div>
+      <div class="form-group">
+        
+        {{form.password2|attr:"type:password"|attr:"placeholder:Confirm Password"|add_class:"form-control"}}
       </div>
       <div class="form-group">
         <button type="submit" class="btn">SIGNUP</button>
       </div>
+      <hr>
+      <h3>OR</h3>
+      <hr>
     </div>
     <input type="hidden" value="1" />
   </form>
+  <button type="button" class="btn">{% if '/creator' in request.path %}<a href="{% url 'register' %}" style="color: black; text-decoration:none;"> SIGNUP AS USER </a>  {% else %}<a href="{% url 'creator_register' %}" style="color: black; text-decoration:none;"> SIGNUP AS CONTENT CREATOR </a>  {% endif %}</button>
 </div>
 
 {% endblock %}
