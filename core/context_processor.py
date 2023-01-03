@@ -35,6 +35,7 @@ def post_renderer(request):
     
     # most_recent_videos = Video.objects.order_by('-datetime')[:8]
     most_recent_channels = Channel.objects.exclude(user=request.user) if request.user.is_authenticated else None
+    # price_for_channel = Channel.objects.filter(price=34)
 
     channel = False
     if request.user.username != "":
