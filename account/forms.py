@@ -15,13 +15,13 @@ class UserSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         
-    def clean_password2(self):
-        # Check that the two password entries match
-        password = self.cleaned_data.get("password")
-        password2 = self.cleaned_data.get("password2")
-        if password and password2 and password != password2:
-            raise forms.ValidationError("Passwords don't match")
-        return password2
+    # def clean_password2(self):
+    #     # Check that the two password entries match
+    #     password = self.cleaned_data.get("password")
+    #     password2 = self.cleaned_data.get("password2")
+    #     if password and password2 and password != password2:
+    #         raise forms.ValidationError("Passwords don't match")
+    #     return password2
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -49,19 +49,19 @@ class CreatorSignUpForm(UserCreationForm):
     #     if User.objects.filter(username=username).exists():
     #         raise forms.ValidationError("Username has been taken")
         
-    def clean_password2(self):
-        # Check that the two password entries match
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Passwords don't match")
-        return password2
+    # def clean_password2(self):
+    #     # Check that the two password entries match
+    #     password1 = self.cleaned_data.get("password1")
+    #     password2 = self.cleaned_data.get("password2")
+    #     if password1 and password2 and password1 != password2:
+    #         raise forms.ValidationError("Passwords don't match")
+    #     return password2
     
 
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError("Email address has already been used!")
+    # def clean_email(self):
+    #     email = self.cleaned_data["email"]
+    #     if User.objects.filter(email=email).exists():
+    #         raise forms.ValidationError("Email address has already been used!")
 
     def save(self, commit=True):
         user = super().save(commit=False)

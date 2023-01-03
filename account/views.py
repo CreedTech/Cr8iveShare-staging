@@ -61,16 +61,23 @@ def register(request):
         form = UserSignUpForm(request.POST)
 
         if form.is_valid():
-            user = form.save()
-            email = form.cleaned_data['email']
-            username=form.cleaned_data['username']
-            password1 = form.cleaned_data['password1']
-            password2 = form.cleaned_data['password2']
-            auth.login(request, user)
-            messages.success(
-                request, 'Account created successfully, please complete your profile'
-            )
-            return redirect('users:edit_profile', user.slug)
+            if password1 == password2:
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, "Email address has already been used!")
+                    return redirect(request.META.get("HTTP_REFERER")) 
+                else:
+                    user = form.save()
+                    email = form.cleaned_data['email']
+                    username=form.cleaned_data['username']
+                    password1 = form.cleaned_data['password1']
+                    password2 = form.cleaned_data['password2']
+                    auth.login(request, user)
+                    messages.success(
+                        request, 'Account created successfully, please complete your profile'
+                    )
+                    return redirect('users:edit_profile', user.slug)
+            else:
+                messages.error(request, "Passwords do not match")
         else:
             messages.error(request, form.errors)
             context = {"form":form }
@@ -116,16 +123,23 @@ def creator_register(request):
         form = CreatorSignUpForm(request.POST)
 
         if form.is_valid():
-            user = form.save()
-            email = form.cleaned_data['email']
-            username=form.cleaned_data['username']
-            password1 = form.cleaned_data['password1']
-            password2 = form.cleaned_data['password2']
-            auth.login(request, user)
-            messages.success(
-                request, 'Account created successfully, please create your channel'
-            )
-            return render(request,'channel.html')
+            if password1 == password2:
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, "Email address has already been used!")
+                    return redirect(request.META.get("HTTP_REFERER")) 
+                else:
+                    user = form.save()
+                    email = form.cleaned_data['email']
+                    username=form.cleaned_data['username']
+                    password1 = form.cleaned_data['password1']
+                    password2 = form.cleaned_data['password2']
+                    auth.login(request, user)
+                    messages.success(
+                        request, 'Account created successfully, please create your channel'
+                    )
+                    return render(request,'channel.html')
+            else:
+                messages.error(request, "Passwords do not match")
         else:
             messages.error(request, form.errors)
             context = {"form":form }
