@@ -296,9 +296,14 @@ def contact(request):
     return render(request, template_name)
 
 @login_required()
-def membership(request):
+def membership(request, c_id):
     template_name = "membership.html"
-    return render(request, template_name)
+    user = request.user
+    channel = Channel.objects.get(id=c_id)
+    context = {
+         "channel": channel
+    }
+    return render(request, template_name, context)
 
 
 @login_required()
