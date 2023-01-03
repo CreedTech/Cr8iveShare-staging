@@ -36,7 +36,7 @@
     <!-- Display newsletter popup -->
     <!-- Open haru main -->
     <div class="membership">
-      <h2 class="select_payment">Select Payment Method</h2>
+      <h2 class="select_payment">Select Payment Method</h2> {{ channel.id }} || {{ channel.channel_name }}
       <script src="https://www.paypal.com/sdk/js?client-id=AUkO28R3bNvVvuPhDUPKcss2Aa5pUK5gGwzv-ICMJwMWC_FZ6l8Gx5-1bytwnkFECtbGYOHE9upVbBDn&currency=USD"></script>
       <div id="paypal-button-container"></div>
       <!-- Set up a container element for the button -->
@@ -64,7 +64,7 @@
           // const element = document.getElementById('paypal-button-container');
           // element.innerHTML = '<h3>Thank you for your payment!</h3>';
           // Or go to another URL:  actions.redirect('thank_you.html');
-          window.location.href = "{% url 'core:channel_subscribe' c_id=channel.id %}"
+          window.location.href = "{% url 'core:membership_subscribe' c_id=channel.id %}"
         });
       }
     }).render('#paypal-button-container');

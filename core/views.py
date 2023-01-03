@@ -500,8 +500,9 @@ def help(request):
     return render(request, "aboutUs.html", {})
 
 
+
 @login_required()
-def channel_subscribe(request, c_id):
+def membership_subscribe(request, c_id):
     user = request.user
     channel = Channel.objects.get(id=c_id)
     new_subscription = Channel_Subscription(user=user, channel=channel)
