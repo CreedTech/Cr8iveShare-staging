@@ -298,9 +298,15 @@ def contact(request):
     return render(request, template_name)
 
 @login_required()
-def membership(request):
+def membership(request,c_id):
     template_name = "membership.html"
-    return render(request, template_name)
+    user = request.user
+    channel = Channel.objects.get(id=c_id)
+    context = {
+        "channel": channel
+    }
+    
+    return render(request, template_name,context)
 
 
 @login_required()
@@ -497,8 +503,9 @@ def help(request):
     return render(request, "aboutUs.html", {})
 
 
+
 @login_required()
-def channel_subscribe(request, c_id):
+def membership_subscribe(request, c_id):
     user = request.user
     channel = Channel.objects.get(id=c_id)
     new_subscription = Channel_Subscription(user=user, channel=channel)
