@@ -286,27 +286,24 @@ def videos(request):
     return render(request, template_name, context)
 
 
-@login_required()
 def about(request):
     template_name = "about.html"
     return render(request, template_name)
 
 
-@login_required()
 def contact(request):
     template_name = "contact.html"
     return render(request, template_name)
 
 @login_required()
-def membership(request,c_id):
+def membership(request, c_id):
     template_name = "membership.html"
     user = request.user
     channel = Channel.objects.get(id=c_id)
     context = {
-        "channel": channel
+         "channel": channel
     }
-    
-    return render(request, template_name,context)
+    return render(request, template_name, context)
 
 
 @login_required()
@@ -576,7 +573,7 @@ def channels_list(request):
 
     return render(request, 'channels_list.html', context)
 
-def error_404_view(request, exception):
+def error_404(request, exception):
    
     # we add the path to the the 404.html file
     # here. The name of our HTML file is 404.html

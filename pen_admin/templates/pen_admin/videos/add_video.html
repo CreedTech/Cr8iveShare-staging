@@ -1,0 +1,60 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block stylesheets %} {% endblock stylesheets %}
+{% block title %}video || SplitUnity {% endblock title %}
+{% block content %}
+
+<h5 class="text-center text-myprimary mt-4">Add Video</h5>
+
+{% include 'partials/messages.html' %}
+
+<div class="container-fluid px-md-5 mt-3 mb-5">
+
+  <form class="row gx-4" url="{% url 'pen_admin:add_video' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6 col-sm-10 col-12 mx-auto">
+      <div class="bg-white mx-auto p-3 mt-4 rounded-md my-shadow">
+        <!-- Video Name -->
+        <div class="border p-3 mb-3 rounded">
+          <label for="" class="form-label text-black">Video Title</label>
+          {{add_video_form.title}}
+        </div>
+
+        <!-- Description -->
+        <div class="border p-3 mb-3 rounded">
+          <label for="" class="form-label text-black">Video Description</label>
+          {{add_video_form.description}}
+        </div>
+
+        <!-- Vin No -->
+        <div class="border p-3 mb-3 rounded">
+          <label for="" class="form-label text-black"> Video File</label>
+          {{add_video_form.file}}
+        </div>
+
+        <!-- Features -->
+        <div class="border p-3 mb-3 rounded">
+          <label for="" class="form-label text-black">Video Banner</label>
+          {{add_video_form.banner}}
+        </div>
+        <div class="border p-3 mb-3 rounded">
+          <label for="" class="form-label text-black">Video Catego</label>
+          {{add_video_form.category}}
+        </div>
+      </div>
+      <div class="w-fit ms-auto mt-4">
+        <button type="submit" class="btn btn-success btn-sm font-medium">
+          Add video
+        </button>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>
+
+{% endblock %}

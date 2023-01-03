@@ -51,5 +51,8 @@ class NewVideoForm(forms.Form):
 class ChannelForm(forms.Form):
     channel_name = forms.CharField(max_length=50, label='Channel Name')
     channel_image = forms.ImageField(max_length=50)
+    channel_price = forms.CharField(
+        widget=forms.NumberInput()
+    )
     # username = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     # suscribers = models.IntegerField(default=0, blank=False, null=False)
