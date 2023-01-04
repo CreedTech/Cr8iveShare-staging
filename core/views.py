@@ -295,13 +295,14 @@ def contact(request):
     template_name = "contact.html"
     return render(request, template_name)
 
+
 @login_required()
 def membership(request, c_id):
     template_name = "membership.html"
     user = request.user
     channel = Channel.objects.get(id=c_id)
     context = {
-         "channel": channel
+        "channel": channel
     }
     return render(request, template_name, context)
 
@@ -416,7 +417,7 @@ def video_unlike(request, v_id, u_id):
     user = User.objects.get(id=u_id)
     like = Like.objects.get(user=user, video=video)
     like.delete()
-    
+
     return HttpResponseRedirect('/video/{}/{}/'.format(str(v_id), str(0)))
 
 
@@ -500,7 +501,6 @@ def help(request):
     return render(request, "aboutUs.html", {})
 
 
-
 @login_required()
 def membership_subscribe(request, c_id):
     user = request.user
@@ -573,8 +573,9 @@ def channels_list(request):
 
     return render(request, 'channels_list.html', context)
 
+
 def error_404(request, exception):
-   
+
     # we add the path to the the 404.html file
     # here. The name of our HTML file is 404.html
     return render(request, '404.html')
