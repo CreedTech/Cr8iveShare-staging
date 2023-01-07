@@ -28,8 +28,8 @@
 	background-color: #08a1dc;
     border: none;
     border-radius: 3px;
-    font-size: 13px;
-    width: 50%;
+    font-size: .7rem;
+    /* width: 50%; */
     outline: 0!important;
     color: white;
 }
@@ -42,7 +42,7 @@
     border: none;
     border-radius: 3px;
     font-size: 13px;
-    width: 50%;
+    /* width: 50%; */
     outline: 0!important;
     box-shadow: none;
 }

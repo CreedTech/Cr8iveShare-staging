@@ -98,6 +98,7 @@
           </div>
           <div class="header-elements-item">
             <div class="">
+              {% if user.is_authenticated %}
               <a href="{% url 'users:profile' request.user.slug %}" class="">
                 <span class="">
                   {% if request.user.profile_picture %}
@@ -112,6 +113,7 @@
                   <span class="watch-later-status"></span>
                 </span>
               </a>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -460,6 +462,7 @@
             </div>
             <div class="header-elements-item">
               <div class="">
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'users:profile' request.user.slug %}" class="">
                   <span class="">
                     {% if request.user.profile_picture %}
@@ -474,6 +477,7 @@
                     <span class="watch-later-status"></span>
                   </span>
                 </a>
+                {% endif %}
               </div>
             </div>
           </div>

@@ -1,0 +1,321 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<!-- Open HTML -->
+<html lang="en-US">
+<!-- Open Head -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- /Added by HTTrack -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        document.documentElement.className =
+            document.documentElement.className + ' yes-js js_active js';
+    </script>
+    <title>SplitUnity | Videos </title>
+    {% include "links.html" %}
+</head>
+
+<!-- Close Head -->
+
+<body
+    class="bp-legacy archive tax-video_category term-fashion term-61 theme-vidio woocommerce-no-js youzify-blue-scheme not-logged-in layout-wide hfeed header-vertical-bar wpb-js-composer js-comp-ver-6.7.0 vc_responsive no-js"
+  >
+    <!-- Display newsletter popup -->
+    <!-- Open haru main -->
+    <div id="haru-main">
+        {% include "navbar.html" %}
+        <!-- Open HARU Content Main -->
+        {% include 'messages.html' %}
+
+        <div id="haru-content-main" class="clearfix">
+            <div class="haru-archive-breadcrumbs">
+              <div class="haru-container">
+                <ul
+                  class="haru-breadcrumb"
+                >
+                  <li
+                  >
+                    <a itemprop="item" href="{% url 'core:index' %}"
+                      ><span itemprop="name">Home</span></a
+                    ><meta itemprop="position" content="0" />
+                  </li>
+                  <span class="delimiter"> &raquo; </span>
+                  <li
+                  >
+                    <span itemprop="name" class="current"
+                      >Video Categories: {{cat.name}}</span
+                    ><meta itemprop="position" content="2" />
+                  </li>
+                </ul>
+                <!-- .breadcrumbs -->
+              </div>
+            </div>
+            <div class="haru-archive-video haru-container">
+              <!-- Content -->
+              <div class="archive-content has-right-sidebar">
+                <div class="haru-archive-top">
+                  <div class="haru-archive-top-left">
+                    <h6 class="archive-video__title">
+                      Has total
+                      <span class="archive-video__total-count">10 videos</span>
+                    </h6>
+                  </div>
+                  <div class="haru-archive-top-right">
+                    <div class="haru-archive-layout-toggle">
+                      <a
+                        href="javascript:;"
+                        class="toggle-layout active"
+                        data-layout="grid"
+                        >Grid<i class="haru-icon haru-grid"></i
+                      ></a>
+                      <a
+                        href="javascript:;"
+                        class="toggle-layout"
+                        data-layout="list"
+                        >List<i class="haru-icon haru-list-small"></i
+                      ></a>
+                      <a
+                        href="javascript:;"
+                        class="toggle-layout"
+                        data-layout="list-2"
+                        >List 2<i class="haru-icon haru-list-small"></i
+                      ></a>
+                    </div>
+                    <div class="haru-archive-order">
+                      <div class="order-item-current">Date</div>
+                      <ul class="order-items">
+                        <li class="order-item selected">
+                          <a
+                            href="index6b18.html?video_category=fashion&amp;paged=1&amp;orderby=date"
+                            >Date</a
+                          >
+                        </li>
+                        <li class="order-item">
+                          <a
+                            href="index5c79.html?video_category=fashion&amp;paged=1&amp;orderby=title"
+                            >Title</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+    
+                <div
+                  class="archive-video-list layout-wrap style-grid grid-columns grid-columns__3"
+                >
+                {% for v in videos  %}
+                  <article
+                    class="grid-item video-item video-129 fashion game harutheme default"
+                  >
+                    <div class="video-item__thumbnail">
+                      <a
+                        href="/v/{{ v.id }}/{{ 1 }}/"
+                      >
+                        <div
+                          class="video-thumbnail image default"
+                          data-speed="1000"
+                        >
+                          <img
+                            src="{{ v.banner.url }}"
+                            alt="{{ video.title }}"
+                          />
+                        </div>
+                      </a>
+                      <div class="video-item__icon">
+                        <a
+                          href="/v/{{ v.id }}/{{ 1 }}/"
+                          class="video-item-player-direct"
+                        >
+                          <i class="haru-icon haru-play"></i>
+                        </a>
+                      </div>
+    
+                     
+                    </div>
+                    <div class="video-item__content">
+                      
+                      <h6 class="video-item__title">
+                        <a
+                          href="/v/{{ v.id }}/{{ 1 }}/"
+                          >{{ v.title }}</a
+                        >
+                      </h6>
+                      <div class="video-item__meta">
+                        <div class="video-item__author">
+                          <i class="fa fa-user"></i>
+                          <a href="/{{ v.user.username }}/channel">{{ v.user.username }}</a>
+                        </div>
+                        <div class="video-item__date">
+                          <i class="fa fa-calendar"></i>{{v.datetime}}
+                        </div>
+                        <div class="video-item__like">
+                          <div class="post-like">
+                            <span class="post-vote-label">like</span>
+                            <i class="haru-icon haru-like"></i>
+                            <span class="post-like-count">2.151K</span>
+                            <span class="post-like-unit"> likes</span>
+                          </div>
+                        </div>
+                        <div class="video-item__dislike">
+                          <div class="post-dislike">
+                            <span class="post-vote-label">dislike</span>
+                            <i class="haru-icon haru-dislike"></i>
+                            <span class="post-dislike-count">150</span>
+                            <span class="post-dislike-unit"> dislikes</span>
+                          </div>
+                        </div>
+                        <div class="video-item__view">
+                          <div class="post-views-count">
+                            <span class="post-views-label">views</span>
+                            <i class="fa fa-eye"></i>
+                            <span class="post-view-count">{{v.number_of_views}}</span>
+                            <span class="post-view-unit"> views</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="video-item__desc">
+                        {{v.description|truncatewords:35}}
+                      </div>
+                    </div>
+                  </article>
+                  {% endfor %}
+                </div>
+    
+                
+              </div>
+              <!-- Sidebar -->
+              <div class="archive-sidebar right-sidebar">
+                <aside
+                  id="haru_widget_video_search-3"
+                  class="widget widget-video-search"
+                >
+                  <h4 class="widget-title"><span>Video search</span></h4>
+                  <form
+                    role="search"
+                    method="get"
+                    class="haru-video-search search-form default"
+                    action="https://demo.harutheme.com/vidio/"
+                  >
+                    <label for="haru-video-search-field-3">
+                      <span class="screen-reader-text">Search for:</span>
+                      <input
+                        type="search"
+                        id="haru-video-search-field-3"
+                        class="search-field"
+                        placeholder="Search videos&hellip;"
+                        value=""
+                        name="s"
+                      />
+                    </label>
+                    <button type="submit" class="search-submit" value="Search">
+                      <span>Search</span>
+                    </button>
+                    <input type="hidden" name="post_type" value="haru_video" />
+                  </form>
+                </aside>
+                <aside
+                  id="haru_widget_video_categories-3"
+                  class="widget widget-video-categories"
+                >
+                  <h4 class="widget-title"><span>Video Categories</span></h4>
+                  <ul class="video-categories default">
+                    {% for cat , count in cat_count %}
+                    <li class="cat-item cat-item-61">
+                      <a href="{% url 'core:Video' cat.slug %}">{{cat.name}}</a>
+                      <span class="count"><span class="list-count">{{count}}</span></span>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </aside>
+                <aside
+                  id="haru_widget_video_videos-5"
+                  class="widget widget-video-videos"
+                >
+                  <h4 class="widget-title"><span>Latest Videos</span></h4>
+                  <ul class="videos-list default">
+                    {% if latest_videos %}
+                             {% for video in latest_videos %}
+                    <li class="video-item clearfix">
+                      <div class="video-item__thumbnail">
+                        <a href="/video/{{ video.id }}/{{ 1 }}/"
+                          ><img
+                            width="150"
+                            height="150"
+                            src="{{ video.banner.url }}"
+                            class="attachment-thumbnail size-thumbnail wp-post-image"
+                            alt=""
+                            loading="lazy"
+                            title="{{ video.title }}"
+                        /></a>
+                      </div>
+                      <div class="video-item__content">
+                        <h6 class="video-item__title">
+                          <a
+                            href="/video/{{ video.id }}/{{ 1 }}/"
+                            title="{{ video.title }}"
+                            >{{ video.title }}</a
+                          >
+                        </h6>
+                        <div class="video-item__meta">
+                          <div class="video-item__author">
+                            <i class="fa fa-user"></i
+                            ><a href="/{{ video.user.username }}/channel">{{ video.user.username }}</a>
+                          </div>
+                          <div class="video-item__view">
+                            <div class="post-views-count">
+                              <span class="post-views-label">views</span>
+                              <i class="fa fa-eye"></i>
+                              <span class="post-view-count">{{video.number_of_views}}</span>
+                              <span class="post-view-unit"> views</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <p style="text-align: center;">No Videos for now</p>
+                    {% endif %}
+                  </ul>
+                </aside>
+              </div>
+            </div>
+          </div>
+
+        {% include "footer.html" %}
+    </div>
+    <!-- Close haru main -->
+    <a class="back-to-top" href="javascript:;">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+    <div class="haru-ajax-overflow">
+        <div class="haru-ajax-loading">
+            <div class="loading-wrapper">
+                <div class="spinner" id="spinner_one"></div>
+                <div class="spinner" id="spinner_two"></div>
+                <div class="spinner" id="spinner_three"></div>
+                <div class="spinner" id="spinner_four"></div>
+                <div class="spinner" id="spinner_five"></div>
+                <div class="spinner" id="spinner_six"></div>
+                <div class="spinner" id="spinner_seven"></div>
+                <div class="spinner" id="spinner_eight"></div>
+            </div>
+        </div>
+    </div>
+    <div class="haru-lightbox-overlay"></div>
+    <div class="haru-lightbox">
+        <div class="close-lightbox"><i class="haru-icon haru-times"></i></div>
+    </div>
+    <!-- Memberships powered by Paid Memberships Pro v2.5.10.1.
+ -->
+
+    {% include "scripts.html" %}
+</body>
+
+
+</html>

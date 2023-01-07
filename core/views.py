@@ -176,9 +176,12 @@ def CategoryView(request, slug):
     template_name = 'video_category.html'
     category = get_object_or_404(Category, slug=slug)
     videos = Video.objects.filter(category__slug=slug)
+    latest_videos = Video.objects.order_by('-datetime')[:5]
+    print(videos)
     context = {
         'videos': videos,
         'cat': category,
+        'latest_videos': latest_videos
     }
     return render(request, template_name, context)
 
@@ -278,7 +281,7 @@ class CommentView(LoginRequiredMixin, View):
 def videos(request):
     template_name = "videos.html"
     videos = Video.objects.all()
-    latest_videos = Video.objects.order_by('-datetime')[:8]
+    latest_videos = Video.objects.order_by('-datetime')[:5]
     context = {
         'videos': videos,
         'latest_videos': latest_videos
