@@ -157,6 +157,3 @@ def user_logout(request):
     logout(request)    
     messages.success(request, "See you soon! 👋")
     return redirect(request.META.get("HTTP_REFERER"))    
-
-def forgot_password(request):
-    return render(request, 'account/forgot_password.html')

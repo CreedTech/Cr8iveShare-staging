@@ -142,8 +142,8 @@
                             </div>
                             <div class="video-top-content">
 
-                              {% if most_recent_videos %}
-                              {% for video in most_recent_videos %}
+                              {% if home_side_videos %}
+                              {% for video in home_side_videos %}
                               <article class="grid-item video-item video-1019 vidio  default">
                                 <div class="video-item__thumbnail">
                                   <a href="/video/{{ video.id }}/{{ 1 }}/">
@@ -157,12 +157,12 @@
                                       <i class="haru-icon haru-play"></i>
                                     </a>
                                   </div>
-                                  <div class="toolbar-action toolbar-action--background video-watch-later "
+                                  <!-- <div class="toolbar-action toolbar-action--background video-watch-later "
                                     data-id="1019" data-title="{{ video.title }}"
                                     data-permalink="/video/{{ video.id }}/{{ 1 }}/" data-thumb="{{video.banner.url}}">
                                     <i class="haru-icon haru-clock"></i>
                                     Watch Later
-                                  </div>
+                                  </div> -->
 
                                 </div>
                                 <div class="video-item__content">
@@ -238,8 +238,8 @@
                               <div class="loading-bar"></div>
                             </div>
                             <div class="author-top-content">
-                              {% if most_recent_channels %}
-                              {% for channels in most_recent_channels %}
+                              {% if footer_channels %}
+                              {% for channels in footer_channels %}
                               <article class="grid-item author-item default">
                                 <div class="author-item__thumbnail">
                                   <a href="/{{ channels.user.username }}/channel">

@@ -32,9 +32,13 @@ def post_renderer(request):
 
     category_count = zip(category, counts)
     most_recent_videos = Video.objects.order_by('-datetime')[:8]
+    home_side_videos = Video.objects.order_by('?')[:3]
+    home_carousel_videos = Video.objects.order_by('?')[:8]
+    top_videos = Video.objects.order_by('-number_of_views')[:4]
     
     # most_recent_videos = Video.objects.order_by('-datetime')[:8]
-    most_recent_channels = Channel.objects.exclude(user=request.user) if request.user.is_authenticated else None
+    most_recent_channels = Channel.objects.exclude(user=request.user)[:2] if request.user.is_authenticated else None
+    footer_channels = Channel.objects.exclude(user=request.user)[:3] if request.user.is_authenticated else None
     # price_for_channel = Channel.objects.filter(price=34)
 
     channel = False
@@ -66,12 +70,16 @@ def post_renderer(request):
         'cat_count': category_count,
         'channel_count': channel_count,
         'most_recent_videos': most_recent_videos,
+        'home_side_videos': home_side_videos,
+        'home_carousel_videos': home_carousel_videos,
+        'top_videos': top_videos,
         'user_videos_length': user_videos_length,
         'all_videos_length': all_videos_length,
         'user_comment_length': user_comment_length,
         'user_video_views_length': user_video_views_length,
         # 'user_object': user_object,
         'most_recent_channels': most_recent_channels,
+        'footer_channels': footer_channels,
         'channel': channel
         # 'posts': post,
     }

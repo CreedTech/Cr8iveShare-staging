@@ -8,6 +8,7 @@ media
 *.env
 *.splitEnv
 media_root
+staticfiles
 
 # Accept these files in the repository
 !.gitignore

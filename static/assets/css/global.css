@@ -306,7 +306,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none !importa
       rgba(0, 0, 0, 0.6) 20%,
       rgba(0, 0, 0, 0.6) 80%
     ),
-    url("/static/img/page-intro.jpg");
 }
 
 .login-bg {
@@ -318,7 +317,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none !importa
       rgba(0, 0, 0, 0.8) 50%,
       rgba(0, 0, 0, 0.8) 50%
     ),
-    url("/static/img/page-intro.jpg");
 }
 .sign-up-btn {
   transition: all 0.3s ease-in-out;

@@ -197,7 +197,7 @@
           {% endif %} 
          {% endif %}
 
-         {% if request.user.is_authenticated %}
+         {% if request.user.is_authenticated and user.is_staff %}
                  {% if channel %}
           <li
             id="menu-item-mobile-2423"
@@ -396,7 +396,7 @@
                     role="search"
                     method="get"
                     class="haru-video-search search-form"
-                    action="https://demo.harutheme.com/cr8iveshare/"
+                    action=""
                   >
                     <label for="haru-video-search-field-1">
                       <span class="screen-reader-text">Search for:</span>
@@ -554,7 +554,7 @@
             </div>
           </div>
           
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated and user.is_staff %}
            {% if channel %}
           <div class="header-elements d-flex align-self-center">
             <div class="header-elements header-elements-nav">

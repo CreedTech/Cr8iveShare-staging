@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.humanize",
-    "froala_editor",
     'django_cleanup.apps.CleanupConfig',
     'widget_tweaks',
     'crispy_forms',

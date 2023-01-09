@@ -186,13 +186,13 @@
                                     {% endif %}
 
                                     </div>
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
+                                    <!-- <div class="toolbar-action toolbar-action--background video-watch-later "
                                         data-id="96" data-title="{{ video.title }}"
                                         data-permalink="index.html"
                                         data-thumb="{{video.banner.url}}">
                                         <i class="haru-icon haru-clock"></i>
                                         Watch Later
-                                    </div>
+                                    </div> -->
 
 
                                     <div class="toolbar-action toolbar-action--background video-turn-off-light"><i
@@ -280,14 +280,14 @@
                             <div class="video-item__thumbnail">
                                 <a href="/video/{{ recent_video.id }}/{{ 1 }}/">
                                     <img src="{{recent_video.banner.url}}"
-                                        alt="Bali, abseits des Massentourismus Teil">
-                                    <div class="toolbar-action toolbar-action--background video-watch-later "
+                                        alt="{{ recent_video.title }}">
+                                    <!-- <div class="toolbar-action toolbar-action--background video-watch-later "
                                         data-id="96" data-title="{{ recent_video.title }}"
                                         data-permalink="/video/{{ recent_video.id }}/{{ 1 }}/"
                                         data-thumb="{{recent_video.banner.url}}">
                                         <i class="haru-icon haru-clock"></i>
                                         Watch Later
-                                    </div>
+                                    </div> -->
 
                                 </a>
                             </div>
