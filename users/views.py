@@ -55,7 +55,7 @@ def delete_account(request, slug):
    user.is_active = False
    user.save()
    messages.success(request, "Account deleted successfully! 👋")
-   return redirect('logout')
+   return redirect('/')
 
 
 def author_external(request, slug):   

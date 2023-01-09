@@ -51,6 +51,7 @@ urlpatterns = [
          views.channel_unsubscribe, name='channel_unsubscribe'),
     path('subscriptions/', views.subscriptions, name='subscriptions'),
     path('channels_list/', views.channels_list, name='channels_list'),
+    path('search/', views.search, name="search"),
     # path('signup', signup, name='signup'),
     # path('signin', signin, name='signin'),
     # path('logout', logout, name='logout'),

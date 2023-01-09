@@ -28,28 +28,28 @@
                 id="video-search-popup-0"
                 class="video-search-popup white-popup mfp-hide mfp-with-anim"
               >
-                <form
-                  role="search"
-                  method="get"
-                  class="haru-video-search search-form"
-                  action=""
-                >
-                  <label for="haru-video-search-field-0">
-                    <span class="screen-reader-text">Search for:</span>
-                    <input
-                      type="search"
-                      id="haru-video-search-field-0"
-                      class="search-field"
-                      placeholder="Search videos&hellip;"
-                      value=""
-                      name="s"
-                    />
-                  </label>
-                  <button type="submit" class="search-submit" value="Search">
-                    <span>Search</span>
-                  </button>
-                  <input type="hidden" name="post_type" value="haru_video" />
-                </form>
+              <form
+              role="search"
+              method="get"
+              class="haru-video-search search-form"
+              action="{% url 'core:search' %}"
+            >
+              <label for="haru-video-search-field-1">
+                <span class="screen-reader-text">Search for:</span>
+                <input
+                  type="search"
+                  id="haru-video-search-field-1"
+                  class="search-field"
+                  placeholder="Search videos&hellip;"
+                  name="q"
+                  value={{querystring}}
+                />
+              </label>
+              <button type="submit" class="search-submit" value="Search">
+                <span>Search</span>
+              </button>
+              <input type="hidden" name="{{querystring}}" value="haru_video" />
+            </form>
               </div>
             </div>
           </div>
@@ -396,7 +396,7 @@
                     role="search"
                     method="get"
                     class="haru-video-search search-form"
-                    action=""
+                    action="{% url 'core:search' %}"
                   >
                     <label for="haru-video-search-field-1">
                       <span class="screen-reader-text">Search for:</span>
@@ -405,14 +405,14 @@
                         id="haru-video-search-field-1"
                         class="search-field"
                         placeholder="Search videos&hellip;"
-                        value=""
-                        name="s"
+                        name="q"
+                        value={{querystring}}
                       />
                     </label>
                     <button type="submit" class="search-submit" value="Search">
                       <span>Search</span>
                     </button>
-                    <input type="hidden" name="post_type" value="haru_video" />
+                    <input type="hidden" name="{{querystring}}" value="haru_video" />
                   </form>
                 </div>
               </div>

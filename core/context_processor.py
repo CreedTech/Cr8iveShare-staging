@@ -23,6 +23,7 @@ def post_renderer(request):
     user_comment_length = len(comments)
     user_video_views_length = len(number_of_views)
     you_may_also_like_videos = Video.objects.all().order_by("-datetime")[:8]
+    latest_videos = Video.objects.order_by('-datetime')[:5]
     # user_object = User.objects.get(username=user.username)
     # video_file = request.FILES.get('video')
     counts = []
@@ -80,7 +81,8 @@ def post_renderer(request):
         # 'user_object': user_object,
         'most_recent_channels': most_recent_channels,
         'footer_channels': footer_channels,
-        'channel': channel
+        'channel': channel,
+        "latest_videos": latest_videos,
         # 'posts': post,
     }
 

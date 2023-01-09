@@ -47,7 +47,7 @@
                   <li
                   >
                     <span itemprop="name" class="current"
-                      >Video Categories: {{cat.name}}</span
+                      >Search Results for: {{querystring}}</span
                     ><meta itemprop="position" content="2" />
                   </li>
                 </ul>
@@ -60,7 +60,7 @@
                 <div class="haru-archive-top">
                   <div class="haru-archive-top-left">
                     <h6 class="archive-video__title">
-                      {{cat.name}}
+                      Results Containing {{querystring}}
                     </h6>
                   </div>
                   <div class="haru-archive-top-right">
@@ -107,27 +107,27 @@
                 <div
                   class="archive-video-list layout-wrap style-grid grid-columns grid-columns__3"
                 >
-                {% for v in videos  %}
+                {% for video in videos  %}
                   <article
                     class="grid-item video-item video-129 fashion game harutheme default"
                   >
                     <div class="video-item__thumbnail">
                       <a
-                        href="/v/{{ v.id }}/{{ 1 }}/"
+                        href="/video/{{ video.id }}/{{ 1 }}/"
                       >
                         <div
                           class="video-thumbnail image default"
                           data-speed="1000"
                         >
                           <img
-                            src="{{ v.banner.url }}"
+                            src="{{ video.banner.url }}"
                             alt="{{ video.title }}"
                           />
                         </div>
                       </a>
                       <div class="video-item__icon">
                         <a
-                          href="/v/{{ v.id }}/{{ 1 }}/"
+                          href="/video/{{ video.id }}/{{ 1 }}/"
                           class="video-item-player-direct"
                         >
                           <i class="haru-icon haru-play"></i>
@@ -140,45 +140,29 @@
                       
                       <h6 class="video-item__title">
                         <a
-                          href="/v/{{ v.id }}/{{ 1 }}/"
-                          >{{ v.title }}</a
+                          href="/video/{{ video.id }}/{{ 1 }}/"
+                          >{{ video.title }}</a
                         >
                       </h6>
                       <div class="video-item__meta">
                         <div class="video-item__author">
                           <i class="fa fa-user"></i>
-                          <a href="/{{ v.user.username }}/channel">{{ v.user.username }}</a>
+                          <a href="/{{ video.user.username }}/channel">{{ video.user.username }}</a>
                         </div>
                         <div class="video-item__date">
-                          <i class="fa fa-calendar"></i>{{v.datetime}}
-                        </div>
-                        <div class="video-item__like">
-                          <div class="post-like">
-                            <span class="post-vote-label">like</span>
-                            <i class="haru-icon haru-like"></i>
-                            <span class="post-like-count">2.151K</span>
-                            <span class="post-like-unit"> likes</span>
-                          </div>
-                        </div>
-                        <div class="video-item__dislike">
-                          <div class="post-dislike">
-                            <span class="post-vote-label">dislike</span>
-                            <i class="haru-icon haru-dislike"></i>
-                            <span class="post-dislike-count">150</span>
-                            <span class="post-dislike-unit"> dislikes</span>
-                          </div>
+                          <i class="fa fa-calendar"></i>{{video.datetime}}
                         </div>
                         <div class="video-item__view">
                           <div class="post-views-count">
                             <span class="post-views-label">views</span>
                             <i class="fa fa-eye"></i>
-                            <span class="post-view-count">{{v.number_of_views}}</span>
+                            <span class="post-view-count">{{video.number_of_views}}</span>
                             <span class="post-view-unit"> views</span>
                           </div>
                         </div>
                       </div>
                       <div class="video-item__desc">
-                        {{v.description|truncatewords:35}}
+                        {{video.description|truncatewords:35}}
                       </div>
                     </div>
                   </article>

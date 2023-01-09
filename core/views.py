@@ -10,9 +10,11 @@ from itertools import chain
 import string
 import random
 from django.core.files.storage import FileSystemStorage
+from django.contrib import messages
 import os
 from wsgiref.util import FileWrapper
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 # from .models import Profile
 # Create your views here.
 
@@ -71,9 +73,10 @@ class CreateChannelView(LoginRequiredMixin, View):
             print(form.cleaned_data['channel_name'])
             channel_name = form.cleaned_data['channel_name']
             channel_image = form.cleaned_data['channel_image']
+            channel_price = form.cleaned_data['channel_price']
             user = request.user
             subscribers = 0
-            new_channel = Channel(channel_name=channel_name, channel_image=channel_image,
+            new_channel = Channel(channel_name=channel_name, channel_image=channel_image, channel_price=channel_price,
                                   user=user, subscribers=subscribers)
             new_channel.save()
             return HttpResponseRedirect('/')
@@ -582,3 +585,25 @@ def error_404(request, exception):
     # we add the path to the the 404.html file
     # here. The name of our HTML file is 404.html
     return render(request, '404.html')
+
+
+def search(request):
+    if 'q' in request.GET:
+        querystring = request.GET['q']
+        if querystring:
+            videos = Video.objects.filter(
+                Q(title__icontains=querystring) |
+                Q(description__icontains=querystring)
+            )
+            context = {
+                'querystring': querystring,
+                'videos': videos
+            }
+            return render(request, 'search_results.html', context)
+        else:
+            messages.error(request, 'Please enter a search item!')
+            return redirect(request.META.get("HTTP_REFERER"))
+
+    else:
+        messages.error(request, 'Please enter a search item!')
+        return render(request, 'search_results.html')
