@@ -70,32 +70,7 @@
               </div>
             </div>
           </div>
-          <div class="header-elements-item">
-            <div class="watch-later-element">
-              <a href="javascript:;" class="watch-later-page-link">
-                <span class="watch-later-icon">
-                  <i class="haru-icon haru-clock-o"></i>
-                  <span class="watch-later-status"></span>
-                </span>
-              </a>
-              <ul class="haru-watch-later-list">
-                <li class="haru-watch-later-videos empty-video"></li>
-                <li class="haru-watch-later-empty-video">
-                  <i class="haru-icon haru-file-video"></i>
-                  <div class="watch-later-empty-message">
-                    An empty videos list!
-                  </div>
-                </li>
-                <li class="haru-watch-later-view-all">
-                  <a
-                    href="{% url 'core:videos' %}"
-                    class="haru-button haru-button-default"
-                    >View all videos</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
+          
           <div class="header-elements-item">
             <div class="">
               {% if user.is_authenticated %}
@@ -434,32 +409,7 @@
                 </div>
               </div>
             </div>
-            <div class="header-elements-item">
-              <div class="watch-later-element">
-                <a href="javascript:;" class="watch-later-page-link">
-                  <span class="watch-later-icon">
-                    <i class="haru-icon haru-clock-o"></i>
-                    <span class="watch-later-status"></span>
-                  </span>
-                </a>
-                <ul class="haru-watch-later-list">
-                  <li class="haru-watch-later-videos empty-video"></li>
-                  <li class="haru-watch-later-empty-video">
-                    <i class="haru-icon haru-file-video"></i>
-                    <div class="watch-later-empty-message">
-                      An empty videos list!
-                    </div>
-                  </li>
-                  <li class="haru-watch-later-view-all">
-                    <a
-                      href="{% url 'core:videos' %}"
-                      class="haru-button haru-button-default"
-                      >View all videos</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
+            
             <div class="header-elements-item">
               <div class="">
                 {% if request.user.is_authenticated %}

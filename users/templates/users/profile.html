@@ -89,36 +89,7 @@
 
 
       <div id="haru-content-main" class="clearfix">
-         <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-               <a class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
-                     <path
-                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
-                     </path>
-                  </svg>
-               </a>
-               <div class="d-grid justify-content-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="50" height="50" fill="#dc2626"
-                     viewBox="0 0 24 24">
-                     <path
-                        d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z">
-                     </path>
-                     <path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path>
-                  </svg>
-                  <h4 class="text-center mt-3">Are you sure you want to delete your account?</h4>
-               </div>
-               <div class="modal-footer border-0 mb-3 d-flex justify-content-center">
-                  <a href="{% url 'users:delete_account' request.user.slug %}" class="button-background button-background--primary button-background--medium">
-                     Yes
-                  </a>
-                  <a href="" style="padding-left: 2rem; text-align:center;">No</a>
-               </div>
-            </div>
-
-         </div>
+       
          <div id="youzify">
             <div id="youzify-bp"
                class="youzify noLightbox youzify-page youzify-profile youzify-horizontal-layout youzify-wild-content youzify-tabs-list-gradient youzify-wg-border-radius youzify-page-btns-border-oval">
@@ -348,14 +319,6 @@
                               </div>
                               {% endif %}
                               
-                           </div>
-                           <div class="youzify-widget-main-content">
-
-                              <div class="youzify-widget-content" style="background-color: red !important;">
-                                 <a data-show-youzify-login="true" id="myBtn" class="youzify-profile-login" style="background-color: red !important; background-image:none ! important"><i
-                                       class="fas fa-trash"></i>Delete profile</a>
-                              </div>
-
                            </div>
 
                         </div>
