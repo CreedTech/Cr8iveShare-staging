@@ -60,6 +60,10 @@ class PageContents(models.Model):
         max_length=200, default='https://google.com')
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = ("PageContent")
+        verbose_name_plural = ("PageContents")
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -169,3 +173,85 @@ class Channel_Subscription(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
+
+
+class About(models.Model):
+    heading = models.CharField(max_length=100, null=True, blank=True,
+                               default="Lorem ipsum dolor sit amet, consectetur adip")
+    description = models.CharField(max_length=700, null=True, blank=True,
+                                   default="Lorem ipsum dolor sit amet, consectetur adip dolor sit amet dolore magna aliquet dolore magna aliquet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum d lorem ipsum dolor sit amet lorem ipsum d")
+    user_image_1 = models.ImageField(
+        upload_to='about_images', null=True, blank=True, default='/static/1600x900.png')
+    user_image_2 = models.ImageField(
+        upload_to='about_images', null=True, blank=True, default='/static/1600x900.png')
+    user_image_3 = models.ImageField(
+        upload_to='about_images', null=True, blank=True, default='/static/1600x900.png')
+    user_name_1 = models.CharField(max_length=20, null=True, blank=True)
+    user_name_2 = models.CharField(max_length=20, null=True, blank=True)
+    user_name_3 = models.CharField(max_length=20, null=True, blank=True)
+    user_occupation_1 = models.CharField(max_length=50, null=True, blank=True)
+    user_occupation_2 = models.CharField(max_length=50, null=True, blank=True)
+    user_occupation_3 = models.CharField(max_length=50, null=True, blank=True)
+    user_social_media_link_1_facebook = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_1_twitter = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_1_instagram = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_2_facebook = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_2_twitter = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_2_instagram = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_3_facebook = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_3_twitter = models.URLField(
+        max_length=200, default='https://google.com')
+    user_social_media_link_3_instagram = models.URLField(
+        max_length=200, default='https://google.com')
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.heading
+
+    class Meta:
+        verbose_name = 'About'
+        verbose_name_plural = 'Abouts'
+
+
+class ContactInfo(models.Model):
+    '''Model definition for ContactInfo.'''
+    address = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    second_email = models.EmailField(max_length=50)
+    phone_number = models.CharField(max_length=30)
+    second_phone_number = models.CharField(max_length=30)
+    updated = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        '''Meta definition for ContactInfo.'''
+
+        verbose_name = 'ContactInfo'
+        verbose_name_plural = 'ContactInfos'
+
+    def __str__(self):
+        return f'{self.email} ------------- {self.phone_number}'
+
+
+class Contact(models.Model):
+    '''Model definition for Contact.'''
+    name = models.CharField(max_length=100, help_text='John Doe')
+    email = models.EmailField(max_length=254, help_text="example@example.com")
+    subject = models.CharField(max_length=100, help_text="Contact subject...")
+    message = models.TextField(help_text='My name is...')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        '''Meta definition for Contact.'''
+
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+
+    def __str__(self):
+        return f'{self.name} ------------- {self.email} on {self.created_at}'

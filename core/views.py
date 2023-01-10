@@ -1,9 +1,9 @@
-from core.forms import ChannelForm, CommentForm, NewVideoForm
+from core.forms import ChannelForm, CommentForm, NewVideoForm, ContactForm
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
 from account.models import User
 from django.views.generic.base import View, HttpResponseRedirect, HttpResponse
-from core.models import Category, Comment, Dislike, FollowersCount, Like, Video, Channel, Channel_Subscription, Video_View
+from core.models import Category, Comment, Dislike, FollowersCount, Like, Video, Channel, Channel_Subscription, Video_View,About
 from django.contrib.auth.decorators import login_required
 import random
 from itertools import chain
@@ -11,10 +11,12 @@ import string
 import random
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
+from django.core.mail import send_mail
 import os
 from wsgiref.util import FileWrapper
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+
 # from .models import Profile
 # Create your views here.
 
@@ -293,13 +295,32 @@ def videos(request):
 
 
 def about(request):
+    about = About.objects.latest(
+        'updated') if About.objects.all().count() > 0 else None
     template_name = "about.html"
-    return render(request, template_name)
+    context = {
+        'about': about
+    }
+    return render(request, template_name, context)
 
 
 def contact(request):
     template_name = "contact.html"
-    return render(request, template_name)
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            form.send()
+            messages.success(request, 'You have successfully Contacted The Organization.')
+            return redirect('core:index')
+        else:
+            messages.error(request, 'Invalid Submission , failed')
+        
+    context = {
+        'form': form,
+    }
+    return render(request, template_name, context)
 
 
 @login_required()

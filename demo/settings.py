@@ -115,3 +115,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Froala Editor
 FRAOLA_EDITOR_THIRD_PARTY = ("image_aviary", "spell_checker")
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'splitunitymail@gmail.com'
+EMAIL_HOST_PASSWORD = 'iagognskwdieqbav'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'SplitUnity Team <noreply@splitunity.com>'

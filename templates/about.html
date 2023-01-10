@@ -48,66 +48,6 @@
                     <div class="wpb_column vc_column_container vc_col-sm-10">
                       <div class="vc_column-inner">
                         <div class="wpb_wrapper">
-                          <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            <div
-                              class="wpb_column vc_column_container vc_col-sm-12"
-                            >
-                              <div class="vc_column-inner">
-                                <div class="wpb_wrapper">
-                                  <h2
-                                    style="text-align: left"
-                                    class="vc_custom_heading vc_custom_1590637200886 heading_style_1"
-                                  >
-                                    <span>Who we are</span>
-                                  </h2>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            <div
-                              class="wpb_column vc_column_container vc_col-sm-6"
-                            >
-                              <div class="vc_column-inner">
-                                <div class="wpb_wrapper">
-                                  <div
-                                    class="wpb_text_column wpb_content_element"
-                                  >
-                                    <div class="wpb_wrapper">
-                                      <p>
-                                        Postcards have been consistently one of
-                                        the more popular collectibles and used
-                                        as promotional materials. More and more
-                                        business owners are turning to color
-                                        postcards as a good way of promoting
-                                        their products and services.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              class="wpb_column vc_column_container vc_col-sm-6"
-                            >
-                              <div class="vc_column-inner">
-                                <div class="wpb_wrapper">
-                                  <div
-                                    class="wpb_text_column wpb_content_element"
-                                  >
-                                    <div class="wpb_wrapper">
-                                      <p>
-                                        “This is simply because postcards don’t
-                                        have to be opened. It won’t get lumped
-                                        in with all the mail envelopes that
-                                        people usually toss without opening. “
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                           <div
                             class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1590638907708"
                           >
@@ -116,46 +56,36 @@
                             >
                               <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
+                                  {% if about %}
+                                    
                                   <h2
                                     style="text-align: left"
-                                    class="vc_custom_heading vc_custom_1590637398610 heading_style_4"
+                                    class="vc_custom_heading vc_custom_1590637398610 heading_style_1"
                                   >
-                                    So ask the printer that you are considering
-                                    how long it would take for them to finish
-                                    your project. Have some guarantee from them
-                                    about the work that will be carried out.
+                                    {{about.heading}}
                                   </h2>
+                                  {% else %}
+                                  <h2
+                                    style="text-align: left"
+                                    class="vc_custom_heading vc_custom_1590637398610 heading_style_1"
+                                  >
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, similique.
+                                  </h2>
+                                  {% endif %}
                                   <div
                                     class="wpb_text_column wpb_content_element"
                                   >
                                     <div class="wpb_wrapper">
+                                      {% if about %}
+                                        
                                       <p>
-                                        Business owners can’t afford to make
-                                        mistakes when it to comes to their
-                                        promotional materials. They spend a
-                                        considerable amount of money in it so
-                                        they would want them to bring greater
-                                        sales and profits to their business.
-                                        Thus, if the postcard reveals a glossy,
-                                        professional attractive picture, the
-                                        recipient will likely look at the
-                                        picture and turn it over to see who sent
-                                        it. Then before putting it aside they
-                                        might think of visiting your store on
-                                        their next shopping spree. If you do not
-                                        have an idea on how to design and create
-                                        your own postcards asking the help of
-                                        professional printers can help in
-                                        creating attention-grabbing and
-                                        effective postcards. These professionals
-                                        have experience in advertising and
-                                        printing so they can give advice on how
-                                        to go about with your postcard printing.
-                                        But what should you look for
-                                        professional printers? First off,
-                                        understand that reputable printers have
-                                        time frames in completing their jobs.
+                                       {{about.description}}
                                       </p>
+                                      {% else %}
+                                      <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic omnis qui iure suscipit voluptate repellendus quidem quia aspernatur, aliquam nemo. Consequuntur accusantium totam suscipit. Labore rem delectus veniam id temporibus alias in impedit, porro laborum hic numquam quia voluptatem, harum reprehenderit nisi earum vel recusandae repudiandae. Ullam aliquid blanditiis tempora consequatur. Quas quis incidunt vitae optio beatae! Eius, similique asperiores repudiandae voluptates commodi animi! Repellendus eveniet nisi et asperiores vero velit, nam quasi, voluptas praesentium numquam porro. Eaque placeat eos soluta itaque labore in ipsa autem ea delectus, porro consequatur unde incidunt ullam animi? Dolorem amet neque non expedita, dolore dolorum. Est obcaecati voluptatem laudantium facere asperiores iste ullam harum at et, doloribus aliquam. Nulla atque rerum cum, maiores laudantium blanditiis. Fugit facilis natus iste modi eum. Esse unde similique quo accusamus sint corporis. Nulla eaque voluptate quod eos aspernatur sequi? Praesentium consequatur recusandae ullam eos harum ad similique quas.
+                                      </p>
+                                      {% endif %}
                                     </div>
                                   </div>
                                 </div>
@@ -189,8 +119,8 @@
                                     >
                                       <div
                                         class="haru-carousel teammember-list owl-carousel owl-theme"
-                                        data-items="4"
-                                        data-items-desktop="4"
+                                        data-items="3"
+                                        data-items-desktop="3"
                                         data-items-tablet="3"
                                         data-items-mobile="2"
                                         data-margin="30"
@@ -203,12 +133,12 @@
                                           class="team-item"
                                           onclick="void(0)"
                                         >
-                                          <div class="team-content">
+                                        <div class="team-content">
+                                            {% if about %}
                                             <div class="team-image">
                                               <img
-                                                width="270"
-                                                height="340"
-                                                src="{% static 'wp-content/uploads/2020/05/member-square-1.jpg' %}"
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="{{about.user_image_1.url}}"
                                                 class="attachment-full size-full wp-post-image"
                                                 alt=""
                                                 loading="lazy"
@@ -218,12 +148,57 @@
                                             </div>
                                             <div class="team-meta">
                                               <h5 class="team-title">
-                                                Leon Curtis
+                                                {{about.user_name_1}}
                                               </h5>
                                               <p class="team-position">
-                                                Co-Founder
+                                                {{about.user_occupation_1}}
                                               </p>
                                             </div>
+                                            <ul class="member-socials">
+                                              <li class="member-social">
+                                                <a href="{{about.user_social_media_link_1_facebook}}"
+                                                  ><i class="fa fa-facebook"></i
+                                                  >Facebook
+                                                </a>
+                                                /
+                                              </li>
+                                              <li class="member-social">
+                                                <a href="{{about.user_social_media_link_1_twitter}}"
+                                                  ><i class="fa fa-twitter"></i
+                                                  >Twitter
+                                                </a>
+                                                /
+                                              </li>
+                                              <li class="member-social">
+                                                <a href="{{about.user_social_media_link_1_instagram}}"
+                                                  ><i
+                                                    class="fa fa-instagram"
+                                                  ></i
+                                                  >Instagram
+                                                </a>
+                                              </li>
+                                            </ul>
+                                            {% else %}
+                                            <div class="team-image">
+                                              <img
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="/static/1600x900.png"
+                                                class="attachment-full size-full wp-post-image"
+                                                alt=""
+                                                loading="lazy"
+                                              
+                                                sizes="(max-width: 270px) 100vw, 270px"
+                                              />
+                                            </div>
+                                            <div class="team-meta">
+                                              <h5 class="team-title">
+                                                Lorem Name
+                                              </h5>
+                                              <p class="team-position">
+                                                Lorem Title
+                                              </p>
+                                            </div>
+                                            
 
                                             <ul class="member-socials">
                                               <li class="member-social">
@@ -249,6 +224,8 @@
                                                 </a>
                                               </li>
                                             </ul>
+
+                                            {% endif %}
                                           </div>
                                         </div>
                                         <div
@@ -256,11 +233,11 @@
                                           onclick="void(0)"
                                         >
                                           <div class="team-content">
+                                            {% if about %}
                                             <div class="team-image">
                                               <img
-                                                width="270"
-                                                height="340"
-                                                src="{% static 'wp-content/uploads/2020/05/member-square-3.jpg' %}"
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="{{about.user_image_2.url}}"
                                                 class="attachment-full size-full wp-post-image"
                                                 alt=""
                                                 loading="lazy"
@@ -269,30 +246,30 @@
                                             </div>
                                             <div class="team-meta">
                                               <h5 class="team-title">
-                                                Christina Spear
+                                                {{about.user_name_2}}
                                               </h5>
                                               <p class="team-position">
-                                                Lead Engineer
+                                                {{about.user_occupation_2}}
                                               </p>
                                             </div>
 
                                             <ul class="member-socials">
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_2_facebook}}"
                                                   ><i class="fa fa-facebook"></i
                                                   >Facebook
                                                 </a>
                                                 /
                                               </li>
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_2_twitter}}"
                                                   ><i class="fa fa-twitter"></i
                                                   >Twitter
                                                 </a>
                                                 /
                                               </li>
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_2_instagram}}"
                                                   ><i
                                                     class="fa fa-instagram"
                                                   ></i
@@ -300,18 +277,11 @@
                                                 </a>
                                               </li>
                                             </ul>
-                                          </div>
-                                        </div>
-                                        <div
-                                          class="team-item"
-                                          onclick="void(0)"
-                                        >
-                                          <div class="team-content">
+                                            {% else %}
                                             <div class="team-image">
                                               <img
-                                                width="270"
-                                                height="340"
-                                                src="{% static 'wp-content/uploads/2020/05/member-square-2.jpg' %}"
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="/static/1600x900.png"
                                                 class="attachment-full size-full wp-post-image"
                                                 alt=""
                                                 loading="lazy"
@@ -320,10 +290,10 @@
                                             </div>
                                             <div class="team-meta">
                                               <h5 class="team-title">
-                                                Thomas Mane
+                                                Lorem Name 2
                                               </h5>
                                               <p class="team-position">
-                                                Video Maker
+                                                Lorem Title 2
                                               </p>
                                             </div>
 
@@ -351,6 +321,7 @@
                                                 </a>
                                               </li>
                                             </ul>
+                                            {% endif %}
                                           </div>
                                         </div>
                                         <div
@@ -358,11 +329,11 @@
                                           onclick="void(0)"
                                         >
                                           <div class="team-content">
+                                            {% if about %}
                                             <div class="team-image">
                                               <img
-                                                width="270"
-                                                height="340"
-                                                src="{% static 'wp-content/uploads/2020/05/member-square-4.jpg' %}"
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="{{about.user_image_3.url}}"
                                                 class="attachment-full size-full wp-post-image"
                                                 alt=""
                                                 loading="lazy"
@@ -371,30 +342,30 @@
                                             </div>
                                             <div class="team-meta">
                                               <h5 class="team-title">
-                                                Mary Lous
+                                                {{about.user_name_3}}
                                               </h5>
                                               <p class="team-position">
-                                                Filmmaker
+                                                {{about.user_occupation_3}}
                                               </p>
                                             </div>
 
                                             <ul class="member-socials">
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_3_facebook}}"
                                                   ><i class="fa fa-facebook"></i
                                                   >Facebook
                                                 </a>
                                                 /
                                               </li>
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_3_twitter}}"
                                                   ><i class="fa fa-twitter"></i
                                                   >Twitter
                                                 </a>
                                                 /
                                               </li>
                                               <li class="member-social">
-                                                <a href="#"
+                                                <a href="{{about.user_social_media_link_3_instagram}}"
                                                   ><i
                                                     class="fa fa-instagram"
                                                   ></i
@@ -402,18 +373,11 @@
                                                 </a>
                                               </li>
                                             </ul>
-                                          </div>
-                                        </div>
-                                        <div
-                                          class="team-item"
-                                          onclick="void(0)"
-                                        >
-                                          <div class="team-content">
+                                            {% else %}
                                             <div class="team-image">
                                               <img
-                                                width="270"
-                                                height="340"
-                                                src="{% static 'wp-content/uploads/2020/05/member-square-3.jpg' %}"
+                                                style="height: 450px !important; width: 360px !important"
+                                                src="/static/1600x900.png"
                                                 class="attachment-full size-full wp-post-image"
                                                 alt=""
                                                 loading="lazy"
@@ -422,10 +386,10 @@
                                             </div>
                                             <div class="team-meta">
                                               <h5 class="team-title">
-                                                Anna Spectra
+                                                Lorem Name 3
                                               </h5>
                                               <p class="team-position">
-                                                Business Development
+                                                Lorem Title 3
                                               </p>
                                             </div>
 
@@ -453,8 +417,10 @@
                                                 </a>
                                               </li>
                                             </ul>
+                                            {% endif %}
                                           </div>
                                         </div>
+                                        
                                       </div>
                                     </div>
                                   </div>

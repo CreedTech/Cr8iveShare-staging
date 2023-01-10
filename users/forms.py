@@ -1,6 +1,6 @@
 from typing import Any
 from django import forms
-from account.models import User, SocialHandle
+from account.models import User
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -100,18 +100,6 @@ class UserUpdateForm(forms.ModelForm):
       )
    )   
 
-   job_title = forms.CharField(
-      label='',
-      required=False,
-      widget=forms.TextInput(
-      attrs={
-         "placeholder": "Position at ...",
-         "class": "input",
-         "id": "job_title",
-         "type": "text",
-      }
-      )
-   )
 
    bio = forms.CharField(
       label='',
@@ -126,19 +114,6 @@ class UserUpdateForm(forms.ModelForm):
             "cols": "55",
             "rows": "10"
          }
-      )
-   )
-
-   city = forms.CharField(
-      label='',
-      required=False,
-      widget=forms.TextInput(
-      attrs={
-         "placeholder": "",
-         "class": "input",
-         "id": "city",
-         "type": "text",
-      }
       )
    )
 
@@ -196,9 +171,7 @@ class UserUpdateForm(forms.ModelForm):
          "email",
          "profile_picture",
          "background_image",
-         "job_title",
          "bio",
-         "city",
          "address",
          "mobile_no",
          "date_of_birth",
@@ -215,9 +188,7 @@ class UserUpdateForm(forms.ModelForm):
             "email",
             "profile_picture",
             "background_image",
-            "job_title",
             "bio",
-            "city",
             "address",
             "mobile_no",
             "date_of_birth",
@@ -225,102 +196,3 @@ class UserUpdateForm(forms.ModelForm):
          ):
             self.fields[fieldname].help_text = None
 
-class UserSocialHandleForm(forms.ModelForm):
-
-   facebook = forms.URLField(
-      label='',
-      required=False,
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.facebook.com/',
-            "class": 'input',
-            "id": 'facebook_handle'
-         }
-      )
-   )
-
-   linkedin = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.linkedin.com/',
-            "class": 'input',
-            "id": 'linkedin_handle'
-         }
-      )
-   )
-
-   twitter = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.twitter.com/ ',
-            "class": 'input',
-            "id": 'twitter_handle'
-         }
-      )
-   )
-
-   instagram = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.instagram.com/',
-            "class": 'input',
-            "id": 'instagram_handle'
-         }
-      )
-   )
-
-   youtube = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.youtube.com/',
-            "class": 'input',
-            "id": 'youtube_handle'
-         }
-      )
-   )
-
-   behance = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://www.behance.net/',
-            "class": 'input',
-            "id": 'behance_handle'
-         }
-      )
-   )
-
-   dribbble = forms.URLField(
-      label='',
-      required=False,      
-      widget=forms.URLInput(
-         attrs={
-            "placeholder": 'https://dribbble.com/',
-            "class": 'input',
-            "id": 'dribbble_handle'
-         }
-      )
-   )
-
-
-   class Meta:
-      model = SocialHandle
-      fields = (
-         'facebook',
-         'linkedin',
-         'twitter',
-         'instagram',
-         'youtube',
-         'behance',
-         'dribbble'
-      )
-      
