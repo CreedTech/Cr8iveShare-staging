@@ -601,11 +601,11 @@ def channels_list(request):
     return render(request, 'channels_list.html', context)
 
 
-def error_404(request, exception):
+def Page_404(request, exception):
 
     # we add the path to the the 404.html file
     # here. The name of our HTML file is 404.html
-    return render(request, '404.html')
+    return render(request, 'page404.html')
 
 
 def search(request):
