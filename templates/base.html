@@ -12,9 +12,7 @@
       document.documentElement.className =
         document.documentElement.className + ' yes-js js_active js';
     </script>
-    <title>
-      {% block title %}{% endblock title %} 
-    </title>
+    <title>{% block title %}{% endblock title %}</title>
     <meta name="robots" content="max-image-preview:large" />
     {% include "links.html" %}
   </head>
@@ -28,8 +26,7 @@
     <div id="haru-main">
       {% include "navbar.html" %}
       <!-- Open HARU Content Main -->
-      {% include 'messages.html' %}
-      {% block content %} {% endblock content %}
+      {% include 'messages.html' %} {% block content %} {% endblock content %}
       <!-- Close HARU Content Main -->
 
       {% include "footer.html" %}
@@ -57,6 +54,6 @@
       <div class="close-lightbox"><i class="haru-icon haru-times"></i></div>
     </div>
     {% include 'scripts.html' %}
+    
   </body>
-
 </html>

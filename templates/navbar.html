@@ -172,34 +172,35 @@
           {% endif %} 
          {% endif %}
 
-         {% if request.user.is_authenticated and user.is_staff %}
-                 {% if channel %}
-          <li
-            id="menu-item-mobile-2423"
-            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-          >
-          <a
-                  href="/new_video"
-                  class="button-background button-background--primary button-background--medium"
-                  >Upload Video</a
-                >
-          </li>
-          {% else %}
-          <li
-            id="menu-item-mobile-2423"
-            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-          >
-          <a
-                  href="/createchannel"
-                  class="button-background button-background--primary button-background--medium"
-                  >Create Channel</a
-                >
-          </li>
-          {% endif %} 
-         {% endif %}
+        
         </ul>
         <div class="mobile-header-social">
           <ul class="header-elements-item header-social-network-wrap">
+            {% if request.user.is_authenticated and user.is_staff %}
+            {% if channel %}
+     <li
+       id="menu-item-mobile-2423"
+       style="width: 100%; margin-bottom: 1rem;">
+     <a
+             href="/new_video"
+             class="button-background button-background--primary button-background--medium"
+             style="width: 100%;"
+             >Upload Video</a
+           >
+     </li>
+     {% else %}
+     <li
+       id="menu-item-mobile-2423"
+       style="width: 100%; margin-bottom: 1rem;">
+     <a
+             href="/createchannel"
+             class="button-background button-background--primary button-background--medium"
+             style="width: 100%;"
+             >Create Channel</a
+           >
+     </li>
+     {% endif %} 
+    {% endif %}
             {% if page_contents.social_icon_1 %}
             <li>
               <a href="#" target="_blank"

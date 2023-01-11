@@ -350,3 +350,180 @@
   src="/static/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.minbdeb.js?ver=6.7.0"
   id="wpb_composer_front_js-js"
 ></script>
+<script>
+  // Mobile Navigation
+  $('.toggle-mobile-menu[data-ref]').on('click', function (event) {
+    event.preventDefault();
+
+    var $this = $(this);
+    var data_drop = $this.data('ref');
+    $this.toggleClass('in');
+    switch ($this.data('drop-type')) {
+      case 'dropdown':
+        $('#' + data_drop).slideToggle();
+        break;
+      case 'fly':
+        $('body').toggleClass('menu-mobile-in');
+        $('#' + data_drop).toggleClass('in');
+        break;
+    }
+  });
+
+  $('.toggle-icon-wrap[data-ref]:not(.toggle-mobile-menu)').on(
+    'click',
+    function (event) {
+      event.preventDefault();
+
+      var $this = $(this);
+      var data_ref = $this.data('ref');
+      $this.toggleClass('in');
+      $('#' + data_ref).toggleClass('in');
+    }
+  );
+
+  $('.haru-mobile-menu-overlay, .mobile-menu-close').on(
+    'click',
+    function () {
+      $('body').removeClass('menu-mobile-in');
+
+      $('#haru-nav-mobile-menu').removeClass('in');
+      $('.toggle-icon-wrap[data-ref]').removeClass('in');
+    }
+  );
+
+  // Sticky navigation bar
+  if ($('#haru-mobile-header').hasClass('header-mobile-sticky')) {
+    var mobileHeader = $('#haru-mobile-header'),
+      topHeader = $('.haru-top-header'),
+      topHeaderHeight =
+        $('.haru-top-header').length > 0
+          ? $('.haru-top-header').outerHeight()
+          : 0,
+      mobileHeaderNavAbove = $('.header-mobile-above'),
+      mobileHeaderNavAboveHeight =
+        $('.header-mobile-above').length > 0
+          ? $('.header-mobile-above').outerHeight()
+          : 0,
+      mobileHeaderNav = $('.haru-mobile-header-wrap'),
+      mobileHeaderNavHeight =
+        $('.haru-mobile-header-wrap').length > 0
+          ? $('.haru-mobile-header-wrap').outerHeight()
+          : 0,
+      adminBar = $('.admin-bar').length > 0 ? $('#wpadminbar').height() : 0,
+      mobileHeaderNavToTop =
+        topHeaderHeight + mobileHeaderNavAboveHeight + adminBar,
+      mobileHeaderHeight =
+        mobileHeaderNavAboveHeight + mobileHeaderNavHeight;
+
+    mobileHeader.height(mobileHeaderHeight + 'px');
+
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > mobileHeaderNavToTop) {
+        mobileHeaderNav.addClass('nav-sticky');
+        mobileHeader.addClass('sticky');
+      } else {
+        mobileHeaderNav.removeClass('nav-sticky');
+        mobileHeader.removeClass('sticky');
+      }
+
+      // Add class for style fly menu
+      if (adminBar > 0) {
+        if ($(this).scrollTop() > 46) {
+          $('.menu-mobile-fly').css('top', 0);
+        } else {
+          $('.menu-mobile-fly').css('top', 46 - $(this).scrollTop());
+        }
+      }
+    });
+  }
+
+  if ($('#haru-header').hasClass('header-sticky')) {
+    var header = $('#haru-header'),
+      topHeader = $('.haru-top-header'),
+      topHeaderHeight =
+        $('.haru-top-header').length > 0
+          ? $('.haru-top-header').outerHeight()
+          : 0,
+      headerNavAbove = $('.haru-header-nav-above-wrap'),
+      headerNavAboveHeight =
+        $('.haru-header-nav-above-wrap').length > 0
+          ? $('.haru-header-nav-above-wrap').outerHeight()
+          : 0,
+      headerNav = $('.haru-header-nav-wrap'),
+      headerNavHeight =
+        $('.haru-header-nav-wrap').length > 0
+          ? $('.haru-header-nav-wrap').outerHeight()
+          : 0,
+      adminBar = $('.admin-bar').length > 0 ? $('#wpadminbar').height() : 0,
+      headerNavStickyHeight = 60,
+      headerNavToTop = topHeaderHeight + headerNavAboveHeight,
+      headerHeight = headerNavAboveHeight + headerNavHeight;
+
+    if (headerNavHeight > headerNavStickyHeight) {
+      headerNavToTop =
+        headerNavToTop + (headerNavHeight - headerNavStickyHeight);
+    }
+
+    header.height(headerHeight + 'px');
+
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > headerNavToTop) {
+        headerNav.addClass('nav-sticky');
+        header.addClass('sticky');
+      } else {
+        headerNav.removeClass('nav-sticky');
+        header.removeClass('sticky');
+      }
+    });
+  }
+
+  // Stick Side bar
+  if ($('.sticky-sidebar').length > 0) {
+    if ($(window).width() > 767) {
+      var stickySidebar = new StickySidebar('#sticky-sidebar', {
+        topSpacing: 100,
+        bottomSpacing: 0,
+        containerSelector: '.sticky-sidebar',
+        innerWrapperSelector: '#sticky-sidebar .vc_column-inner',
+      });
+    }
+  }
+
+  // Back To Top
+  var $backToTop = $('.back-to-top');
+  if ($backToTop.length > 0) {
+    $backToTop.on('click', function (event) {
+      event.preventDefault();
+      $('html,body').animate(
+        {
+          scrollTop: '0px',
+        },
+        800
+      );
+    });
+    $window.on('scroll', function (event) {
+      var scrollPosition = $window.scrollTop();
+      var windowHeight = $window.height() / 2;
+      if (scrollPosition > windowHeight) {
+        $backToTop.addClass('in');
+      } else {
+        $backToTop.removeClass('in');
+      }
+    });
+  }
+
+  // Mobile Menu Fly
+  var top = 0;
+
+  if (
+    $('#wpadminbar').length > 0 &&
+    $('#wpadminbar').css('position') == 'fixed'
+  ) {
+    top = $('#wpadminbar').outerHeight();
+  }
+  if (top > 0) {
+    $('.haru-mobile-header-nav.menu-mobile-fly').css('top', top + 'px');
+  } else {
+    $('.haru-mobile-header-nav.menu-mobile-fly').css('top', '');
+  }
+</script>
