@@ -10,9 +10,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "",
-            "class": "input",
+            "class": "form-control",
             "id": "username",
             "type": "text",
+            "style":"margin-left: 0px !important; min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       ),
    )
@@ -23,9 +24,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.EmailInput(
          attrs={
             "placeholder": "example@email.com",
-            "class": "input",
+            "class": "form-control",
             "id": "email",
             "type": "email",
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       ),
    )
@@ -38,9 +40,10 @@ class UserUpdateForm(forms.ModelForm):
             "type": "file",
             "placeholder": "",
             "accept": "image/*",
-            "class": "input",
+            "class": "form-control",
             "id": "profile_picture",
-            "onchange":"loadFile(event)"
+            "onchange":"loadFile(event)",
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       ),
    )
@@ -53,9 +56,10 @@ class UserUpdateForm(forms.ModelForm):
             "type": "file",
             "placeholder": "",
             "accept": "image/*",
-            "class": "input",
+            "class": "form-control",
             "id": "user_login",
-            "onchange":"loadBgFile(event)"
+            "onchange":"loadBgFile(event)",
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       ),
    )
@@ -66,9 +70,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "Firstname",
-            "class": "input",
+            "class": "form-control",
             "id": "first_name",
             "type": "text",
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       )
    )
@@ -79,9 +84,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "Lastname",
-         "class": "input",
+         "class": "form-control",
          "id": "last_name",
          "type": "text",
+         "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
       }
       )
    )
@@ -93,9 +99,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
          attrs={
             "placeholder": "+234...",             
-            "class": "input",
+            "class": "form-control",
             "id": "mobile_no",
-            "maxlength": 14
+            "maxlength": 14,
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       )
    )   
@@ -107,12 +114,13 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.Textarea(
          attrs={
             "placeholder": "Brief description for your profile.",
-            "class": "input",
+            "class": "form-control",
             "id": "bio",
             "type":"textarea",
             "style":"width: 100%;  padding: 0 18px; border:none; resize: none",
             "cols": "55",
-            "rows": "10"
+            "rows": "5",
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       )
    )
@@ -123,9 +131,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.TextInput(
       attrs={
          "placeholder": "3 Saka Street, Lagos, Nigeria",
-         "class": "input",
+         "class": "form-control",
          "id": "address",
          "type": "text",
+         "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
       }
       )
    )
@@ -136,9 +145,10 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.DateInput(
          attrs={
             "type":"date",
-            "class": "input profileDate bg-white",
+            "class": "form-control profileDate bg-white",
             "placeholder":"Date of Birth",
-            "id": 'date_of_birth'
+            "id": 'date_of_birth',
+            "style":"margin-left: 0px !important;min-height:42px !important;line-height: 42px;padding: 0 18px !important;background: 0 0;border: 1px solid #eee;color: #959697;"
          }
       )
    )
@@ -156,8 +166,9 @@ class UserUpdateForm(forms.ModelForm):
       widget=forms.RadioSelect(
          choices=gender_choices,
          attrs={
-            'class': 'input',
-            'id': 'gender'
+            'class': 'form-check-input',
+            'id': 'gender',
+            "style":"margin-left: 0px !important"
          }
       )
    )

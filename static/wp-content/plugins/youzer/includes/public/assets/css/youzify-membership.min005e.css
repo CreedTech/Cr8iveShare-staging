@@ -771,7 +771,7 @@ body .youzify-membership-form #message {
   textarea:-webkit-autofill:hover
   .youzify-membership-form
   textarea:-webkit-autofill:focus {
-  border: none;
+  /* border: none; */
   -webkit-text-fill-color: #898989;
   -webkit-box-shadow: 0 0 0 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;

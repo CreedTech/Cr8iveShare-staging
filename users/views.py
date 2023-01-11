@@ -33,7 +33,8 @@ def edit_profile(request, slug):
 
       if user_form.is_valid():
          user_form.save()
-         return redirect('users:profile', slug=slug)
+         messages.success(request, "Profile updated successfully.")
+         return redirect('core:channels_list')
       else:
          messages.error(request, "Enter all correct details.")
          return redirect(request.META.get("HTTP_REFERER"))

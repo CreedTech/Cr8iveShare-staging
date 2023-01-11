@@ -4,7 +4,7 @@
 {% load widget_tweaks %}
  {% block title %}SplitUnity | Edit Profile {% endblock title %} 
  {% block content %}
-{% include 'partials/messages.html' %}
+
 
 
 
@@ -55,134 +55,80 @@
                             <h2 class="form-cover-title">Edit Your Profile</h2>
                           </div>
                         </header>
-  
-                        <form
-                          id="youzify-membership-form"
-                          class="youzify-membership-login-form"
-                          method="POST"
+                        <form  class="youzify-membership-login-form"
+                        method="POST"
                           action=""
                           enctype= 'multipart/form-data'
                         >
                           {% csrf_token %}
-                          <!-- After Form Buttons -->
-                          <!-- {{form}} -->
-                          <!-- {% for error in profile_form.non_field_errors %}
-                          <label>{{ error|escape }} </label>
-                          {% endfor %} -->
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Background Image</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.background_image|attr:"type:file"}}
-                              </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputFirstName">First Name</label>
+                              {{user_form.first_name}}
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">Last Name</label>
+                              {{user_form.last_name}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Profile Picture</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.profile_picture|attr:"type:file"}}
-                              </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputEmail">Username</label>
+                              {{user_form.username}}
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputEmail">Email</label>
+                              {{user_form.email}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Bio(optional)</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.bio|attr:"type:textarea"}}
-                              </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputMobileNo">Mobile No.(optional)</label>
+                              {{user_form.mobile_no}}
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">D.O.B</label>
+                              {{user_form.date_of_birth}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Address(optional)</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.address}}
-                              </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">Address(optional)</label>
+                              {{user_form.address}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">First Name</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.first_name}}
-                              </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">Profile Picture</label>
+                              {{user_form.profile_picture|attr:"type:file"}}
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">Background Image</label>
+                              {{user_form.background_image|attr:"type:file"}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Last Name</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.last_name}}
-                              </div>
+
+                          <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputFirstName">Gender</label>
+                              {{user_form.gender}}
+                            </div>
+                            
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label  style="color: #898989 !important;font-size: 13px !important;" for="inputLastName">Bio(optional)</label>
+                              {{user_form.bio}}
                             </div>
                           </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Useraname</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.username}}
-                              </div>
-                            </div>
-                          </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Email Address</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.email}}
-                              </div>
-                            </div>
-                          </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Mobile No.(optional)</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.mobile_no}}
-                              </div>
-                            </div>
-                          </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Date of Birth</label>
-                              <div class="youzify-membership-field-content">
-                                {{user_form.date_of_birth}}
-                              </div>
-                            </div>
-                          </div>
-                          <div class="youzify-membership-form-item">
-                            <div class="youzify-membership-item-content">
-                              <label for="user_login">Gender</label>
-                             
-                            </div>
-                          </div>
-                          {{user_form.gender}}
-                          <div
-                            class="youzify-membership-form-actions form-fullwidth-button form-border-radius"
-                          >
-                            <div
-                              class="youzify-membership-action-item youzify-membership-submit-item"
-                            >
-                              <div class="youzify-membership-item-inner">
-                                <button
-                                  type="submit"
-                                  value="submit"
-                                  name="signin_submit"
-                                >
-                                  <span class="youzify-membership-button-title"
-                                    >Submit</span
-                                  >
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <!-- After Form Buttons -->
-  
+                          <div class="text-right" style="padding: 0 15px 0 0;">
+                          <button type="submit" class="btn" style="margin-left: 0px !important; padding:1rem 3rem; background-color:#45B4E3; color:white;">SUBMIT</button>
+                        </div>
                           <input
-                            type="hidden"
-                            name="youzify-membership-form"
-                            value="1"
-                          />
+                          type="hidden"
+                          name="youzify-membership-form"
+                          value="1"
+                        />
                         </form>
                       </div>
                     </div>
