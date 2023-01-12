@@ -59,6 +59,9 @@ class PageContents(models.Model):
     footer_social_icon_url_4 = models.URLField(
         max_length=200, default='https://google.com')
     updated = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.page_name
 
     class Meta:
         verbose_name = ("PageContent")

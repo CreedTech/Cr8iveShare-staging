@@ -1,12 +1,13 @@
 import os
 from django.contrib.messages import constants as messages
+from decouple import config, Csv
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=False)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
@@ -119,9 +120,9 @@ FRAOLA_EDITOR_THIRD_PARTY = ("image_aviary", "spell_checker")
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'splitunitymail@gmail.com'
-EMAIL_HOST_PASSWORD = 'iagognskwdieqbav'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'SplitUnity Team <noreply@splitunity.com>'
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
