@@ -1,15 +1,14 @@
 import os
 from django.contrib.messages import constants as messages
-import environ
+from dotenv import load_dotenv
+load_dotenv()
 
-env = environ.Env()
-environ.Env.read_env()
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
-DEBUG = env('DEBUG', default=False)
+DEBUG = os.getenv('DEBUG', default=False)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = ["*"]
 
 MESSAGE_TAGS = {
@@ -123,9 +122,9 @@ FRAOLA_EDITOR_THIRD_PARTY = ("image_aviary", "spell_checker")
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
