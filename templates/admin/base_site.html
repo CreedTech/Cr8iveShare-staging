@@ -1,6 +1,37 @@
 {% extends "admin/base.html" %}
 
 {% load i18n static %}
+{% block extrahead %}{{ block.super }}
+<!-- <style>
+  :root {
+    --primary: #FE2A54;
+    --primary-fg: #333;
+    --darkened-bg: #FE2A54;
+    --accent: #FE2A54;
+    --header-bg: white;
+    --body-quiet-color: #000;
+    --body-bg: #FFFFFF;
+    --body-fg: #000;
+    --link-fg: #1A051D;
+    --selected-row: #1A051D;
+    --object-tools-bg:var(--darkened-bg);
+  }
+  #user-tools {
+    color:#FE2A54;
+  }
+  .current-model > a {
+    color: #FE2A54 !important;
+  }
+  .submit-row {
+    background-color: #1A051D;
+  }
+</style> -->
+<style>
+    :root{
+        --accent: #fff;
+    }
+</style>
+{% endblock %}
 {% block branding %}
-<h1 id="site-name">{% trans 'Split Unity' %}</h1>
+<h1 id="site-name">{% trans "SPLITUNITY" %}</h1>
 {% endblock %}

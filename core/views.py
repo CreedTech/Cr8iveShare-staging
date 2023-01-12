@@ -82,7 +82,7 @@ class CreateChannelView(LoginRequiredMixin, View):
                                   user=user, subscribers=subscribers)
             new_channel.save()
             return HttpResponseRedirect('/')
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/',{'form': form})
 
 
 # @login_required()
