@@ -501,9 +501,9 @@
         800
       );
     });
-    $window.on('scroll', function (event) {
-      var scrollPosition = $window.scrollTop();
-      var windowHeight = $window.height() / 2;
+    $(window).on('scroll', function (event) {
+      var scrollPosition = $(window).scrollTop();
+      var windowHeight = $(window).height() / 2;
       if (scrollPosition > windowHeight) {
         $backToTop.addClass('in');
       } else {
