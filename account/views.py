@@ -8,7 +8,7 @@ from account.models import User
 from django.contrib import messages
 from random_username.generate import generate_username
 
-from account.forms import CreatorSignUpForm, UserSignUpForm
+from account.forms import UserSignUpForm
 
 
 def login(request):
@@ -114,42 +114,42 @@ def register(request):
     #         return redirect("register")
     # return render(request, "account/register.html")
 
-def creator_register(request):
-    if request.method == "POST":
-        email = request.POST["email"]
-        username=request.POST["username"]
-        password1 = request.POST["password1"]
-        password2 = request.POST["password2"]
-        form = CreatorSignUpForm(request.POST)
+# def creator_register(request):
+#     if request.method == "POST":
+#         email = request.POST["email"]
+#         username=request.POST["username"]
+#         password1 = request.POST["password1"]
+#         password2 = request.POST["password2"]
+#         form = CreatorSignUpForm(request.POST)
 
-        if form.is_valid():
-            if password1 == password2:
-                if User.objects.filter(email=email).exists():
-                    messages.error(request, "Email address has already been used!")
-                    return redirect(request.META.get("HTTP_REFERER")) 
-                else:
-                    user = form.save()
-                    email = form.cleaned_data['email']
-                    username=form.cleaned_data['username']
-                    password1 = form.cleaned_data['password1']
-                    password2 = form.cleaned_data['password2']
-                    auth.login(request, user)
-                    messages.success(
-                        request, 'Account created successfully, please create your channel'
-                    )
-                    return render(request,'channel.html')
-            else:
-                messages.error(request, "Passwords do not match")
-        else:
-            messages.error(request, form.errors)
-            context = {"form":form }
-    else:
-        # messages.error(request, "Passwords do not match")
-        form = CreatorSignUpForm()
-    context = {
-        'form':form
-    }
-    return render(request, "account/register.html", context)
+#         if form.is_valid():
+#             if password1 == password2:
+#                 if User.objects.filter(email=email).exists():
+#                     messages.error(request, "Email address has already been used!")
+#                     return redirect(request.META.get("HTTP_REFERER")) 
+#                 else:
+#                     user = form.save()
+#                     email = form.cleaned_data['email']
+#                     username=form.cleaned_data['username']
+#                     password1 = form.cleaned_data['password1']
+#                     password2 = form.cleaned_data['password2']
+#                     auth.login(request, user)
+#                     messages.success(
+#                         request, 'Account created successfully, please create your channel'
+#                     )
+#                     return render(request,'channel.html')
+#             else:
+#                 messages.error(request, "Passwords do not match")
+#         else:
+#             messages.error(request, form.errors)
+#             context = {"form":form }
+#     else:
+#         # messages.error(request, "Passwords do not match")
+#         form = CreatorSignUpForm()
+#     context = {
+#         'form':form
+#     }
+#     return render(request, "account/register.html", context)
 
 
 @login_required(login_url='auth/login')

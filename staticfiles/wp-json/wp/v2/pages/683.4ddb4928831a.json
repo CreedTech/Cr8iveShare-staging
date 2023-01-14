@@ -1,0 +1,115 @@
+<div class="youzify-membership-login-shortcode">
+		<div class="youzify-membership-form youzify-membership-login-page form-with-header form-with-labels form-no-icons form-full-border form-border-flat">
+
+			
+    	<header class="youzify-membership-form-header">
+    			    		    		<div class="youzify-membership-form-cover youzify-membership-default-cover" style="background-image: url( https://demo.harutheme.com/vidio/wp-content/plugins/youzer/includes/public/assets/images/geopattern.png )">
+			        <h2 class="form-cover-title">Login</h2>
+	    		</div>
+	    	    	</header>
+
+	    			
+		
+		
+		
+	
+			<form id="youzify-membership-form" class="youzify-membership-login-form" method="post" action="https://demo.harutheme.com/vidio/login-2/">
+
+				<!-- After Form Buttons -->
+				
+								<div class="youzify-membership-form-item">
+		    		<div class="youzify-membership-item-content">
+			           				           		<label for="user_login">Username or Email</label>
+			        				           <div class="youzify-membership-field-content">
+		           							    		<input type="text" name="log" autocomplete="false" placeholder="" value="" required>
+			            </div>
+		        	</div>
+		       	</div>
+							<div class="youzify-membership-form-item">
+		    		<div class="youzify-membership-item-content">
+			           				           		<label for="user_pass">Password</label>
+			        				           <div class="youzify-membership-field-content">
+		           							    		<input type="password" name="pwd" autocomplete="false" placeholder="" value="" required>
+			            </div>
+		        	</div>
+		       	</div>
+					    	<div class="youzify-membership-form-item youzify-membership-remember-me">
+		    		<div class="youzify-membership-item-content">
+			        	<label class="youzify_membership_checkbox_field" ><input name="rememberme" type="checkbox" value="forever"><div class="youzify_membership_field_indication"></div>Remember Me</label>
+
+		        	</div>
+					<a class="youzify-membership-forgot-password" href="https://demo.harutheme.com/vidio/lost-password/">Lost password?</a>		        </div>
+							<div class="youzify-membership-form-actions form-fullwidth-button form-border-radius">				<div class="youzify-membership-action-item youzify-membership-submit-item">
+					<div class="youzify-membership-item-inner">
+	           			<button type="submit" value="submit"  name="signin_submit"  >
+	            				           				<span class="youzify-membership-button-title">Log In</span>
+	           			</button>
+	            	</div>
+	            </div>
+										</div>
+				<!-- After Form Buttons -->
+				
+				<input type="hidden" name="youzify-membership-form" value="1">
+
+			</form>
+
+		</div>
+
+		</div><div class="youzify-membership-login-shortcode">
+		<div class="youzify-membership-form youzify-membership-login-page form-with-header form-with-labels form-no-icons form-full-border form-border-flat">
+
+			
+    	<header class="youzify-membership-form-header">
+    			    		    		<div class="youzify-membership-form-cover youzify-membership-default-cover" style="background-image: url( https://demo.harutheme.com/vidio/wp-content/plugins/youzer/includes/public/assets/images/geopattern.png )">
+			        <h2 class="form-cover-title">Login</h2>
+	    		</div>
+	    	    	</header>
+
+	    			
+		
+		
+		
+	
+			<form id="youzify-membership-form" class="youzify-membership-login-form" method="post" action="https://demo.harutheme.com/vidio/login-2/">
+
+				<!-- After Form Buttons -->
+				
+								<div class="youzify-membership-form-item">
+		    		<div class="youzify-membership-item-content">
+			           				           		<label for="user_login">Username or Email</label>
+			        				           <div class="youzify-membership-field-content">
+		           							    		<input type="text" name="log" autocomplete="false" placeholder="" value="" required>
+			            </div>
+		        	</div>
+		       	</div>
+							<div class="youzify-membership-form-item">
+		    		<div class="youzify-membership-item-content">
+			           				           		<label for="user_pass">Password</label>
+			        				           <div class="youzify-membership-field-content">
+		           							    		<input type="password" name="pwd" autocomplete="false" placeholder="" value="" required>
+			            </div>
+		        	</div>
+		       	</div>
+					    	<div class="youzify-membership-form-item youzify-membership-remember-me">
+		    		<div class="youzify-membership-item-content">
+			        	<label class="youzify_membership_checkbox_field" ><input name="rememberme" type="checkbox" value="forever"><div class="youzify_membership_field_indication"></div>Remember Me</label>
+
+		        	</div>
+					<a class="youzify-membership-forgot-password" href="https://demo.harutheme.com/vidio/lost-password/">Lost password?</a>		        </div>
+							<div class="youzify-membership-form-actions form-fullwidth-button form-border-radius">				<div class="youzify-membership-action-item youzify-membership-submit-item">
+					<div class="youzify-membership-item-inner">
+	           			<button type="submit" value="submit"  name="signin_submit"  >
+	            				           				<span class="youzify-membership-button-title">Log In</span>
+	           			</button>
+	            	</div>
+	            </div>
+										</div>
+				<!-- After Form Buttons -->
+				
+				<input type="hidden" name="youzify-membership-form" value="1">
+
+			</form>
+
+		</div>
+
+		</div>{"id":683,"date":"2020-03-19T14:39:50","date_gmt":"2020-03-19T14:39:50","guid":{"rendered":"https:\/\/demo.harutheme.com\/vidio\/login\/"},"modified":"2021-06-02T15:29:40","modified_gmt":"2021-06-02T15:29:40","slug":"login","status":"publish","type":"page","link":"https:\/\/demo.harutheme.com\/vidio\/login\/","title":{"rendered":"Login"},"content":{"rendered":"\n","protected":false},"excerpt":{"rendered":"","protected":false},"author":1,"featured_media":0,"parent":0,"menu_order":0,"comment_status":"closed","ping_status":"open","template":"","meta":{"pmpro_default_level":0},"_links":{"self":[{"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/pages\/683"}],"collection":[{"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/pages"}],"about":[{"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/types\/page"}],"author":[{"embeddable":true,"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/comments?post=683"}],"version-history":[{"count":3,"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/pages\/683\/revisions"}],"predecessor-version":[{"id":2632,"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/pages\/683\/revisions\/2632"}],"wp:attachment":[{"href":"https:\/\/demo.harutheme.com\/vidio\/wp-json\/wp\/v2\/media?parent=683"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}

@@ -176,7 +176,7 @@
         </ul>
         <div class="mobile-header-social">
           <ul class="header-elements-item header-social-network-wrap">
-            {% if request.user.is_authenticated and user.is_staff %}
+            {% if request.user.is_authenticated %}
             {% if channel %}
      <li
        id="menu-item-mobile-2423"
@@ -505,7 +505,7 @@
             </div>
           </div>
           
-          {% if user.is_authenticated and user.is_staff %}
+          {% if user.is_authenticated %}
            {% if channel %}
           <div class="header-elements d-flex align-self-center">
             <div class="header-elements header-elements-nav">
