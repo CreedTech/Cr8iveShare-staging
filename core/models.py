@@ -6,6 +6,7 @@ from django.urls import reverse
 import uuid
 from django.utils import timezone
 from account.models import User
+from PIL import Image
 
 
 # from Users.models import User
@@ -59,7 +60,7 @@ class PageContents(models.Model):
     footer_social_icon_url_4 = models.URLField(
         max_length=200, default='https://google.com')
     updated = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.page_name
 
@@ -164,6 +165,16 @@ class Channel(models.Model):
     subscribers = models.IntegerField(default=0, blank=False, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     datetime = models.DateTimeField(auto_now_add=True)
+
+    # def save(self):
+    #     super().save()  # saving image first
+
+    #     img = Image.open(self.channel_image.path)  # Open image using self
+
+    #     if img.height > 140 or img.width > 140:
+    #         new_img = (140, 140)
+    #         img.thumbnail(new_img)
+    #         img.save(self.channel_image.path)  # s
 
 
 class Video_View(models.Model):

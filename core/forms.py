@@ -21,12 +21,22 @@ class NewVideoForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 "style": "border: none",
-                "cols": "55%",
+                "cols": "55",
                 "rows": "10"
             }
         )
     )
-    file = forms.FileField()
+    file = forms.FileField(
+        widget=forms.FileInput(
+            attrs={
+                "type": "file",
+              "placeholder": "",
+                "accept":"video/mp4,video/x-m4v,video/*",
+                "id": "file",
+                "onchange": "loadFile(event)"
+            }
+        )
+    )
     banner = forms.ImageField(
         label="",
         widget=forms.FileInput(
@@ -51,7 +61,15 @@ class NewVideoForm(forms.Form):
 
 class ChannelForm(forms.Form):
     channel_name = forms.CharField(max_length=50, label='Channel Name')
-    channel_image = forms.ImageField(max_length=50)
+    channel_image = forms.ImageField(max_length=50,widget=forms.FileInput(
+            attrs={
+              "type": "file",
+              "placeholder": "",
+                "accept": "image/*",
+                "id": "banner",
+                "onchange": "loadFile(event)"
+            }
+        ),)
     channel_price = forms.CharField(
         widget=forms.NumberInput()
     )

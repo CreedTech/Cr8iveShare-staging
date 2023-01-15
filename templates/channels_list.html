@@ -1,6 +1,6 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block title %}SplitUnity | All Channels{% endblock title %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SplitUnity | All Channels{% endblock title %}
 {% block content %}
 
 <div id="haru-content-main" class="clearfix">
@@ -40,63 +40,31 @@
             Has total of
               <span class="archive-channel__total-count">{{channel_count}} channels</span>
             {% endif %}
-            
+
           </h6>
         </div>
-        <div class="haru-archive-top-right">
-          <div class="haru-archive-layout-toggle">
-            <a
-              href="javascript:;"
-              class="toggle-layout active"
-              data-layout="grid"
-              >Grid<i class="haru-icon haru-grid"></i
-            ></a>
-            <a href="javascript:;" class="toggle-layout" data-layout="list"
-              >List<i class="haru-icon haru-list-small"></i
-            ></a>
-            <a href="javascript:;" class="toggle-layout" data-layout="list-2"
-              >List 2<i class="haru-icon haru-list-small"></i
-            ></a>
-          </div>
-          <div class="haru-archive-order">
-            <div class="order-item-current">date</div>
-            <ul class="order-items">
-              <li class="order-item selected">
-                <a
-                  href="indexaccc.html?post_type=haru_channel&amp;paged=1&amp;orderby=date"
-                  >Date</a
-                >
-              </li>
-              <li class="order-item">
-                <a
-                  href="index2f29.html?post_type=haru_channel&amp;paged=1&amp;orderby=title"
-                  >Title</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
+      
       </div>
 
       <div
         class="archive-channel-list layout-wrap style-grid grid-columns grid-columns__2"
       >
       {% if channels %}
-        
-      
+
+
       {% for channel in channels %}
         <article class="grid-item channel-item default">
           <div class="channel-item__thumbnail">
             <a href="/{{ channel.user.username }}/channel">
               <img
-                
+
                 src="{{channel.channel_image.url}}"
                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                 alt=""
                 loading="lazy"
                 width="415px ! important"
                 height="415px ! important"
-                style="max-width: 415 ! important; max-height:415 ! important; "
+                style="width: 415px ! important; height:415px ! important; object-fit:cover;"
               />
             </a>
             <div class="channel-item__icon">
@@ -111,7 +79,7 @@
                 href="/{{ channel.user.username }}/channel"
                 class="channel-subscribe button-background button-background--small "
               >
-               
+
                 <span class="text-subscribe">View Channel</span>
                 <!-- <span class="count-subscribed">{{ channel.subscribers }}</span> -->
               </a>
@@ -150,7 +118,7 @@
                 {% else %}
                 <span class="count-subscribed-unit"> subscribers</span>
                 {% endif %}
-                
+
               </div>
             </div>
           </div>
@@ -195,8 +163,8 @@
         <h4 class="widget-title"><span>Video Categories</span></h4>
         <ul class="video-categories default">
           {% if cat_count %}
-            
-          
+
+
           {% for cat , count in cat_count %}
           <li class="cat-item cat-item-61">
             <a href="{% url 'core:Video' cat.slug %}">{{cat.name}}</a>
