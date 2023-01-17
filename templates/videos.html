@@ -32,18 +32,7 @@
 
         <div id="haru-content-main" class="clearfix">
             <div class="haru-archive-breadcrumbs">
-                <div class="haru-container">
-                    <ul class="haru-breadcrumb">
-                        <li><a
-                                itemprop="item" href="{% url 'core:index' %}"><span >Home</span></a>
-                            <meta itemprop="position" content="0" />
-                        </li><span class="delimiter"> &raquo; </span>
-                        <li><span
-                                 class="current">Videos</span>
-                            <meta itemprop="position" content="2" />
-                        </li>
-                    </ul><!-- .breadcrumbs -->
-                </div>
+                
             </div>
             <div class="haru-archive-video haru-container">
                 <!-- Content -->
@@ -55,33 +44,10 @@
                                     videos</span>
                             </h6>
                         </div>
-                        <div class="haru-archive-top-right">
-                            <div class="haru-archive-layout-toggle">
-                                <a href="javascript:;" class="toggle-layout active" data-layout="grid">Grid<i
-                                        class="haru-icon haru-grid"></i></a>
-                                <a href="javascript:;" class="toggle-layout" data-layout="list">List<i
-                                        class="haru-icon haru-list-small"></i></a>
-                                <a href="javascript:;" class="toggle-layout" data-layout="list-2">List 2<i
-                                        class="haru-icon haru-list-small"></i></a>
-                            </div>
-                            <div class="haru-archive-order">
-                                <div class="order-item-current">
-                                    Date </div>
-                                <ul class="order-items">
-                                    <li class="order-item selected">
-                                        <a
-                                            href="index6658.html?post_type=haru_video&amp;paged=1&amp;orderby=date">Date</a>
-                                    </li>
-                                    <li class="order-item ">
-                                        <a
-                                            href="indexa8c9.html?post_type=haru_video&amp;paged=1&amp;orderby=title">Title</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
 
-                    <div class="archive-video-list layout-wrap style-grid grid-columns grid-columns__3">
+                    <div class="archive-video-list layout-wrap style-list grid-columns grid-columns__3">
                         {% if videos %}
                           
                         
@@ -165,7 +131,6 @@
                             class="search-field"
                             placeholder="Search videos&hellip;"
                             name="q"
-                            value={{querystring}}
                           />
                         </label>
                         <button type="submit" class="search-submit" value="Search">

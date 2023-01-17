@@ -30,21 +30,7 @@
       {% include 'messages.html' %}
       <div id="haru-content-main" class="clearfix">
         <div class="haru-single-breadcrumbs">
-            <div class="haru-container">
-                <ul class="haru-breadcrumb">
-                    <li><a href="{% url 'core:index' %}"><span itemprop="name">Home</span></a>
-                        <meta itemprop="position" content="0" />
-                    </li><span class="delimiter"> &raquo; </span>
-                    <li><span
-                            itemprop="name"><a itemprop="item" href="{% url 'core:videos' %}">Videos</span></a>
-                        <meta itemprop="position" content="1" />
-                    </li><span class="delimiter"> &raquo; </span>
-                    <li><span
-                            itemprop="name" class="current">{{ video.title }}</span>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                </ul><!-- .breadcrumbs -->
-            </div>
+            
         </div>
         <div class="haru-single-video haru-container">
             <div class="single-video-wrap in-playlist">
@@ -270,7 +256,7 @@
                 <!-- Playlist -->
                 <div class="single-video-playlist">
                     <h6 class="single-video-playlist-title">
-                        <span class="single-video-playlist-title-scroll no-count-videos"><span>You May Also Like</span></span>
+                        <span class="single-video-playlist-title-scroll no-count-videos"><span>Related Videos</span></span>
 
                     </h6>
                     {% if you_may_also_like_videos %}
@@ -487,7 +473,6 @@
                         class="search-field"
                         placeholder="Search videos&hellip;"
                         name="q"
-                        value={{querystring}}
                       />
                     </label>
                     <button type="submit" class="search-submit" value="Search">

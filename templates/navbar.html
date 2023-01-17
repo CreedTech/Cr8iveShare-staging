@@ -42,7 +42,6 @@
                   class="search-field"
                   placeholder="Search videos&hellip;"
                   name="q"
-                  value={{querystring}}
                 />
               </label>
               <button type="submit" class="search-submit" value="Search">
@@ -138,18 +137,6 @@
           >
           <a href="{% url 'core:channels_list' %}">Channels</a>
           </li>
-          <li
-            id="menu-item-mobile-655"
-            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-          >
-          <a href="{% url 'core:contact' %}">Contact Us</a>
-          </li>
-          <li
-            id="menu-item-mobile-673"
-            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-          >
-          <a href="{% url 'core:about' %}">About Us</a>
-          </li>
           {% if request.user.is_authenticated %}
                  {% if channel %}
           <li
@@ -201,63 +188,6 @@
      </li>
      {% endif %} 
     {% endif %}
-            {% if page_contents.social_icon_1 %}
-            <li>
-              <a href="#" target="_blank"
-                ><i
-                  class="header-icon fa fa-{{page_contents.social_icon_1}}"
-                ></i
-              ></a>
-            </li>
-            {% else %}
-            <li>
-              <a href="#" target="_blank"
-                ><i class="header-icon fa fa-twitter"></i
-              ></a>
-            </li>
-            {% endif %} {% if page_contents.social_icon_2 %}
-            <li>
-              <a href="#" target="_blank"
-                ><i
-                  class="header-icon fa fa-{{page_contents.social_icon_2}}"
-                ></i
-              ></a>
-            </li>
-            {% else %}
-            <li>
-              <a href="#" target="_blank"
-                ><i class="header-icon fa fa-facebook"></i
-              ></a>
-            </li>
-            {% endif %} {% if page_contents.social_icon_3 %}
-            <li>
-              <a href="#" target="_blank"
-                ><i
-                  class="header-icon fa fa-{{page_contents.social_icon_3}}"
-                ></i
-              ></a>
-            </li>
-            {% else %}
-            <li>
-              <a href="#" target="_blank"
-                ><i class="header-icon fa fa-youtube"></i
-              ></a>
-            </li>
-            {% endif %} {% if page_contents.social_icon_4 %}
-            <li>
-              <a href="#" target="_blank"
-                ><i
-                  class="header-icon fa fa-{{page_contents.social_icon_4}}"
-                ></i
-              ></a>
-            </li>
-            {% else %}
-            <li>
-              <a href="#" target="_blank"
-                ><i class="header-icon fa fa-instagram"></i
-              ></a>
-            </li>
-            {% endif %}
           </ul>
         </div>
       </div>
@@ -373,7 +303,7 @@
       </div>
     </div>
   </div>
-  <div class="haru-header-nav-wrap" style="background-color: black; color:white;">
+  <div class="haru-header-nav-wrap" style="background-color: rgba(26, 5, 29, 0.9); color:white;">
     <div class="container">
       <div
         class="header-navigation navbar navbar-toggleable-md"
@@ -400,18 +330,6 @@
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
                   <a style="color: white;" href="{% url 'core:channels_list' %}">Channels</a>
-                </li>
-                <li
-                  id="menu-item-1152"
-                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-                >
-                  <a style="color: white;" href="{% url 'core:contact' %}">Contact Us</a>
-                </li>
-                <li
-                  id="menu-item-1152"
-                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
-                >
-                  <a style="color: white;" href="{% url 'core:about' %}">About Us</a>
                 </li>
                 {% if request.user.is_authenticated %}
                  {% if channel %}

@@ -6,22 +6,7 @@
 <div id="haru-content-main" class="clearfix">
   <div class="haru-archive-breadcrumbs">
     <div class="haru-container">
-      <ul
-        class="haru-breadcrumb"
-      >
-        <li
-        >
-          <a  href="{% url 'core:index' %}"
-            ><span itemprop="name">Home</span></a
-          ><meta itemprop="position" content="0" />
-        </li>
-        <span class="delimiter"> &raquo; </span>
-        <li
-        >
-          <span itemprop="name" class="current">Channels</span
-          ><meta itemprop="position" content="2" />
-        </li>
-      </ul>
+      <h1>Channels</h1>
       <!-- .breadcrumbs -->
     </div>
   </div>
@@ -100,7 +85,7 @@
                 <a href="/{{ channel.user.username }}/channel">{{ channel.user.username }}</a>
               </div>
               <div class="channel-item__date">
-                <i class="fa fa-calendar"></i>January 14, 2020
+                <i class="fa fa-calendar"></i>
               </div>
               <div class="channel-item__view">
                 <div class="post-views-count">
@@ -147,7 +132,6 @@
             class="search-field"
             placeholder="Search videos&hellip;"
             name="q"
-            value={{querystring}}
           />
         </label>
         <button type="submit" class="search-submit" value="Search">

@@ -10415,15 +10415,15 @@ img {
 
 .haru-archive-breadcrumbs,
 .haru-single-breadcrumbs {
-  background-color: #f5f5f5;
+  background-color: #ffff;
   padding: 15px 0;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 991px) {
   .haru-archive-breadcrumbs,
   .haru-single-breadcrumbs {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 }
 

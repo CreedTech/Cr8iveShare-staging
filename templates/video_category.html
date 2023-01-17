@@ -33,26 +33,7 @@
 
         <div id="haru-content-main" class="clearfix">
             <div class="haru-archive-breadcrumbs">
-              <div class="haru-container">
-                <ul
-                  class="haru-breadcrumb"
-                >
-                  <li
-                  >
-                    <a itemprop="item" href="{% url 'core:index' %}"
-                      ><span itemprop="name">Home</span></a
-                    ><meta itemprop="position" content="0" />
-                  </li>
-                  <span class="delimiter"> &raquo; </span>
-                  <li
-                  >
-                    <span itemprop="name" class="current"
-                      >Video Categories: {{cat.name}}</span
-                    ><meta itemprop="position" content="2" />
-                  </li>
-                </ul>
-                <!-- .breadcrumbs -->
-              </div>
+              
             </div>
             <div class="haru-archive-video haru-container">
               <!-- Content -->
@@ -84,7 +65,7 @@
                         >List 2<i class="haru-icon haru-list-small"></i
                       ></a>
                     </div>
-                    <div class="haru-archive-order">
+                    <!-- <div class="haru-archive-order">
                       <div class="order-item-current">Date</div>
                       <ul class="order-items">
                         <li class="order-item selected">
@@ -100,7 +81,7 @@
                           >
                         </li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
     
@@ -208,7 +189,6 @@
                         class="search-field"
                         placeholder="Search videos&hellip;"
                         name="q"
-                        value={{querystring}}
                       />
                     </label>
                     <button type="submit" class="search-submit" value="Search">
