@@ -273,70 +273,7 @@
     <div class="container">
       <div class="header-nav-above d-flex justify-content-between">
         <div class="header-left align-self-center">
-          <div class="header-elements header-elements-left">
-            <ul class="header-elements-item header-social-network-wrap">
-              {% if page_contents.social_icon_1 %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i
-                    class="header-icon fa fa-{{page_contents.social_icon_1}}"
-                  ></i
-                ></a>
-              </li>
-              {% else %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i class="header-icon fa fa-twitter"></i
-                ></a>
-              </li>
-              {% endif %} {% if page_contents.social_icon_2 %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i
-                    class="header-icon fa fa-{{page_contents.social_icon_2}}"
-                  ></i
-                ></a>
-              </li>
-              {% else %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i class="header-icon fa fa-facebook"></i
-                ></a>
-              </li>
-              {% endif %} {% if page_contents.social_icon_3 %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i
-                    class="header-icon fa fa-{{page_contents.social_icon_3}}"
-                  ></i
-                ></a>
-              </li>
-              {% else %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i class="header-icon fa fa-youtube"></i
-                ></a>
-              </li>
-              {% endif %} {% if page_contents.social_icon_4 %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i
-                    class="header-icon fa fa-{{page_contents.social_icon_4}}"
-                  ></i
-                ></a>
-              </li>
-              {% else %}
-              <li>
-                <a href="#" target="_blank"
-                  ><i class="header-icon fa fa-instagram"></i
-                ></a>
-              </li>
-              {% endif %}
-            </ul>
-          </div>
-        </div>
-        <div class="align-self-center">
-          <div class="header-logo has-logo-sticky">
+          <div class="header-elements header-elements-left header-logo has-logo-sticky">
             <a href="{% url 'core:index' %}" class="logo-retina" title="SplitUnity">
               {% if page_contents.navbar_logo %}
               <img
@@ -382,7 +319,7 @@
                         class="search-field"
                         placeholder="Search videos&hellip;"
                         name="q"
-                        value={{querystring}}
+                        
                       />
                     </label>
                     <button type="submit" class="search-submit" value="Search">
@@ -436,7 +373,7 @@
       </div>
     </div>
   </div>
-  <div class="haru-header-nav-wrap">
+  <div class="haru-header-nav-wrap" style="background-color: black; color:white;">
     <div class="container">
       <div
         class="header-navigation navbar navbar-toggleable-md"
@@ -450,31 +387,31 @@
                   id="menu-item-841"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children level-0"
                 >
-                  <a href="{% url 'core:index' %}">Home</a>
+                  <a style="color: white;" href="{% url 'core:index' %}">Home</a>
                 </li>
                 <li
                   id="menu-item-76"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
-                  <a href="{% url 'core:videos' %}">Videos</a>
+                  <a style="color: white;" href="{% url 'core:videos' %}">Videos</a>
                 </li>
                 <li
                   id="menu-item-131"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
-                  <a href="{% url 'core:channels_list' %}">Channels</a>
+                  <a style="color: white;" href="{% url 'core:channels_list' %}">Channels</a>
                 </li>
                 <li
                   id="menu-item-1152"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
-                  <a href="{% url 'core:contact' %}">Contact Us</a>
+                  <a style="color: white;" href="{% url 'core:contact' %}">Contact Us</a>
                 </li>
                 <li
                   id="menu-item-1152"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
-                  <a href="{% url 'core:about' %}">About Us</a>
+                  <a style="color: white;" href="{% url 'core:about' %}">About Us</a>
                 </li>
                 {% if request.user.is_authenticated %}
                  {% if channel %}
@@ -484,7 +421,7 @@
                 >
                   <a
                     href="/{{ user.username }}/channel"
-                    style="font-size: larger; font-weight: 400"
+                    style="font-size: larger; font-weight: 400;color: white;"
                     >Welcome {{ user.username }}</a
                   >
                 </li>
